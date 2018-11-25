@@ -9,6 +9,7 @@ import java.net.MalformedURLException;
 import java.net.URL;
 import java.net.URLConnection;
 import java.net.URLEncoder;
+import java.nio.charset.Charset;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
@@ -69,9 +70,9 @@ public class Requests {
             URLConnection ligacao = url.openConnection();
 
             //Ver User-Agent actual de um determinado browser : http://whatsmyuseragent.com
-            ligacao.setRequestProperty("User-Agent", "Mozilla/5.0 (Macintosh; U; Intel Mac OS X 10.6; en-US; rv:1.9.2.16) Gecko/20110319 Firefox/3.6.16");
+            //ligacao.setRequestProperty("User-Agent", "Mozilla/5.0 (Macintosh; U; Intel Mac OS X 10.6; en-US; rv:1.9.2.16) Gecko/20110319 Firefox/3.6.16");
 
-            BufferedReader in = new BufferedReader(new InputStreamReader(ligacao.getInputStream(), "UTF-8"));
+            BufferedReader in = new BufferedReader(new InputStreamReader(ligacao.getInputStream(), "windows-1252"));
             StringBuilder sb = new StringBuilder();
             String linha;
 

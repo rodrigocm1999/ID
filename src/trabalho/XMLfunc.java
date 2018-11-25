@@ -54,7 +54,7 @@ public class XMLfunc{
             //Define o formato de saida
             //O caracter de indentacao pode ser diferente (e.g. \t)
             Format outputFormat = Format.getPrettyFormat();
-            outputFormat.setIndent("     ");
+            outputFormat.setIndent("\t");
             outputFormat.setEncoding("utf-8"); // 
             //Prepara o XMLOutputter
             XMLOutputter outputter = new XMLOutputter(outputFormat);            
