@@ -2,7 +2,8 @@
  * To change this template, choose Tools | Templates
  * and open the template in the editor.
  */
-package ficha5;
+package trabalho;
+
 import java.io.*;
 import java.net.MalformedURLException;
 import java.net.URL;
@@ -15,20 +16,18 @@ import java.util.logging.Logger;
  *
  * @author abs
  */
+public class Requests {
 
-public class HttpRequestFunctions {
-    
-     public static void httpRequest(String link, String pesquisa, String outFile){
+    public static void httpRequest(String link, String pesquisa, String outFile) {
         URL url;
         try {
             if (!pesquisa.isEmpty()) {
-               //System.out.println(link + URLEncoder.encode(pesquisa,"UTF-8"));
-               url = new URL(link + URLEncoder.encode(pesquisa,"UTF-8").replace('+', '_')); //alterar replace 
-            }
-            else{
-               //Criar URL simples
-               // System.out.println(link);
-               url = new URL(link);
+                //System.out.println(link + URLEncoder.encode(pesquisa,"UTF-8"));
+                url = new URL(link + URLEncoder.encode(pesquisa, "UTF-8").replace('+', '_')); //alterar replace 
+            } else {
+                //Criar URL simples
+                // System.out.println(link);
+                url = new URL(link);
             }
             //System.out.println(url);
             URLConnection ligacao = url.openConnection();
@@ -42,34 +41,30 @@ public class HttpRequestFunctions {
 
             while ((linha = in.readLine()) != null) {
                 sb.append(linha)
-                  .append(System.getProperty("line.separator"));
+                        .append(System.getProperty("line.separator"));
             }
             //Escrever num ficheiro
             BufferedWriter out = new BufferedWriter(new FileWriter(outFile));
             out.write(sb.toString());
-            
+
             out.close();
             in.close();
 
         } catch (MalformedURLException ex) {
-            Logger.getLogger(HttpRequestFunctions.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(Requests.class.getName()).log(Level.SEVERE, null, ex);
         } catch (IOException ex) {
-            Logger.getLogger(HttpRequestFunctions.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(Requests.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
-     
-     public static String httpRequestToString(String link, String pesquisa, String outFile){
+
+    public static String httpRequestToString(String link) {
         URL url;
         try {
-            if (!pesquisa.isEmpty()) {
-               //System.out.println(link + URLEncoder.encode(pesquisa,"UTF-8"));
-               url = new URL(link + URLEncoder.encode(pesquisa,"UTF-8").replace('+', '_')); //alterar replace 
-            }
-            else{
-               //Criar URL simples
-               // System.out.println(link);
-               url = new URL(link);
-            }
+
+            //Criar URL simples
+            // System.out.println(link);
+            url = new URL(link);
+
             //System.out.println(url);
             URLConnection ligacao = url.openConnection();
 
@@ -82,18 +77,18 @@ public class HttpRequestFunctions {
 
             while ((linha = in.readLine()) != null) {
                 sb.append(linha)
-                  .append(System.getProperty("line.separator"));
+                        .append(System.getProperty("line.separator"));
             }
             in.close();
-            
-            return sb.toString();           
+
+            return sb.toString();
 
         } catch (MalformedURLException ex) {
-            Logger.getLogger(HttpRequestFunctions.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(Requests.class.getName()).log(Level.SEVERE, null, ex);
         } catch (IOException ex) {
-            Logger.getLogger(HttpRequestFunctions.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(Requests.class.getName()).log(Level.SEVERE, null, ex);
         }
         return null;
     }
-     
+
 }
