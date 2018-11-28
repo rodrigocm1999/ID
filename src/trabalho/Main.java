@@ -30,17 +30,6 @@ public class Main {
     public static void main(String[] args) {
         Camaras();
 
-        Source xmlFile = new StreamSource(new File("camaras.xml"));
-        SchemaFactory schemaFactory = SchemaFactory
-                .newInstance(XMLConstants.W3C_XML_SCHEMA_NS_URI);
-        try {
-            Schema schema = schemaFactory.newSchema(new File("camarasSchema.xsd"));
-            Validator validator = schema.newValidator();
-            validator.validate(xmlFile);
-            System.out.println(xmlFile.getSystemId() + " is valid");
-        } catch (Exception e) {
-            System.out.println(xmlFile.getSystemId() + " is NOT valid reason:" + e);
-        }
     }
 
     public static void Camaras() {
