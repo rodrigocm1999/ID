@@ -5,9 +5,14 @@
  */
 package trabalho;
 
+import java.io.*;
 import java.util.ArrayList;
+import javax.xml.XMLConstants;
+import javax.xml.transform.Source;
+import javax.xml.transform.stream.StreamSource;
 import org.jdom2.Document;
 import org.jdom2.Element;
+import javax.xml.validation.*;
 
 /**
  *
@@ -15,20 +20,30 @@ import org.jdom2.Element;
  */
 public class Main {
 
-    public static String[] camaraStrings = new String[]{"nome", "area", "nHabitantes","nFreguesias", "feriado", "presidente"
-            , "assembleia", "telefone", "email", "site", "brasao","morada","codPostal"};
+    public static String[] camaraStrings = new String[]{"nome", "area", "nHabitantes", "nFreguesias", "feriado", "presidente",
+         "assembleia", "telefone", "email", "site", "brasao", "morada", "codPostal"};
     private static String regExp = "<div class=\"sel3\">(?<nome>.*)<\\/div><br><div class=\"f3\">.*área de (?<area>\\d*),\\d km2, (?<nHabitantes>\\d+ \\d+).* (?<nFreguesias>\\d+) freguesias.*f3>(?<distrito>.*)<\\/a>.*feriado municipal, (?<feriado>\\d{4}-\\d\\d-\\d\\d).*\"f3\">(?<presidente>.*),.*\\r\\n.*>(?<assembleia>.*)\\s?,.*\\r\\n.*sel2\">(?<morada>.*)<br> (?<codPostal>\\d+-\\d+).*<\\/.*Telefone:.(?<telefone>.*) <br>.*\\r\\n.*mailto:(?<email>.*)\" .*\\r\\n.*<div class=\"f1\" align=\"left\"><a href=\"(?<site>.*\")\\sclass=\"f2\".*\\r\\n.*SRC=\"(?<brasao>.*)\" A";
 
     /**
      * @param args the command line arguments
      */
-    
     public static void main(String[] args) {
         Camaras();
+
+        Source xmlFile = new StreamSource(new File("camaras.xml"));
+        SchemaFactory schemaFactory = SchemaFactory
+                .newInstance(XMLConstants.W3C_XML_SCHEMA_NS_URI);
+        try {
+            Schema schema = schemaFactory.newSchema(new File("camarasSchema.xsd"));
+            Validator validator = schema.newValidator();
+            validator.validate(xmlFile);
+            System.out.println(xmlFile.getSystemId() + " is valid");
+        } catch (Exception e) {
+            System.out.println(xmlFile.getSystemId() + " is NOT valid reason:" + e);
+        }
     }
-    
-    
-    public static void Camaras(){
+
+    public static void Camaras() {
         // Link:    https://www.anmp.pt/anmp/pro/mun1/mun101w3.php?cod=M3000
         /*Minicipios de coimbra
             3060 - 3230    Os numeros sobem de 10 em 10
@@ -40,7 +55,6 @@ public class Main {
         int num_end = 3420;//3420;
 
         ArrayList<ThreadCamaras> threadCamaras = new ArrayList<>();
-        ArrayList<CamaraMunicipalOld> camaras = new ArrayList<>();
 
         ThreadCamaras thread;
         Element municipios = new Element("municipios");
@@ -72,5 +86,4 @@ public class Main {
         return regExp;
     }
 
-   
 }

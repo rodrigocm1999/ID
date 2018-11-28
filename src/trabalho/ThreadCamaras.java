@@ -42,7 +42,7 @@ public class ThreadCamaras extends Thread {
 
             if (matcher.find()) {
 
-                HashMap<String, Object> hashMap = new HashMap<>();
+                HashMap<String, Object> hashMap = new HashMap<>(11);
 
                 if (matcher.group("distrito").equals("COIMBRA")) {
                     for (int i = 0; i < Main.camaraStrings.length; i++) {
