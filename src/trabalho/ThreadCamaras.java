@@ -37,7 +37,7 @@ public class ThreadCamaras extends Thread {
 
         if (mat.find()) {
 
-            Pattern pattern = Pattern.compile(Main.getRegExp(), Pattern.MULTILINE);
+            Pattern pattern = Pattern.compile(Camaras.getRegExp(), Pattern.MULTILINE);
             Matcher matcher = pattern.matcher(siteString);
 
             if (matcher.find()) {
@@ -45,8 +45,8 @@ public class ThreadCamaras extends Thread {
                 HashMap<String, Object> hashMap = new HashMap<>(11);
 
                 if (matcher.group("distrito").equals("COIMBRA")) {
-                    for (int i = 0; i < Main.camaraStrings.length; i++) {
-                        String elemento = Main.camaraStrings[i];
+                    for (int i = 0; i < Camaras.camaraStrings.length; i++) {
+                        String elemento = Camaras.camaraStrings[i];
                         if (elemento.equals("brasao")) {
                             hashMap.put(elemento, "https://www.anmp.pt/" + matcher.group(elemento));
                         } else {

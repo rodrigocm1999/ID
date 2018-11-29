@@ -25,9 +25,9 @@ public class CamaraMunicipal {
         MainElement = new Element("municipio");
         MainElement.setAttribute("id",id.toString());        
         
-        for (int i = 0; i < Main.camaraStrings.length; i++) {
+        for (int i = 0; i < Camaras.camaraStrings.length; i++) {
             
-            String str = Main.camaraStrings[i];
+            String str = Camaras.camaraStrings[i];
             Element temp = new Element(str);
             temp.setText(hashMap.get(str).toString());
             MainElement.addContent(temp);
