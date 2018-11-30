@@ -1,25 +1,4 @@
 <?xml version="1.0" encoding="utf-8"?>
-<municipios>
-   <municipio id="13">
-      <nome>Coimbra</nome>
-      <area>319</area>
-      <nHabitantes>143 396</nHabitantes>
-      <nFreguesias>18</nFreguesias>
-      <feriado>2018-07-04</feriado>
-      <presidente>Manuel Machado</presidente>
-      <assembleia>Luís Marinho</assembleia>
-      <telefone>239 857 500</telefone>
-      <email>geral@cm-coimbra.pt</email>
-      <site>http://www.cm-coimbra.pt "</site>
-      <brasao>https://www.anmp.pt/../../../image/munap/M3000b.jpg</brasao>
-      <morada>Praça 8 de Maio</morada>
-      <codPostal>3000-300</codPostal>
-   </municipio>
-
-   </municipio>
-</municipios>
-
-
 <xsd:schema>
    <xsd:element name="nome" type="xsd:string" />
    <xsd:element name="area" type="xsd:string" />
@@ -65,4 +44,5 @@
          </xsd:sequence>
       </xsd:complexType>
    </xsd:element>
+   
 </xsd:schema>
