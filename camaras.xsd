@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="utf-8"?>
+<municipios>
+   <municipio id="13">
+      <nome>Coimbra</nome>
+      <area>319</area>
+      <nHabitantes>143 396</nHabitantes>
+      <nFreguesias>18</nFreguesias>
+      <feriado>2018-07-04</feriado>
+      <presidente>Manuel Machado</presidente>
+      <assembleia>Luís Marinho</assembleia>
+      <telefone>239 857 500</telefone>
+      <email>geral@cm-coimbra.pt</email>
+      <site>http://www.cm-coimbra.pt "</site>
+      <brasao>https://www.anmp.pt/../../../image/munap/M3000b.jpg</brasao>
+      <morada>Praça 8 de Maio</morada>
+      <codPostal>3000-300</codPostal>
+   </municipio>
+
+   </municipio>
+</municipios>
+
+
+<xsd:schema>
+   <xsd:element name="nome" type="xsd:string" />
+   <xsd:element name="area" type="xsd:string" />
+   <xsd:element name="nHabitantes" type="xsd:string" />
+   <xsd:element name="nFreguesias" type="xsd:string" />
+   <xsd:element name="feriado" type="xsd:string" />
+   <xsd:element name="presidente" type="xsd:string" />
+   <xsd:element name="assembleia" type="xsd:string" />
+   <xsd:element name="telefone" type="xsd:string" />
+   <xsd:element name="email" type="xsd:string" />
+   <xsd:element name="site" type="xsd:string" />
+   <xsd:element name="brasao" type="xsd:string" />
+   <xsd:element name="morada" type="xsd:string" />
+   <xsd:element name="codPostal" type="xsd:string" />
+
+
+   <xsd:element name="municipio">
+      <xsd:complexType>
+         <xsd:attribute name="id" type="xsd:string" use="required" />
+         <xsd:sequence>
+            <xsd:element ref="nome" />
+            <xsd:element ref="area" />
+            <xsd:element ref="nHabitantes" />
+            <xsd:element ref="nFreguesias" />
+            <xsd:element ref="feriado" />
+            <xsd:element ref="presidente" />
+            <xsd:element ref="assembleia" />
+            <xsd:element ref="telefone" />
+            <xsd:element ref="email" />
+            <xsd:element ref="site" />
+            <xsd:element ref="brasao" />
+            <xsd:element ref="morada" />
+            <xsd:element ref="codPostal" />
+         </xsd:sequence>
+      </xsd:complexType>
+   </xsd:element>
+
+
+   <xsd:element name="municipios">
+      <xsd:complexType>
+         <xsd:sequence>
+            <xsd:element ref="municipio" maxOccurs="unbounded" />
+         </xsd:sequence>
+      </xsd:complexType>
+   </xsd:element>
+</xsd:schema>

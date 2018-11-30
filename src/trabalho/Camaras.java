@@ -59,6 +59,8 @@ public class Camaras {
             }
         }
         XMLfunc.escreverDocumentoParaFicheiro(doc, "camaras.xml");
+        
+        JDOMFunc_Validar.validarXSD("camaras");
     }
 
     public static String getRegExp() {
