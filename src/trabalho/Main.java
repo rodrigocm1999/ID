@@ -16,7 +16,7 @@ public class Main {
      */
     public static void main(String[] args) throws Exception {
         Camaras.Run();
-        Camaras.contratos();
+        Contratos.Run();
     }
 
 }

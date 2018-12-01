@@ -24,6 +24,10 @@ public class ThreadContratos extends Thread {
     public void run() {
         super.run();
 
+        
+        
+        
+        
     }
 
 }
