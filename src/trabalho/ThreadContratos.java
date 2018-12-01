@@ -9,26 +9,21 @@ package trabalho;
  *
  * @author Rodrigo
  */
-public class ThreadContratos extends Thread{
+public class ThreadContratos extends Thread {
+
     private String link;
     private String num;
 
     public ThreadContratos(String link, String num) {
+
         this.link = link;
         this.num = num;
     }
 
     @Override
     public void run() {
-        super.run(); 
-        
-        
-        
-        
-        
-        
+        super.run();
+
     }
 
-    
-    
 }

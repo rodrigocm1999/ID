@@ -13,20 +13,19 @@ import org.jdom2.Element;
  * @author Rodrigo
  */
 public class CamaraMunicipal {
-    protected static int counter = 0;
+    private static int counter = 0;
     
-    protected Integer id;
-    protected Element MainElement;
+    private Integer id;
+    private Element MainElement;
 
     public CamaraMunicipal(HashMap<String,Object> hashMap) {
-    
         id=++counter;
         
         MainElement = new Element("municipio");
         MainElement.setAttribute("id",id.toString());        
         
         for (int i = 0; i < Camaras.camaraStrings.length; i++) {
-            
+         
             String str = Camaras.camaraStrings[i];
             Element temp = new Element(str);
             temp.setText(hashMap.get(str).toString());
