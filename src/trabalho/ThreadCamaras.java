@@ -18,10 +18,10 @@ import org.jdom2.Element;
 public class ThreadCamaras extends Thread {
 
     private String link;
-    private int num;
+    private String num;
     private CamaraMunicipal camara;
 
-    public ThreadCamaras(String link, int num) {
+    public ThreadCamaras(String link, String num) {
         this.link = link;
         this.num = num;
     }
