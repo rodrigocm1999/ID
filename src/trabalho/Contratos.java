@@ -16,6 +16,9 @@ import org.jdom2.Document;
  */
 public class Contratos {
 
+    public static String[] strings = new String[]{"objetoContrato", "preco", "publicacao", "adjudicatario"};
+    
+    
     public static void Run() {
         ArrayList<String> codEntidade = new ArrayList<>();
         try {

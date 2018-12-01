@@ -41,10 +41,10 @@ public class ThreadCamaras extends Thread {
 
             if (matcher.find()) {
 
-                HashMap<String, Object> hashMap = new HashMap<>(11);
+                HashMap<String, String> hashMap = new HashMap<>(11);
 
                 if (matcher.group("distrito").equals("COIMBRA")) {
-                    for (String elemento : Camaras.camaraStrings) {
+                    for (String elemento : Camaras.strings) {
                         if (elemento.equals("brasao")) {
                             hashMap.put(elemento, "https://www.anmp.pt/" + matcher.group(elemento));
                         } else {

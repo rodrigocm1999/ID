@@ -18,15 +18,15 @@ public class CamaraMunicipal {
     private Integer id;
     private Element MainElement;
 
-    public CamaraMunicipal(HashMap<String,Object> hashMap) {
+    public CamaraMunicipal(HashMap<String,String> hashMap) {
         id=++counter;
         
         MainElement = new Element("municipio");
         MainElement.setAttribute("id",id.toString());        
         
-        for (int i = 0; i < Camaras.camaraStrings.length; i++) {
+        for (int i = 0; i < Camaras.strings.length; i++) {
          
-            String str = Camaras.camaraStrings[i];
+            String str = Camaras.strings[i];
             Element temp = new Element(str);
             temp.setText(hashMap.get(str).toString());
             MainElement.addContent(temp);
