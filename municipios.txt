@@ -9,11 +9,11 @@ Mealhada;506792382
 Mira;506724530
 MirandaDoCorvo;506624200
 MontemorOVelho;501272976
-Mortágua;506855368
+Mort?gua;506855368
 OliveiradoHospital;506818829
 PampilhosaDaSerra;506811883
 Penacova;506657957
 Penela;506778037
 Soure;507103742
-Tábua;506806944
+T?bua;506806944
 VilaNovadePoiares;505371600
