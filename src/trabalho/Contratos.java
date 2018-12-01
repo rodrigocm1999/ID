@@ -9,6 +9,6 @@ package trabalho;
  *
  * @author Joao
  */
-public class Municipios {
+public class Contratos {
     
 }
