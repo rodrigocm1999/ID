@@ -5,7 +5,9 @@
  */
 package trabalho;
 
+import java.io.DataInputStream;
 import java.io.File;
+import java.io.FileInputStream;
 import java.util.ArrayList;
 import java.util.regex.Pattern;
 import java.util.regex.Matcher;
@@ -23,30 +25,43 @@ public class Camaras {
         "assembleia", "telefone", "email", "site", "brasao", "morada", "codPostal"};
     private static String regExp = "<div class=\"sel3\">(?<nome>.*)<\\/div><br><div class=\"f3\">.*área de (?<area>\\d*),\\d km2, (?<nHabitantes>\\d+ \\d+).* (?<nFreguesias>\\d+) freguesias.*f3>(?<distrito>.*)<\\/a>.*feriado municipal, (?<feriado>\\d{4}-\\d\\d-\\d\\d).*\"f3\">(?<presidente>.*),.*\\r\\n.*>(?<assembleia>.*)\\s?,.*\\r\\n.*sel2\">(?<morada>.*)<br> (?<codPostal>\\d+-\\d+).*<\\/.*Telefone:.(?<telefone>.*) <br>.*\\r\\n.*mailto:(?<email>.*)\" .*\\r\\n.*<div class=\"f1\" align=\"left\"><a href=\"(?<site>.*\")\\sclass=\"f2\".*\\r\\n.*SRC=\"(?<brasao>.*)\" A";
 
-    
-    
-    
     public static void contratos() {
+        ArrayList<String> codEntidade = new ArrayList<>();
+        try {
+            DataInputStream dis = new DataInputStream(new FileInputStream("municipios.txt"));
+            String line, numPart;
+            while ((line = dis.readLine()) != null) {
+                numPart = line.split(";")[1];
+                codEntidade.add(numPart);
+            }
+        } catch (Exception ex) {
+        }
+
+        String link = "http://www.base.gov.pt/Base/pt/ResultadosPesquisa?type=entidades&query=texto%3D";
+
+        ArrayList<ThreadContratos> threadsContratos = new ArrayList<>();
+        ThreadContratos thread;
         
+        Document doc = new Document();
         
-        
-        
-        String mainLink = "http://www.base.gov.pt/Base/pt/ResultadosPesquisa?type=entidades&query=texto%3D";
-        
-        
-        
-        
-        
-        
+        for (int i = 0; i < codEntidade.size(); i++) {
+            thread = new ThreadContratos(link, codEntidade.get(i));
+            thread.start();
+
+            threadsContratos.add(thread);
+        }
+        for (int i = 0; i < threadsContratos.size(); i++) {
+            try {
+                thread = threadsContratos.get(i);
+                thread.join();
+            } catch (Exception ex) {
+                ex.printStackTrace();
+            }
+        }
+        XMLfunc.escreverDocumentoParaFicheiro(doc, "camaras.xml");
+
     }
-    
-    
-    
-    
-    
-    
-    
-    
+
     public static void Run() throws Exception {
         // Link:    https://www.anmp.pt/anmp/pro/mun1/mun101w3.php?cod=M3000
         /*Minicipios de coimbra
@@ -64,9 +79,9 @@ public class Camaras {
         Matcher matcher = pattern.matcher(getAllMunString);
 
         ArrayList<String> numsMun = new ArrayList<>();
-        
+
         for (; matcher.find();) {
-             numsMun.add(matcher.group(1));
+            numsMun.add(matcher.group(1));
         }
 
         ArrayList<ThreadCamaras> threadCamaras = new ArrayList<>();

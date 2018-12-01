@@ -5,7 +5,6 @@
  */
 package trabalho;
 
-import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.regex.Pattern;
 import java.util.regex.Matcher;
@@ -17,8 +16,8 @@ import org.jdom2.Element;
  */
 public class ThreadCamaras extends Thread {
 
-    private String link;
-    private String num;
+    private final String link;
+    private final String num;
     private CamaraMunicipal camara;
 
     public ThreadCamaras(String link, String num) {
@@ -45,8 +44,7 @@ public class ThreadCamaras extends Thread {
                 HashMap<String, Object> hashMap = new HashMap<>(11);
 
                 if (matcher.group("distrito").equals("COIMBRA")) {
-                    for (int i = 0; i < Camaras.camaraStrings.length; i++) {
-                        String elemento = Camaras.camaraStrings[i];
+                    for (String elemento : Camaras.camaraStrings) {
                         if (elemento.equals("brasao")) {
                             hashMap.put(elemento, "https://www.anmp.pt/" + matcher.group(elemento));
                         } else {
