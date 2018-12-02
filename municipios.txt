@@ -5,11 +5,9 @@ CondeixaANova;501275380
 FigueiradaFoz;501305580
 Gois;506613399
 Lousa;501121528
-Mealhada;506792382
 Mira;506724530
 MirandaDoCorvo;506624200
 MontemorOVelho;501272976
-Mort?gua;506855368
 OliveiradoHospital;506818829
 PampilhosaDaSerra;506811883
 Penacova;506657957
