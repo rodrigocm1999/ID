@@ -19,7 +19,7 @@ public class CamaraMunicipal {
     private Element MainElement;
 
     public CamaraMunicipal(HashMap<String,String> hashMap) {
-        id=++counter;
+        getId();
         
         MainElement = new Element("municipio");
         MainElement.setAttribute("id",id.toString());        
@@ -37,5 +37,8 @@ public class CamaraMunicipal {
         return MainElement;
     }
     
-    
+       
+    private synchronized void getId(){
+        this.id=++counter;
+    }
 }
