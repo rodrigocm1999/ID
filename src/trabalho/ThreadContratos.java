@@ -47,15 +47,15 @@ public class ThreadContratos extends Thread {
             //if (matcher.find()) {
             ThreadGetContratos thread;
             ArrayList<ThreadGetContratos> threads = new ArrayList<>();
-            for (int last = 1, i = 24, counter = 1; true ; last = ++i, i += 23, counter++) {
+            for (int last = 0, i = 500, counter = 1; true ; last = ++i, i += 499, counter++) {
                 // este loop serve para entrar na lista dos contratos 
                 //a partir do numero que recolhi da pagina que tem o Mais depois da procura
                 try {
-                    thread = new ThreadGetContratos(superLink[0] + last + '-' + i + superLink[1]);
+                    thread = new ThreadGetContratos(superLink[0] + last + '-' + i + superLink[1],num);
                     thread.start();
                     threads.add(thread);
                     
-                    if ((counter % 20) == 0) {
+                    if ((counter % 5) == 0) {
                         thread.join();
                         if (thread.NothingMore()) {
                             break;
@@ -88,11 +88,13 @@ public class ThreadContratos extends Thread {
     public class ThreadGetContratos extends Thread {
 
         private String link;
+        private String codMunicipio;
         private ArrayList<Contrato> contratos;
         private boolean found = false;
 
-        public ThreadGetContratos(String link) {
+        public ThreadGetContratos(String link,String codMunicipio) {
             this.link = link;
+            this.codMunicipio = codMunicipio;
             contratos = new ArrayList<>();
         }
 
@@ -115,13 +117,13 @@ public class ThreadContratos extends Thread {
                     hashMap.put(elemento, matcher.group(elemento));
                 }
 
-                Contrato contrato = new Contrato(hashMap);
-                contratos.add(contrato);
+                Contrato contrato = new Contrato(hashMap,codMunicipio);
+                this.contratos.add(contrato);
             }
         }
 
         public ArrayList<Contrato> getContratos() {
-            return contratos;
+            return this.contratos;
         }
 
         public boolean NothingMore() {

@@ -21,11 +21,15 @@ public class Contratos {
 
     public static void Run() {
         ArrayList<String> codEntidade = new ArrayList<>();
+        ArrayList<String> nomeMunicipios = new ArrayList<>();
         try {
             DataInputStream dis = new DataInputStream(new FileInputStream("municipios.txt"));
-            String line, numPart;
+            String line, numPart,nomeMunicipio;
             while ((line = dis.readLine()) != null) {
-                numPart = line.split(";")[1];
+                String[] splited = line.split(";");
+                numPart = splited[1];
+                nomeMunicipio = splited[0];
+                nomeMunicipios.add(nomeMunicipio);
                 codEntidade.add(numPart);
             }
         } catch (Exception ex) {
@@ -42,21 +46,21 @@ public class Contratos {
         for (int i = 0; i < codEntidade.size(); i++) {
             thread = new ThreadContratos(link, codEntidade.get(i));
             thread.start();
-
+            /*
             try {
                 thread.join();
-                
+
                 ArrayList<Contrato> arrayThread = thread.getContratos();
 
                 for (int j = 0; j < arrayThread.size(); j++) {
-                    contratos.addContent(arrayThread.get(i).getElement());
+                    contratos.addContent(arrayThread.get(j).getElement());
                 }
                 XMLfunc.escreverDocumentoParaFicheiro(doc, "contratos.xml");
                 //Thread.sleep(100);
             } catch (Exception ex) {
                 System.out.println("erro");
                 ex.printStackTrace();
-            }
+            }*/
 
             threadsContratos.add(thread);
         }
@@ -68,7 +72,7 @@ public class Contratos {
                 ArrayList<Contrato> arrayThread = thread.getContratos();
 
                 for (int j = 0; j < arrayThread.size(); j++) {
-                    contratos.addContent(arrayThread.get(i).getElement());
+                    contratos.addContent(arrayThread.get(j).getElement());
                 }
 
             } catch (Exception ex) {

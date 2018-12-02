@@ -14,16 +14,17 @@ import org.jdom2.Element;
  */
 public class Contrato {
 
-    private static int counter = 0;
+    private static Integer counter = 0;
 
-    private Integer id;
     Element MainElement;
 
-    public Contrato(HashMap<String, String> hashMap) {
-        getId();
-
+    public Contrato(HashMap<String, String> hashMap,String codMunicipio) {
+        
         MainElement = new Element("contrato");
-        MainElement.setAttribute("id", id.toString());
+        MainElement.setAttribute("id", getId());
+        MainElement.setAttribute("codMunicipio", codMunicipio);
+        
+        
 
         for (int i = 0; i < Contratos.strings.length; i++) {
 
@@ -38,7 +39,7 @@ public class Contrato {
         return MainElement;
     }
 
-    private synchronized void getId() {
-        this.id = ++counter;
+    private synchronized String getId() {
+        return (++counter).toString();
     }
 }
