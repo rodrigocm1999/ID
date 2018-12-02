@@ -34,7 +34,7 @@ public class Camaras {
         /*int num_start = 3000;
         int num_end = 3420;//3420;*/
         String getAllCods = "href=\"mun101w3\\.php\\?cod=M(3\\d+)\" c";
-        String getAllMunString = Requests.httpRequestToString("https://www.anmp.pt/anmp/pro/mun1/mun101w2.php?dis=06");
+        String getAllMunString = Requests.httpRequestToString("https://www.anmp.pt/anmp/pro/mun1/mun101w2.php?dis=06","windows-1252");
 
         Pattern pattern = Pattern.compile(getAllCods, Pattern.MULTILINE);
         Matcher matcher = pattern.matcher(getAllMunString);

@@ -29,7 +29,7 @@ public class ThreadCamaras extends Thread {
     public void run() {
         super.run();
 
-        String siteString = Requests.httpRequestToString(link + num);
+        String siteString = Requests.httpRequestToString(link + num,"windows-1252");
 
         Pattern pat = Pattern.compile("class=\"sel3\"");
         Matcher mat = pat.matcher(siteString);

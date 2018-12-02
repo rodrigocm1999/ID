@@ -9,6 +9,7 @@ import java.io.DataInputStream;
 import java.io.FileInputStream;
 import java.util.ArrayList;
 import org.jdom2.Document;
+import org.jdom2.Element;
 
 /**
  *
@@ -17,8 +18,7 @@ import org.jdom2.Document;
 public class Contratos {
 
     public static String[] strings = new String[]{"objetoContrato", "preco", "publicacao", "adjudicatario"};
-    
-    
+
     public static void Run() {
         ArrayList<String> codEntidade = new ArrayList<>();
         try {
@@ -36,7 +36,8 @@ public class Contratos {
         ArrayList<ThreadContratos> threadsContratos = new ArrayList<>();
         ThreadContratos thread;
 
-        Document doc = new Document();
+        Element contratos = new Element("contratos");
+        Document doc = new Document(contratos);
 
         for (int i = 0; i < codEntidade.size(); i++) {
             thread = new ThreadContratos(link, codEntidade.get(i));
@@ -48,11 +49,19 @@ public class Contratos {
             try {
                 thread = threadsContratos.get(i);
                 thread.join();
+
+                ArrayList<Contrato> arrayThread = thread.getContratos();
+
+                
+                for (int j = 0; j < arrayThread.size(); j++) {
+                    contratos.addContent(arrayThread.get(i).getElement());                   
+                }
+                
             } catch (Exception ex) {
                 ex.printStackTrace();
             }
         }
-        XMLfunc.escreverDocumentoParaFicheiro(doc, "camaras.xml");
+        XMLfunc.escreverDocumentoParaFicheiro(doc, "contratos.xml");
 
     }
 }

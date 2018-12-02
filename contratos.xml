@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<contratos>
+	<contrato id="522">
+		<objetoContrato>Confeção, fornecimento e transporte de refeições (almoços) e lanches escolares para os diversos estabelecimentos de ensino do pré escolar e 1.º CEB do concelho de Arganil, durante o ano letivo 2018/20...</objetoContrato>
+		<preco>12.518,52</preco>
+		<publicacao>28-09-2018</publicacao>
+		<adjudicatario>Cáritas diocesana de Coimbra</adjudicatario>
+	</contrato>
+	<contrato id="1003">
+		<objetoContrato>Recuperação de trilhos pedestres</objetoContrato>
+		<preco>43.301,20</preco>
+		<publicacao>26-09-2018</publicacao>
+		<adjudicatario>RESOPRE - SOCIEDADE REVENDEDORA DE APARELHOS DE PRECISÃO</adjudicatario>
+	</contrato>
+	<contrato id="1183">
+		<objetoContrato>Aquisição de serviços em modalidade/tarefa</objetoContrato>
+		<preco>4.897,20</preco>
+		<publicacao>26-10-2018</publicacao>
+		<adjudicatario>João Domingues Jarró</adjudicatario>
+	</contrato>
+	<contrato id="88">
+		<objetoContrato>Aquisição de Serviços de Manutenção e Assistência Técnica do Software de Gestão Desportiva</objetoContrato>
+		<preco>9.000,00</preco>
+		<publicacao>07-09-2018</publicacao>
+		<adjudicatario>Arquivandus - Desenvolvimento, Representação e Comercialização de Software, Lda</adjudicatario>
+	</contrato>
+	<contrato id="1527">
+		<objetoContrato>Aquisição de Viatura Todo o Terreno destinada à Policia Municipal</objetoContrato>
+		<preco>25.500,00</preco>
+		<publicacao>03-09-2018</publicacao>
+		<adjudicatario>LITOCAR SA</adjudicatario>
+	</contrato>
+</contratos>

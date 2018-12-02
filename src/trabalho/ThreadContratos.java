@@ -30,8 +30,8 @@ public class ThreadContratos extends Thread {
     @Override
     public void run() {
         super.run();
-        System.out.println("thread qualquer cena " + num);
-        String siteString = Requests.httpRequestToString(link + num);
+
+        String siteString = Requests.httpRequestToString(link + num,"UTF-8");
 
         Pattern pat = Pattern.compile("class=\"plusSign\".*href=\".*(\\d{4})\" t");
         Matcher mat = pat.matcher(siteString);
@@ -48,13 +48,19 @@ public class ThreadContratos extends Thread {
             for (int last = 1, i = 24, counter = 1; i < 100000; last = ++i, i += 23, counter++) {
                 // este loop serve para entrar na lista dos contratos 
                 //a partir do numero que recolhi da pagina que tem o Mais depois da procura
-                thread = new ThreadGetContratos(superLink[0] + last + '-' + i + superLink[1]);
-                thread.start();
+                try {
+                    thread = new ThreadGetContratos(superLink[0] + last + '-' + i + superLink[1]);
+                    thread.start();
+                    threads.add(thread);
 
-                threads.add(thread);
-
-                if ((counter % 10) == 0) {
-
+                    if ((counter % 30) == 0) {
+                        thread.join();
+                        if (thread.NothingMore()) {
+                            break;
+                        }
+                    }
+                } catch (Exception ex) {
+                    ex.printStackTrace();
                 }
             }
 
@@ -63,20 +69,25 @@ public class ThreadContratos extends Thread {
                     thread = threads.get(i);
                     thread.join();
                     ArrayList<Contrato> contratosThread = thread.getContratos();
-                    
+
                     contratos.addAll(contratosThread);
                 } catch (Exception ex) {
+                    ex.printStackTrace();
                 }
             }
             //}
         }
+    }
 
+    public ArrayList<Contrato> getContratos() {
+        return contratos;
     }
 
     public class ThreadGetContratos extends Thread {
 
         private String link;
         private ArrayList<Contrato> contratos;
+        private boolean found = false;
 
         public ThreadGetContratos(String link) {
             this.link = link;
@@ -85,16 +96,17 @@ public class ThreadContratos extends Thread {
 
         public void run() {
             super.run();
-            String siteString = Requests.httpRequestToString(link);
+            String siteString = Requests.httpRequestToString(link,"UTF-8");
 
             Pattern pattern = Pattern.compile("<tr>\\r\\n.*<td title=\"(?<objetoContrato>.*)\">.*<\\/td>\\r\\n.*<td.*>(?<preco>.*) €<\\/td>\\r\\n.*<td.*>(?<publicacao>\\d{2}-\\d{2}-\\d{4})<\\/td>\\r\\n.*\\r\\n.*<td>(?<adjudicatario>.*)<\\/td>", Pattern.MULTILINE);
             Matcher matcher = pattern.matcher(siteString);
 
             while (matcher.find()) {
+                found = true;
 
                 HashMap<String, String> hashMap = new HashMap<>(25);
 
-                for (String elemento : Camaras.strings) {
+                for (String elemento : Contratos.strings) {
 
                     hashMap.put(elemento, matcher.group(elemento));
                 }
@@ -106,6 +118,10 @@ public class ThreadContratos extends Thread {
 
         public ArrayList<Contrato> getContratos() {
             return contratos;
+        }
+
+        public boolean NothingMore() {
+            return !found;
         }
     }
 
