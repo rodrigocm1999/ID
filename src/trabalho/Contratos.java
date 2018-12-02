@@ -43,6 +43,21 @@ public class Contratos {
             thread = new ThreadContratos(link, codEntidade.get(i));
             thread.start();
 
+            try {
+                thread.join();
+                
+                ArrayList<Contrato> arrayThread = thread.getContratos();
+
+                for (int j = 0; j < arrayThread.size(); j++) {
+                    contratos.addContent(arrayThread.get(i).getElement());
+                }
+                XMLfunc.escreverDocumentoParaFicheiro(doc, "contratos.xml");
+                //Thread.sleep(100);
+            } catch (Exception ex) {
+                System.out.println("erro");
+                ex.printStackTrace();
+            }
+
             threadsContratos.add(thread);
         }
         for (int i = 0; i < threadsContratos.size(); i++) {
@@ -52,11 +67,10 @@ public class Contratos {
 
                 ArrayList<Contrato> arrayThread = thread.getContratos();
 
-                
                 for (int j = 0; j < arrayThread.size(); j++) {
-                    contratos.addContent(arrayThread.get(i).getElement());                   
+                    contratos.addContent(arrayThread.get(i).getElement());
                 }
-                
+
             } catch (Exception ex) {
                 ex.printStackTrace();
             }
