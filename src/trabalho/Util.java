@@ -7,6 +7,7 @@ package trabalho;
 
 import java.io.DataInputStream;
 import java.io.FileInputStream;
+import java.io.IOException;
 
 /**
  *
@@ -23,7 +24,7 @@ public class Util {
                 stringBuilder.append(line);
             }
             return stringBuilder.toString();
-        } catch (Exception ex) {
+        } catch (IOException ex) {
         }
         return null;
     }
