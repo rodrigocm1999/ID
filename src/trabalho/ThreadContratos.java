@@ -18,12 +18,14 @@ public class ThreadContratos extends Thread {
 
     private String link;
     private String num;
+    private String nomeMunicipio;
     private ArrayList<Contrato> contratos;
 
-    public ThreadContratos(String link, String num) {
+    public ThreadContratos(String link, String num,String nomeMunicipio) {
 
         this.link = link;
         this.num = num;
+        this.nomeMunicipio = nomeMunicipio;
         contratos = new ArrayList<>();
     }
 
@@ -47,15 +49,15 @@ public class ThreadContratos extends Thread {
             //if (matcher.find()) {
             ThreadGetContratos thread;
             ArrayList<ThreadGetContratos> threads = new ArrayList<>();
-            for (int last = 0, i = 500, counter = 1; true ; last = ++i, i += 499, counter++) {
+            for (int last = 0, i = 1200, counter = 1; true; last = ++i, i += 1199, counter++) {
                 // este loop serve para entrar na lista dos contratos 
                 //a partir do numero que recolhi da pagina que tem o Mais depois da procura
                 try {
-                    thread = new ThreadGetContratos(superLink[0] + last + '-' + i + superLink[1],num);
+                    thread = new ThreadGetContratos(superLink[0] + last + '-' + i + superLink[1], num,nomeMunicipio);
                     thread.start();
                     threads.add(thread);
-                    
-                    if ((counter % 5) == 0) {
+
+                    if ((counter % 3) == 0) {
                         thread.join();
                         if (thread.NothingMore()) {
                             break;
@@ -89,12 +91,14 @@ public class ThreadContratos extends Thread {
 
         private String link;
         private String codMunicipio;
+        private String nomeMunicipio;
         private ArrayList<Contrato> contratos;
         private boolean found = false;
 
-        public ThreadGetContratos(String link,String codMunicipio) {
+        public ThreadGetContratos(String link, String codMunicipio, String nomeMunicipio) {
             this.link = link;
             this.codMunicipio = codMunicipio;
+            this.nomeMunicipio = nomeMunicipio;
             contratos = new ArrayList<>();
         }
 
@@ -117,7 +121,7 @@ public class ThreadContratos extends Thread {
                     hashMap.put(elemento, matcher.group(elemento));
                 }
 
-                Contrato contrato = new Contrato(hashMap,codMunicipio);
+                Contrato contrato = new Contrato(hashMap, codMunicipio, nomeMunicipio);
                 this.contratos.add(contrato);
             }
         }

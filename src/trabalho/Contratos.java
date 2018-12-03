@@ -44,7 +44,7 @@ public class Contratos {
         Document doc = new Document(contratos);
 
         for (int i = 0; i < codEntidade.size(); i++) {
-            thread = new ThreadContratos(link, codEntidade.get(i));
+            thread = new ThreadContratos(link, codEntidade.get(i),nomeMunicipios.get(i));
             thread.start();
             /*
             try {

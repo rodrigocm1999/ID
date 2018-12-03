@@ -18,12 +18,12 @@ public class Contrato {
 
     Element MainElement;
 
-    public Contrato(HashMap<String, String> hashMap,String codMunicipio) {
+    public Contrato(HashMap<String, String> hashMap,String codMunicipio,String nomeMunicipio) {
         
         MainElement = new Element("contrato");
         MainElement.setAttribute("id", getId());
         MainElement.setAttribute("codMunicipio", codMunicipio);
-        
+        MainElement.setAttribute("nomeMunicipio", nomeMunicipio);
         
 
         for (int i = 0; i < Contratos.strings.length; i++) {
