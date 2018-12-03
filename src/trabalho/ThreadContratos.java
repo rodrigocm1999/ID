@@ -37,7 +37,7 @@ public class ThreadContratos extends Thread {
             siteString = Requests.httpRequestToString(link + num, "UTF-8");
         }
 
-        Pattern pat = Pattern.compile("class=\"plusSign\".*href=\".*(\\d{4})\" t");
+        Pattern pat = Pattern.compile("class=\"plusSign\".*href=\".*=(\\d+)\" t");
         Matcher mat = pat.matcher(siteString);
 
         if (mat.find()) {
@@ -57,7 +57,7 @@ public class ThreadContratos extends Thread {
                     thread.start();
                     threads.add(thread);
 
-                    if ((counter % 3) == 0) {
+                    if ((counter % 2) == 0) {
                         thread.join();
                         if (thread.NothingMore()) {
                             break;
