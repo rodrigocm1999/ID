@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <municipios>
-	<municipio id="16">
+	<municipio id="1">
 		<nome>Arganil</nome>
 		<area>333</area>
 		<nHabitantes>12 145</nHabitantes>
@@ -15,7 +15,7 @@
 		<morada>Praça Simões Dias, Apartado 10</morada>
 		<codPostal>3304-954</codPostal>
 	</municipio>
-	<municipio id="17">
+	<municipio id="5">
 		<nome>Cantanhede</nome>
 		<area>391</area>
 		<nHabitantes>36 595</nHabitantes>
@@ -30,7 +30,7 @@
 		<morada>Praça Marquês de Marialva - Apartado 154</morada>
 		<codPostal>3064-909</codPostal>
 	</municipio>
-	<municipio id="1">
+	<municipio id="12">
 		<nome>Coimbra</nome>
 		<area>319</area>
 		<nHabitantes>143 396</nHabitantes>
@@ -45,7 +45,7 @@
 		<morada>Praça 8 de Maio</morada>
 		<codPostal>3000-300</codPostal>
 	</municipio>
-	<municipio id="2">
+	<municipio id="11">
 		<nome>Condeixa-a-Nova</nome>
 		<area>139</area>
 		<nHabitantes>17 078</nHabitantes>
@@ -60,7 +60,7 @@
 		<morada>Largo Artur Barreto</morada>
 		<codPostal>3150-124</codPostal>
 	</municipio>
-	<municipio id="8">
+	<municipio id="17">
 		<nome>Figueira da Foz</nome>
 		<area>379</area>
 		<nHabitantes>62 125</nHabitantes>
@@ -75,7 +75,7 @@
 		<morada>Av. Saraiva de Carvalho</morada>
 		<codPostal>3084-501</codPostal>
 	</municipio>
-	<municipio id="3">
+	<municipio id="8">
 		<nome>Góis</nome>
 		<area>263</area>
 		<nHabitantes>4 260</nHabitantes>
@@ -90,7 +90,7 @@
 		<morada>Praça da República</morada>
 		<codPostal>3330-310</codPostal>
 	</municipio>
-	<municipio id="13">
+	<municipio id="2">
 		<nome>Lousã</nome>
 		<area>138</area>
 		<nHabitantes>17 604</nHabitantes>
@@ -105,7 +105,7 @@
 		<morada>Rua Dr. João Santos</morada>
 		<codPostal>3200-953</codPostal>
 	</municipio>
-	<municipio id="5">
+	<municipio id="3">
 		<nome>Mira</nome>
 		<area>124</area>
 		<nHabitantes>12 465</nHabitantes>
@@ -120,7 +120,7 @@
 		<morada>Praça da República</morada>
 		<codPostal>3070-304</codPostal>
 	</municipio>
-	<municipio id="7">
+	<municipio id="4">
 		<nome>Miranda do Corvo</nome>
 		<area>126</area>
 		<nHabitantes>13 098</nHabitantes>
@@ -135,7 +135,7 @@
 		<morada>Praça José Falcão</morada>
 		<codPostal>3220-206</codPostal>
 	</municipio>
-	<municipio id="4">
+	<municipio id="6">
 		<nome>Montemor-o-Velho</nome>
 		<area>229</area>
 		<nHabitantes>26 171</nHabitantes>
@@ -150,7 +150,7 @@
 		<morada>Praça da República</morada>
 		<codPostal>3140-258</codPostal>
 	</municipio>
-	<municipio id="6">
+	<municipio id="9">
 		<nome>Oliveira do Hospital</nome>
 		<area>235</area>
 		<nHabitantes>20 855</nHabitantes>
@@ -165,7 +165,7 @@
 		<morada>Largo Conselheiro Cabral Metello</morada>
 		<codPostal>3400-062</codPostal>
 	</municipio>
-	<municipio id="12">
+	<municipio id="7">
 		<nome>Pampilhosa da Serra</nome>
 		<area>396</area>
 		<nHabitantes>4 481</nHabitantes>
@@ -180,7 +180,7 @@
 		<morada>Rua Rangel de Lima</morada>
 		<codPostal>3320-229</codPostal>
 	</municipio>
-	<municipio id="11">
+	<municipio id="14">
 		<nome>Penacova</nome>
 		<area>217</area>
 		<nHabitantes>15 251</nHabitantes>
@@ -195,7 +195,7 @@
 		<morada>Largo Alberto Leitão, 5</morada>
 		<codPostal>3360-191</codPostal>
 	</municipio>
-	<municipio id="14">
+	<municipio id="16">
 		<nome>Penela</nome>
 		<area>135</area>
 		<nHabitantes>5 983</nHabitantes>
@@ -210,7 +210,7 @@
 		<morada>Praça do Município</morada>
 		<codPostal>3230-253</codPostal>
 	</municipio>
-	<municipio id="10">
+	<municipio id="15">
 		<nome>Soure</nome>
 		<area>265</area>
 		<nHabitantes>19 245</nHabitantes>
@@ -225,7 +225,7 @@
 		<morada>Praça da República</morada>
 		<codPostal>3130-218</codPostal>
 	</municipio>
-	<municipio id="9">
+	<municipio id="10">
 		<nome>Tábua</nome>
 		<area>200</area>
 		<nHabitantes>12 071</nHabitantes>
@@ -240,7 +240,7 @@
 		<morada>Câmara Municipal</morada>
 		<codPostal>3420-308</codPostal>
 	</municipio>
-	<municipio id="15">
+	<municipio id="13">
 		<nome>Vila Nova de Poiares</nome>
 		<area>84</area>
 		<nHabitantes>7 281</nHabitantes>

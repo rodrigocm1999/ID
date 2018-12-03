@@ -71,8 +71,11 @@ public class Contratos {
 
                 ArrayList<Contrato> arrayThread = thread.getContratos();
 
+                Element municipio = new Element(nomeMunicipios.get(i));
+                contratos.addContent(municipio);
+                
                 for (int j = 0; j < arrayThread.size(); j++) {
-                    contratos.addContent(arrayThread.get(j).getElement());
+                    municipio.addContent(arrayThread.get(j).getElement());
                 }
 
             } catch (Exception ex) {
