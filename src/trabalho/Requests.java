@@ -85,7 +85,9 @@ public class Requests {
             BufferedReader in = new BufferedReader(new InputStreamReader(ligacao.getInputStream(), encoding));
             StringBuilder sb = new StringBuilder();
             String linha;
-
+            
+            
+            
             while ((linha = in.readLine()) != null) {
                 sb.append(linha).append(System.getProperty("line.separator"));
             }
