@@ -22,7 +22,7 @@ public class CamaraMunicipal {
         getId();
         
         MainElement = new Element("municipio");
-        MainElement.setAttribute("id",id.toString());        
+        MainElement.setAttribute("id","id"+id.toString());        
         
         for (int i = 0; i < Camaras.strings.length; i++) {
          

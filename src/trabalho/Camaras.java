@@ -34,14 +34,14 @@ public class Camaras {
         /*int num_start = 3000;
         int num_end = 3420;//3420;*/
         String getAllCods = "href=\"mun101w3\\.php\\?cod=M(3\\d+)\" c";
-        String getAllMunString = Requests.httpRequestToString("https://www.anmp.pt/anmp/pro/mun1/mun101w2.php?dis=06","windows-1252");
+        String getAllMunString = Util.httpRequestToString("https://www.anmp.pt/anmp/pro/mun1/mun101w2.php?dis=06","windows-1252");
 
         Pattern pattern = Pattern.compile(getAllCods, Pattern.MULTILINE);
         Matcher matcher = pattern.matcher(getAllMunString);
 
         ArrayList<String> numsMun = new ArrayList<>();
 
-        for (; matcher.find();) {
+        while (matcher.find()) {
             numsMun.add(matcher.group(1));
         }
 
@@ -69,7 +69,7 @@ public class Camaras {
                 ex.printStackTrace();
             }
         }
-        XMLfunc.escreverDocumentoParaFicheiro(doc, "camaras.xml");
+        Util.escreverDocumentoParaFicheiro(doc, "camaras.xml");
 
         try {
             File f = new File("camaras.xsd");
@@ -79,7 +79,7 @@ public class Camaras {
                 municipios.addNamespaceDeclaration(xsi);
                 municipios.setAttribute("noNamespaceSchemaLocation", "camaras.xsd", xsi);
 
-                if (JDOMFunc_Validar.validarXSD("camaras.xml") == null) {
+                if (Util.validarXSD("camaras.xml") == null) {
                     throw new Exception("Ficheiro camaras.xml não válido");
                 }
             } else {

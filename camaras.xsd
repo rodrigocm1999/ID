@@ -1,23 +1,39 @@
 <?xml version="1.0" encoding="utf-8"?>
 <xsd:schema elementFormDefault="qualified" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+   <xsd:element name="nome" type="xsd:string" />
+   <xsd:element name="area" type="xsd:string" />
+   <xsd:element name="nHabitantes" type="xsd:string" />
+   <xsd:element name="nFreguesias" type="xsd:string" />
+   <xsd:element name="feriado" type="xsd:string" />
+   <xsd:element name="presidente" type="xsd:string" />
+   <xsd:element name="assembleia" type="xsd:string" />
+   <xsd:element name="telefone" type="xsd:string" />
+   <xsd:element name="email" type="xsd:string" />
+   <xsd:element name="site" type="xsd:string" />
+   <xsd:element name="brasao" type="xsd:string" />
+   <xsd:element name="morada" type="xsd:string" />
+   <xsd:element name="codPostal" type="xsd:string" />
+
+
+
    <xsd:element name="municipio">
       <xsd:complexType>
          <xsd:all>
-            <xsd:element name="nome" type="xsd:string" />
-            <xsd:element name="area" type="xsd:string" />
-            <xsd:element name="nHabitantes" type="xsd:string" />
-            <xsd:element name="nFreguesias" type="xsd:string" />
-            <xsd:element name="feriado" type="xsd:string" />
-            <xsd:element name="presidente" type="xsd:string" />
-            <xsd:element name="assembleia" type="xsd:string" />
-            <xsd:element name="telefone" type="xsd:string" />
-            <xsd:element name="email" type="xsd:string" />
-            <xsd:element name="site" type="xsd:string" />
-            <xsd:element name="brasao" type="xsd:string" />
-            <xsd:element name="morada" type="xsd:string" />
-            <xsd:element name="codPostal" type="xsd:string" />
+            <xsd:element ref="nome" />
+            <xsd:element ref="area" />
+            <xsd:element ref="nHabitantes" />
+            <xsd:element ref="nFreguesias" />
+            <xsd:element ref="feriado" />
+            <xsd:element ref="presindente" />
+            <xsd:element ref="assembleia" />
+            <xsd:element ref="telefone" />
+            <xsd:element ref="email" />
+            <xsd:element ref="site" />
+            <xsd:element ref="brasao" />
+            <xsd:element ref="morada" />
+            <xsd:element ref="codPostal" />
          </xsd:all>
-         <xsd:attribute name="id" type="xsd:string" use="required" />
+         <xsd:attribute name="id" type="xsd:ID" use="required" />
       </xsd:complexType>
    </xsd:element>
 
@@ -26,7 +42,7 @@
       <xsd:complexType>
          <xsd:all>
             <xsd:element ref="municipio" maxOccurs="unbounded" />
-         </xsd:sequence>
+            </xsd:sequence>
       </xsd:complexType>
    </xsd:element>
 

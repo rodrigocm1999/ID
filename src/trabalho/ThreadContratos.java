@@ -34,7 +34,7 @@ public class ThreadContratos extends Thread {
         super.run();
         String siteString = null;
         while (siteString == null) {
-            siteString = Requests.httpRequestToString(link + num, "UTF-8");
+            siteString = Util.httpRequestToString(link + num, "UTF-8");
         }
 
         Pattern pat = Pattern.compile("class=\"plusSign\".*href=\".*=(\\d+)\" t");
@@ -53,7 +53,7 @@ public class ThreadContratos extends Thread {
                 // este loop serve para entrar na lista dos contratos 
                 //a partir do numero que recolhi da pagina que tem o Mais depois da procura
                 try {
-                    thread = new ThreadGetContratos(superLink[0] + last + '-' + i + superLink[1], num,nomeMunicipio);
+                    thread = new ThreadGetContratos(superLink[0] + last + '-' + i + superLink[1]);
                     thread.start();
                     threads.add(thread);
 
@@ -90,15 +90,11 @@ public class ThreadContratos extends Thread {
     public class ThreadGetContratos extends Thread {
 
         private String link;
-        private String codMunicipio;
-        private String nomeMunicipio;
         private ArrayList<Contrato> contratos;
         private boolean found = false;
 
-        public ThreadGetContratos(String link, String codMunicipio, String nomeMunicipio) {
+        public ThreadGetContratos(String link) {
             this.link = link;
-            this.codMunicipio = codMunicipio;
-            this.nomeMunicipio = nomeMunicipio;
             contratos = new ArrayList<>();
         }
 
@@ -106,7 +102,7 @@ public class ThreadContratos extends Thread {
             super.run();
             String siteString = null;
             while (siteString == null) {
-                siteString = Requests.httpRequestToString(link, "UTF-8");
+                siteString = Util.httpRequestToString(link, "UTF-8");
             }
             Pattern pattern = Pattern.compile("<tr>\\r\\n.*<td title=\"(?<objetoContrato>.*)\">.*<\\/td>\\r\\n.*<td.*>(?<preco>.*) €<\\/td>\\r\\n.*<td.*>(?<publicacao>\\d{2}-\\d{2}-\\d{4})<\\/td>\\r\\n.*\\r\\n.*<td>(?<adjudicatario>.*)<\\/td>", Pattern.MULTILINE);
             Matcher matcher = pattern.matcher(siteString);
@@ -121,7 +117,7 @@ public class ThreadContratos extends Thread {
                     hashMap.put(elemento, matcher.group(elemento));
                 }
 
-                Contrato contrato = new Contrato(hashMap, codMunicipio, nomeMunicipio);
+                Contrato contrato = new Contrato(hashMap);
                 this.contratos.add(contrato);
             }
         }

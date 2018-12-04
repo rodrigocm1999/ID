@@ -29,7 +29,7 @@ public class ThreadCamaras extends Thread {
     public void run() {
         super.run();
 
-        String siteString = Requests.httpRequestToString(link + num,"windows-1252");
+        String siteString = Util.httpRequestToString(link + num, "windows-1252");
 
         Pattern pat = Pattern.compile("class=\"sel3\"");
         Matcher mat = pat.matcher(siteString);
@@ -43,17 +43,12 @@ public class ThreadCamaras extends Thread {
 
                 HashMap<String, String> hashMap = new HashMap<>(11);
 
-                if (matcher.group("distrito").equals("COIMBRA")) {
-                    for (String elemento : Camaras.strings) {
-                        if (elemento.equals("brasao")) {
-                            hashMap.put(elemento, "https://www.anmp.pt/" + matcher.group(elemento));
-                        } else {
-                            hashMap.put(elemento, matcher.group(elemento));
-                        }
+                for (String elemento : Camaras.strings) {
+                    if (elemento.equals("brasao")) {
+                        hashMap.put(elemento, "https://www.anmp.pt/" + matcher.group(elemento));
+                    } else {
+                        hashMap.put(elemento, matcher.group(elemento));
                     }
-                } else {
-                    camara = null;
-                    return;
                 }
                 camara = new CamaraMunicipal(hashMap);
                 return;

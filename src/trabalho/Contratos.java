@@ -71,7 +71,8 @@ public class Contratos {
 
                 ArrayList<Contrato> arrayThread = thread.getContratos();
 
-                Element municipio = new Element(nomeMunicipios.get(i));
+                Element municipio = new Element("municipio");
+                municipio.setAttribute("nomeMun", nomeMunicipios.get(i));
                 contratos.addContent(municipio);
                 
                 for (int j = 0; j < arrayThread.size(); j++) {
@@ -82,7 +83,7 @@ public class Contratos {
                 ex.printStackTrace();
             }
         }
-        XMLfunc.escreverDocumentoParaFicheiro(doc, "contratos.xml");
+        Util.escreverDocumentoParaFicheiro(doc, "contratos.xml");
 
     }
 }
