@@ -5,7 +5,11 @@
  */
 package trabalho;
 
+import java.io.File;
 import java.util.List;
+import javax.xml.transform.*;
+import javax.xml.transform.stream.StreamResult;
+import javax.xml.transform.stream.StreamSource;
 import org.jdom2.Document;
 import org.jdom2.Element;
 
@@ -24,6 +28,7 @@ public class Main {
         main.show();
 
         //juntar2ficheiros();
+        //paginaHTMLBrasoes();
         //Camaras.Run();
         //Contratos.Run();
     }
@@ -56,6 +61,20 @@ public class Main {
         }
 
         Util.escreverDocumentoParaFicheiro(docTudo, "tudo.xml");
+    }
+
+    public static void paginaHTMLBrasoes() {
+        try {
+            TransformerFactory factory = TransformerFactory.newInstance();
+            Source xslt = new StreamSource(new File("brasoes.xslt"));
+            Transformer transformer = factory.newTransformer(xslt);
+
+            Source text = new StreamSource(new File("camaras.xml"));
+            transformer.transform(text, new StreamResult(new File("brasoes.html")));
+
+        } catch (TransformerException ex) {
+            System.out.println("Erro de Transformação");
+        }
     }
 
 }
