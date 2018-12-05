@@ -5,6 +5,10 @@
  */
 package trabalho;
 
+import java.util.List;
+import org.jdom2.Document;
+import org.jdom2.Element;
+
 /**
  *
  * @author Rodrigo
@@ -23,4 +27,35 @@ public class Main {
         //Contratos.Run();
     }
 
+    
+    public static void juntar2ficheiros(){
+        
+        Document docTudo = Util.lerDocumentoXML("camaras.xml");
+        Document docContratos = Util.lerDocumentoXML("contratos.xml");
+        
+        
+        Element mun = docTudo.getRootElement();
+        List<Element> list =  mun.getChildren();
+        
+        /*Element mun = docContratos.getRootElement();
+        List<Element> list =  mun.getChildren();*/
+        
+        
+        
+        for (int i = 0; i < list.size(); i++) {
+            Element el = list.get(i);
+            
+            
+            
+        }
+        
+        
+        
+        //municipios.getChild()
+        
+        
+        
+        
+    }
+    
 }
