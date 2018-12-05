@@ -51,7 +51,7 @@ public class Main {
             for (int j = 0; j < munList.size(); j++) {
                 Element contElement = munList.get(j);
                 String str = contElement.getAttributeValue("nomeMun");
-                System.out.println("nome municipio contratos: "+str);
+                System.out.println("nome municipio contratos: " + str);
                 if (nomeMun.equals(str)) {
                     contElement.detach();
                     munElement.addContent(contElement);
