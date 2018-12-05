@@ -1,42 +1,25 @@
 <?xml version="1.0" encoding="utf-8"?>
-<xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema">
-   <xsd:element name="objetoContrato" type="xsd:string" />
-   <xsd:element name="preco" type="xsd:string" />
-   <xsd:element name="publicacao" type="xsd:string" />
-   <xsd:element name="adjudicatario" type="xsd:string" />
-   <xsd:atribute name="id" type="xsd:ID" />
-   <xsd:atribute name="nomeMun" type="xsd:string" />
-
-
-
-   <xsd:element name="contrato">
-      <xsd:complexType>
-         <xsd:sequence>
-            <xsd:element ref="objetoContrato" />
-            <xsd:element ref="preco" />
-            <xsd:element ref="publicacao" />
-            <xsd:element ref="adjudicatario" />
-         </xsd:sequence>
-         <xsd:attribute ref="id" />
-      </xsd:complexType>
-   </xsd:element>
-
-
-   <xsd:element name="municipio">
-      <xsd:complexType>
-         <xsd:sequence>
-            <xsd:element ref="contrato" maxOccurs="unbounded" />
-         </xsd:sequence>
-         <xsd:attribute ref="nomeMun" />
-      </xsd:complexType>
-   </xsd:element>
-
-   <xsd:element name="contratos">
-      <xsd:complexType>
-         <xsd:all>
-            <xsd:element ref="municipio" maxOccurs="unbounded" />
-         </xsd:all>
-      </xsd:complexType>
-   </xsd:element>
-
+<xsd:schema elementFormDefault="qualified" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+    <xsd:element name="contratos">
+        <xsd:complexType>
+            <xsd:sequence>
+                <xsd:element name="municipio" maxOccurs="unbounded">
+                    <xsd:complexType>
+                        <xsd:element name="contrato" maxOccurs="unbounded">
+                            <xsd:complexType>
+                                <xsd:all>
+                                    <xsd:element name="objetoContrato" type="xsd:string" />
+                                    <xsd:element name="preco" type="xsd:string" />
+                                    <xsd:element name="publicacao" type="xsd:string" />
+                                    <xsd:element name="adjudicatario" type="xsd:string" />
+                                </xsd:all>
+                                <xsd:attribute name="id" type="xsd:string" use="required" />
+                            </xsd:complexType>
+                        </xsd:element>
+                        <xsd:attribute name="nomeMun" type="xsd:string" use="required" />
+                    </xsd:complexType>
+                </xsd:element>
+            </xsd:sequence>
+        </xsd:complexType>
+    </xsd:element>
 </xsd:schema>

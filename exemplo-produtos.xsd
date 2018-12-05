@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <xsd:schema elementFormDefault="qualified" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+	<xsd:element name="objetoContrato" type="xsd:string"/>
 	<xsd:element name="preco" type="xsd:string"/>
-	<xsd:element name="quant" type="xsd:string"/>
-	<xsd:element name="nome" type="xsd:string"/>
-	
+	<xsd:element name="publicacao" type="xsd:string"/>
+    <xsd:element name="adjudicatario" type="xsd:string"/>
 	<xsd:element name="produto">
 		<xsd:complexType>
 			<xsd:sequence>
@@ -15,7 +15,6 @@
 			<xsd:attribute name="stock" type="xsd:string" use="required"/>
 		</xsd:complexType>
 	</xsd:element>
-	
 	<xsd:element name="produtos">
 		<xsd:complexType>
 			<xsd:sequence>
@@ -23,5 +22,39 @@
 			</xsd:sequence>
 		</xsd:complexType>
 	</xsd:element>
+</xsd:schema>
 
+
+<?xml version="1.0" encoding="utf-8"?>
+<xsd:schema elementFormDefault="qualified" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+    <xsd:element name="preco" type="xsd:string"/>
+	<xsd:element name="quant" type="xsd:string"/>
+	<xsd:element name="nome" type="xsd:string"/>
+    
+    <xsd:element name="municipios">
+        <xsd:complexType>
+            <xsd:sequence>
+                <xsd:element name="municipio" maxOccurs="unbounded">
+                    <xsd:complexType>
+                        <xsd:all>
+                            <xsd:element name="nome" type="xsd:string" />
+                            <xsd:element name="area" type="xsd:string" />
+                            <xsd:element name="nHabitantes" type="xsd:string" />
+                            <xsd:element name="nFreguesias" type="xsd:string" />
+                            <xsd:element name="feriado" type="xsd:string" />
+                            <xsd:element name="presidente" type="xsd:string" />
+                            <xsd:element name="assembleia" type="xsd:string" />
+                            <xsd:element name="telefone" type="xsd:string" />
+                            <xsd:element name="email" type="xsd:string" />
+                            <xsd:element name="site" type="xsd:string" />
+                            <xsd:element name="brasao" type="xsd:string" />
+                            <xsd:element name="morada" type="xsd:string" />
+                            <xsd:element name="codPostal" type="xsd:string" />
+                        </xsd:all>
+                        <xsd:attribute name="id" type="xsd:string" use="required" />
+                    </xsd:complexType>
+                </xsd:element>
+            </xsd:sequence>
+        </xsd:complexType>
+    </xsd:element>
 </xsd:schema>
