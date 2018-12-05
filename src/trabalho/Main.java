@@ -24,8 +24,8 @@ public class Main {
      */
     public static void main(String[] args) throws Exception {
 
-        MainWindow main = new MainWindow();
-        main.show();
+        //MainWindow main = new MainWindow();
+        //main.show();
 
         //juntar2ficheiros();
         //paginaHTMLBrasoes();
@@ -47,17 +47,18 @@ public class Main {
         for (int i = 0; i < municipioslist.size(); i++) {
             Element munElement = municipioslist.get(i);
             String nomeMun = munElement.getChildText("nome");
-
+            System.out.println("Nome Mun: " + nomeMun);
             for (int j = 0; j < munList.size(); j++) {
                 Element contElement = munList.get(j);
                 String str = contElement.getAttributeValue("nomeMun");
-
-                if (nomeMun.equals(nomeMun)) {
+                System.out.println("nome municipio contratos: "+str);
+                if (nomeMun.equals(str)) {
                     contElement.detach();
                     munElement.addContent(contElement);
                     break;
                 }
             }
+            System.out.println("Fin");
         }
 
         Util.escreverDocumentoParaFicheiro(docTudo, "tudo.xml");
