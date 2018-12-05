@@ -69,7 +69,6 @@ public class Camaras {
                 ex.printStackTrace();
             }
         }
-        Util.escreverDocumentoParaFicheiro(doc, "camaras.xml");
 
         try {
             File f = new File("camaras.xsd");
@@ -87,6 +86,8 @@ public class Camaras {
             }
         } catch (Exception ex) {
         }
+        
+        Util.escreverDocumentoParaFicheiro(doc, "camaras.xml");
     }
 
     public static String getRegExp() {
