@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<contratos>
+<contratos xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="contratos.xsd">>
 	<municipio nomeMun="Arganil">
 		<contrato id="id2703">
 			<objetoContrato>Ajuste direto para a prestação de serviços “Convívio com almoço, lanche e animação ”</objetoContrato>

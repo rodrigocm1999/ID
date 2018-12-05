@@ -6,10 +6,12 @@
 package trabalho;
 
 import java.io.DataInputStream;
+import java.io.File;
 import java.io.FileInputStream;
 import java.util.ArrayList;
 import org.jdom2.Document;
 import org.jdom2.Element;
+import org.jdom2.Namespace;
 
 /**
  *
@@ -83,7 +85,24 @@ public class Contratos {
                 ex.printStackTrace();
             }
         }
-        Util.escreverDocumentoParaFicheiro(doc, "contratos.xml");
+        
+        try {
+            File f = new File("contratos.xsd");
+            if (f.exists()) {
 
+                Namespace xsi = Namespace.getNamespace("xsi", "http://www.w3.org/2001/XMLSchema-instance");
+                contratos.addNamespaceDeclaration(xsi);
+                contratos.setAttribute("noNamespaceSchemaLocation", "contratos.xsd", xsi);
+
+                if (Util.validarXSD("contratos.xml") == null) {
+                    throw new Exception("Ficheiro contratos.xml não é válido");
+                }
+            } else {
+                System.out.println("O ficheiro contratos.xml não existe");
+            }
+        } catch (Exception ex) {
+        }
+                        
+        Util.escreverDocumentoParaFicheiro(doc, "contratos.xml");
     }
 }

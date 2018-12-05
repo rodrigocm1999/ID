@@ -79,7 +79,7 @@ public class Camaras {
                 municipios.setAttribute("noNamespaceSchemaLocation", "camaras.xsd", xsi);
 
                 if (Util.validarXSD("camaras.xml") == null) {
-                    throw new Exception("Ficheiro camaras.xml não válido");
+                    throw new Exception("Ficheiro camaras.xml não é válido");
                 }
             } else {
                 System.out.println("O ficheiro camaras.xsd não existe");

@@ -1,25 +1,27 @@
 <?xml version="1.0" encoding="utf-8"?>
-<xsd:schema elementFormDefault="qualified" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
-    <xsd:element name="contratos">
-        <xsd:complexType>
-            <xsd:sequence>
-                <xsd:element name="municipio" maxOccurs="unbounded">
-                    <xsd:complexType>
-                        <xsd:element name="contrato" maxOccurs="unbounded">
-                            <xsd:complexType>
-                                <xsd:all>
-                                    <xsd:element name="objetoContrato" type="xsd:string" />
-                                    <xsd:element name="preco" type="xsd:string" />
-                                    <xsd:element name="publicacao" type="xsd:string" />
-                                    <xsd:element name="adjudicatario" type="xsd:string" />
-                                </xsd:all>
-                                <xsd:attribute name="id" type="xsd:string" use="required" />
-                            </xsd:complexType>
-                        </xsd:element>
-                        <xsd:attribute name="nomeMun" type="xsd:string" use="required" />
-                    </xsd:complexType>
-                </xsd:element>
-            </xsd:sequence>
-        </xsd:complexType>
-    </xsd:element>
-</xsd:schema>
+<xs:schema attributeFormDefault="unqualified" elementFormDefault="qualified" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:element name="contratos">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element name="municipio" maxOccurs="unbounded">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="contrato"  maxOccurs="unbounded">
+                <xs:complexType>
+                  <xs:sequence>
+                    <xs:element name="objetoContrato" type="xs:string" />
+                    <xs:element name="preco" type="xs:string" />
+                    <xs:element name="publicacao" type="xs:string" />
+                    <xs:element name="adjudicatario" type="xs:string" />
+                  </xs:sequence>
+                  <xs:attribute name="id" type="xs:string" use="required" />
+                </xs:complexType>
+              </xs:element>
+            </xs:sequence>
+            <xs:attribute name="nomeMun" type="xs:string" use="required" />
+          </xs:complexType>
+        </xs:element>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+</xs:schema>
