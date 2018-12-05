@@ -1,17 +1,17 @@
 Arganil;506833232
 Cantanhede;506087000
 Coimbra;506415082
-CondeixaANova;501275380
-FigueiradaFoz;501305580
-Gois;506613399
-Lousa;501121528
+Condeixa-a-Nova;501275380
+Figueira da Foz;501305580
+Góis;506613399
+Lousã;501121528
 Mira;506724530
-MirandaDoCorvo;506624200
-MontemorOVelho;501272976
-OliveiradoHospital;506818829
-PampilhosaDaSerra;506811883
+Miranda do Corvo;506624200
+Montemor-o-Velho;501272976
+Oliveira do Hospital;506818829
+Pampilhosa da Serra;506811883
 Penacova;506657957
 Penela;506778037
 Soure;507103742
-Tabua;506806944
-VilaNovadePoiares;505371600
+Tábua;506806944
+Vila Nova de Poiares;505371600
