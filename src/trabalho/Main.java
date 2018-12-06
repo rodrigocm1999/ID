@@ -6,6 +6,7 @@
 package trabalho;
 
 import java.io.File;
+import java.util.ArrayList;
 import java.util.List;
 import javax.xml.transform.*;
 import javax.xml.transform.stream.StreamResult;
@@ -26,14 +27,11 @@ public class Main {
 
         //MainWindow main = new MainWindow();
         //main.show();
-
-        System.out.println(Util.lerFicheiroTexto("municipios.txt"));
-        
         
         juntar2ficheiros();
         //paginaHTMLBrasoes();
         //Camaras.Run();
-        Contratos.Run();
+        //Contratos.Run();
     }
 
     public static void juntar2ficheiros() {
@@ -50,21 +48,26 @@ public class Main {
         for (int i = 0; i < municipioslist.size(); i++) {
             Element munElement = municipioslist.get(i);
             String nomeMun = munElement.getChildText("nome");
-            System.out.println("Nome Mun: " + nomeMun);
+
             for (int j = 0; j < munList.size(); j++) {
                 Element contElement = munList.get(j);
                 String str = contElement.getAttributeValue("nomeMun");
-                System.out.println("nome municipio contratos: " + str);
+                
                 if (nomeMun.equals(str)) {
                     contElement.detach();
                     munElement.addContent(contElement);
                     break;
                 }
             }
-            System.out.println("Fin");
         }
-
         Util.escreverDocumentoParaFicheiro(docTudo, "tudo.xml");
+    }
+
+    private static void printList(List<Element> list) {
+
+        for (Element item : list) {
+            System.out.println(item.getAttribute("nomeMun"));
+        }
     }
 
     public static void paginaHTMLBrasoes() {
