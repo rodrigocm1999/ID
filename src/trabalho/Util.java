@@ -136,7 +136,7 @@ public class Util {
         try {
             SAXBuilder builder = new SAXBuilder(true);  // true ativa a validação
             Document doc = builder.build(new File(caminhoFicheiro));
-            System.out.println("Documento XML " + caminhoFicheiro + " é válido (DTD)");
+            //System.out.println("Documento XML " + caminhoFicheiro + " é válido (DTD)");
             return doc;
         } catch (JDOMException ex) {
             System.out.println("Documento XML " + caminhoFicheiro + " apresenta erros e não é válido (DTD)");
@@ -157,7 +157,7 @@ public class Util {
             builder.setFeature("http://apache.org/xml/features/validation/schema", true);
 
             Document doc = builder.build(new File(caminhoFicheiro));
-            System.out.println("Documento XML " + caminhoFicheiro + " é válido (XSD)");
+            //System.out.println("Documento XML " + caminhoFicheiro + " é válido (XSD)");
             return doc;
         } catch (JDOMException ex) {
             System.out.println("Documento XML " + caminhoFicheiro + " apresenta erros e não é válido (XSD)");

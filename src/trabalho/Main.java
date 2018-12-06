@@ -25,13 +25,13 @@ public class Main {
      */
     public static void main(String[] args) throws Exception {
 
-        //MainWindow main = new MainWindow();
-        //main.show();
+        MainWindow main = new MainWindow();
+        main.show();
         
-        juntar2ficheiros();
         //paginaHTMLBrasoes();
         //Camaras.Run();
         //Contratos.Run();
+        //juntar2ficheiros();
     }
 
     public static void juntar2ficheiros() {
@@ -52,7 +52,7 @@ public class Main {
             for (int j = 0; j < munList.size(); j++) {
                 Element contElement = munList.get(j);
                 String str = contElement.getAttributeValue("nomeMun");
-                
+
                 if (nomeMun.equals(str)) {
                     contElement.detach();
                     munElement.addContent(contElement);
@@ -63,10 +63,9 @@ public class Main {
         Util.escreverDocumentoParaFicheiro(docTudo, "tudo.xml");
     }
 
-    private static void printList(List<Element> list) {
-
-        for (Element item : list) {
-            System.out.println(item.getAttribute("nomeMun"));
+    public static <T extends List<T>> void printList(T list) {
+        for (Object item : list) {
+            System.out.println(item.toString());
         }
     }
 

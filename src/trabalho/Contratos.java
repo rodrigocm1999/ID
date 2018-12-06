@@ -5,9 +5,11 @@
  */
 package trabalho;
 
+import java.io.BufferedReader;
 import java.io.DataInputStream;
 import java.io.File;
 import java.io.FileInputStream;
+import java.io.InputStreamReader;
 import java.util.ArrayList;
 import org.jdom2.Document;
 import org.jdom2.Element;
@@ -25,14 +27,17 @@ public class Contratos {
         ArrayList<String> codEntidade = new ArrayList<>();
         ArrayList<String> nomeMunicipios = new ArrayList<>();
         try {
-            DataInputStream dis = new DataInputStream(new FileInputStream("municipios.txt"));
-            String line, numPart,nomeMunicipio;
-            while ((line = dis.readLine()) != null) {
+            BufferedReader br = new BufferedReader(new InputStreamReader(new FileInputStream("municipios.txt"), "UTF-8"));
+
+            String line, numPart, nomeMunicipio;
+            while ((line = br.readLine()) != null) {
                 String[] splited = line.split(";");
                 numPart = splited[1];
                 nomeMunicipio = splited[0];
                 nomeMunicipios.add(nomeMunicipio);
                 codEntidade.add(numPart);
+
+                System.out.println(nomeMunicipio);
             }
         } catch (Exception ex) {
         }
@@ -46,7 +51,7 @@ public class Contratos {
         Document doc = new Document(contratos);
 
         for (int i = 0; i < codEntidade.size(); i++) {
-            thread = new ThreadContratos(link, codEntidade.get(i),nomeMunicipios.get(i));
+            thread = new ThreadContratos(link, codEntidade.get(i), nomeMunicipios.get(i));
             thread.start();
             /*
             try {
@@ -76,7 +81,7 @@ public class Contratos {
                 Element municipio = new Element("municipio");
                 municipio.setAttribute("nomeMun", nomeMunicipios.get(i));
                 contratos.addContent(municipio);
-                
+
                 for (int j = 0; j < arrayThread.size(); j++) {
                     municipio.addContent(arrayThread.get(j).getElement());
                 }
@@ -85,7 +90,7 @@ public class Contratos {
                 ex.printStackTrace();
             }
         }
-        
+
         try {
             File f = new File("contratos.xsd");
             if (f.exists()) {
@@ -102,7 +107,7 @@ public class Contratos {
             }
         } catch (Exception ex) {
         }
-                        
+
         Util.escreverDocumentoParaFicheiro(doc, "contratos.xml");
     }
 }

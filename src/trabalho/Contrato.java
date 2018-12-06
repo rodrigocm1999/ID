@@ -16,7 +16,7 @@ public class Contrato {
 
     private static Integer counter = 0;
 
-    Element MainElement;
+    private Element MainElement;
 
     public Contrato(HashMap<String, String> hashMap) {
         
