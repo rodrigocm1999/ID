@@ -27,10 +27,13 @@ public class Main {
         //MainWindow main = new MainWindow();
         //main.show();
 
-        //juntar2ficheiros();
+        System.out.println(Util.lerFicheiroTexto("municipios.txt"));
+        
+        
+        juntar2ficheiros();
         //paginaHTMLBrasoes();
         //Camaras.Run();
-        //Contratos.Run();
+        Contratos.Run();
     }
 
     public static void juntar2ficheiros() {

@@ -38,10 +38,11 @@ public class Util {
 
     public static String lerFicheiroTexto(String path) {
         try {
-            DataInputStream dis = new DataInputStream(new FileInputStream(path));
+            BufferedReader br = new BufferedReader(new InputStreamReader(new FileInputStream(path), "UTF-8"));
+
             String line;
             StringBuilder stringBuilder = new StringBuilder();
-            while ((line = dis.readLine()) != null) {
+            while ((line = br.readLine()) != null) {
                 stringBuilder.append(line);
             }
             return stringBuilder.toString();
@@ -49,8 +50,7 @@ public class Util {
         }
         return null;
     }
-    
-    
+
     /*public static void httpRequest(String link, String pesquisa, String outFile) {
         URL url;
         try {
@@ -89,19 +89,18 @@ public class Util {
             Logger.getLogger(Util.class.getName()).log(Level.SEVERE, null, ex);
         }
     }*/
-
     public static String httpRequestToString(String link, String encoding) {
         URL url;
         try {
             url = new URL(link);
-            
+
             //URLConnection
             URLConnection ligacao = url.openConnection();
             ligacao.setConnectTimeout(0);
             ligacao.setReadTimeout(0);
             //System.out.println("connectTimeout : "+ligacao.getConnectTimeout() + "\treadTimeout : "+ligacao.getReadTimeout());
             ligacao.setRequestProperty("User-Agent", "Mozilla/5.0 (Macintosh; U; Intel Mac OS X 10.6; en-US; rv:1.9.2.16) Gecko/20110319 Firefox/3.6.16");
-             
+
             /*
             //HttpURLConnection 
             HttpURLConnection ligacao = (HttpURLConnection) url.openConnection();
@@ -111,13 +110,11 @@ public class Util {
             ligacao.setRequestMethod("GET");
             ligacao.setRequestProperty("User-Agent", "Mozilla/5.0 (Windows; U; Windows NT 6.0; en-US; rv:1.9.1.2) Gecko/20090729 Firefox/3.5.2 (.NET CLR 3.5.30729)");
             ligacao.connect();
-            */
+             */
             BufferedReader in = new BufferedReader(new InputStreamReader(ligacao.getInputStream(), encoding));
             StringBuilder sb = new StringBuilder();
             String linha;
-            
-            
-            
+
             while ((linha = in.readLine()) != null) {
                 sb.append(linha).append(System.getProperty("line.separator"));
             }
@@ -133,9 +130,9 @@ public class Util {
         }
         return null;
     }
-    
-        //Executa validação do documento XML usando  DTD 
-    public static Document validarDTD(String caminhoFicheiro) throws IOException{
+
+    //Executa validação do documento XML usando  DTD 
+    public static Document validarDTD(String caminhoFicheiro) throws IOException {
         try {
             SAXBuilder builder = new SAXBuilder(true);  // true ativa a validação
             Document doc = builder.build(new File(caminhoFicheiro));
@@ -150,14 +147,12 @@ public class Util {
         }
         return null;
     }
-    
-    
-    
-     //Executa validação do documento XML usando XSD
-    public static Document validarXSD(String caminhoFicheiro){
+
+    //Executa validação do documento XML usando XSD
+    public static Document validarXSD(String caminhoFicheiro) {
         try {
             SAXBuilder builder = new SAXBuilder(true); // true ativa a validação
-            
+
             // esta linha ativa a validação com XSD
             builder.setFeature("http://apache.org/xml/features/validation/schema", true);
 
@@ -173,19 +168,19 @@ public class Util {
         }
         return null;
     }
+
     /*Le um ficheiro XML do disco*/
     public static Document lerDocumentoXML(String caminhoFicheiro) {
         try {
-            
-            
+
             File file = new File(caminhoFicheiro);
-            InputStreamReader stream = new InputStreamReader(new FileInputStream(file), "utf-8");
+            InputStreamReader stream = new InputStreamReader(new FileInputStream(file), "UTF-8");
             Reader reader = new BufferedReader(stream);
-            
+
             SAXBuilder builder = new SAXBuilder();
             Document anotherDocument = builder.build(reader);
             return anotherDocument;
-            
+
         } catch (JDOMException ex) {
             System.out.println("Ficheiro XML nao existe");
         } catch (IOException ex) {
@@ -193,7 +188,7 @@ public class Util {
         }
         return null;
     }
-    
+
     public static void escreverDocumentoParaFicheiro(Document doc, String caminhoFicheiro) {
         OutputStreamWriter writer = null;
         try {
@@ -203,11 +198,11 @@ public class Util {
             outputFormat.setIndent("\t");
             outputFormat.setEncoding("utf-8"); // 
             //Prepara o XMLOutputter
-            XMLOutputter outputter = new XMLOutputter(outputFormat);            
-            writer = new OutputStreamWriter(new FileOutputStream(caminhoFicheiro), "utf-8");
+            XMLOutputter outputter = new XMLOutputter(outputFormat);
+            writer = new OutputStreamWriter(new FileOutputStream(caminhoFicheiro), "UTF-8");
             outputter.output(doc, writer);
             writer.close();
-                      
+
         } catch (IOException ex) {
             Logger.getLogger(Util.class.getName()).log(Level.SEVERE, null, ex);
         } finally {
@@ -217,20 +212,20 @@ public class Util {
                 Logger.getLogger(Util.class.getName()).log(Level.SEVERE, null, ex);
             }
         }
-        
+
     }
-    
+
     /*Coloca o conteudo de um documento numa String*/
     public static String escreverDocumentoString(Document doc) {
-            //Define o formato de saida
+        //Define o formato de saida
 
-            Format outputFormat = Format.getPrettyFormat();
-            outputFormat.setIndent("     ");
+        Format outputFormat = Format.getPrettyFormat();
+        outputFormat.setIndent("     ");
 
-            //Escreve o XML para o ecra, ou seja, System.out
-            XMLOutputter outputter = new XMLOutputter(outputFormat);
-            String txt = outputter.outputString(doc);
-            return txt;
+        //Escreve o XML para o ecra, ou seja, System.out
+        XMLOutputter outputter = new XMLOutputter(outputFormat);
+        String txt = outputter.outputString(doc);
+        return txt;
 
     }
 }
