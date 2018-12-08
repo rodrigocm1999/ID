@@ -19,11 +19,32 @@ import org.jdom2.Namespace;
  *
  * @author Joao
  */
-public class Contratos {
+public final class Contratos {
 
     public static String[] strings = new String[]{"objetoContrato", "preco", "publicacao", "adjudicatario"};
 
-    public static void Run() {
+    private Document contratos;
+    
+    public Contratos(boolean fromFiles) {
+        if(fromFiles){
+            contratos = Util.lerDocumentoXML("contratos.xml");
+        }else{
+            contratos = this.Run();
+        }
+    }
+    public Document getDocument(){return contratos;}
+
+    private Contratos(){ 
+    }
+    
+    
+    
+    
+    
+    
+    
+    
+    public static Document Run() {
         ArrayList<String> codEntidade = new ArrayList<>();
         ArrayList<String> nomeMunicipios = new ArrayList<>();
         try {
@@ -109,5 +130,24 @@ public class Contratos {
         }
 
         Util.escreverDocumentoParaFicheiro(doc, "contratos.xml");
+        return doc;
     }
+    
+    
+    
+    
+    public Element ContratoDeMaiorValorCamara(String nomeCamara){
+        
+        
+        
+        
+        
+        
+        
+        return null;
+    }
+    
+    
+    
+    
 }

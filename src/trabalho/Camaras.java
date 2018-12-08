@@ -23,7 +23,22 @@ public class Camaras {
         "assembleia", "telefone", "email", "site", "brasao", "morada", "codPostal"};
     private static String regExp = "<div class=\"sel3\">(?<nome>.*)<\\/div><br><div class=\"f3\">.*área de (?<area>\\d*),\\d km2, (?<nHabitantes>\\d+ \\d+).* (?<nFreguesias>\\d+) freguesias.*f3>(?<distrito>.*)<\\/a>.*feriado municipal, (?<feriado>\\d{4}-\\d\\d-\\d\\d).*\"f3\">(?<presidente>.*),.*\\r\\n.*>(?<assembleia>.*)\\s?,.*\\r\\n.*sel2\">(?<morada>.*)<br> (?<codPostal>\\d+-\\d+).*<\\/.*Telefone:.(?<telefone>.*) <br>.*\\r\\n.*mailto:(?<email>.*)\" .*\\r\\n.*<div class=\"f1\" align=\"left\"><a href=\"(?<site>.*\")\\sclass=\"f2\".*\\r\\n.*SRC=\"(?<brasao>.*)\" A";
 
-    public static void Run() throws Exception {
+    private Document camaras;
+
+    public Camaras(boolean fromFiles) {
+        if (fromFiles) {
+            camaras = Util.lerDocumentoXML("camaras.xml");
+        } else {
+            camaras = this.Run();
+        }
+    }
+    
+    public Document getDocument(){return camaras;}
+
+    private Camaras() {
+    }
+
+    public static Document Run() {
         // Link:    https://www.anmp.pt/anmp/pro/mun1/mun101w3.php?cod=M3000
         /*Minicipios de coimbra
             3060 - 3230    Os numeros sobem de 10 em 10
@@ -34,7 +49,7 @@ public class Camaras {
         /*int num_start = 3000;
         int num_end = 3420;//3420;*/
         String getAllCods = "href=\"mun101w3\\.php\\?cod=M(3\\d+)\" c";
-        String getAllMunString = Util.httpRequestToString("https://www.anmp.pt/anmp/pro/mun1/mun101w2.php?dis=06","windows-1252");
+        String getAllMunString = Util.httpRequestToString("https://www.anmp.pt/anmp/pro/mun1/mun101w2.php?dis=06", "windows-1252");
 
         Pattern pattern = Pattern.compile(getAllCods, Pattern.MULTILINE);
         Matcher matcher = pattern.matcher(getAllMunString);
@@ -86,8 +101,9 @@ public class Camaras {
             }
         } catch (Exception ex) {
         }
-        
+
         Util.escreverDocumentoParaFicheiro(doc, "camaras.xml");
+        return doc;
     }
 
     public static String getRegExp() {
