@@ -6,6 +6,7 @@
 package trabalho;
 
 import org.jdom2.Document;
+import org.jdom2.Element;
 
 /**
  *
@@ -186,15 +187,23 @@ public class MainWindow extends javax.swing.JFrame {
         // TODO add your handling code here:
         Pesquisa pesquisa = null;
         try {
-            System.out.println(CustomSearch.getText());
-            pesquisa = new Pesquisa(tudo, CustomSearch.getText());
+            pesquisa = new Pesquisa(camaras.getDocument(), CustomSearch.getText());
+            pesquisa.Pesquisa();
         } catch (Exception ex) {
+            System.out.println("Erro Pesquisa");
             ex.printStackTrace();
         }
         if (pesquisa == null) {
             return;
         }
-        Document doc = new Document(pesquisa.elements);
+        Element el = new Element("SearchRoot");
+        Document doc = new Document(el);
+
+        for(Element elem : pesquisa.elements){
+            System.out.println(elem.getValue());
+        }
+        
+        el.addContent(pesquisa.elements);
 
         String str = Util.escreverDocumentoString(doc);
 

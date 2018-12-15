@@ -21,9 +21,11 @@ public class Pesquisa {
     public Search[] search;
 
     private class Search {
+
         public String elName;
         public String elValue;
         public boolean found;
+
         public Search(String elName, String elValue) {
             this.elName = elName;
             this.elValue = elValue;
@@ -31,8 +33,8 @@ public class Pesquisa {
         }
     }
 
-    public Pesquisa(Document doc, String searchString) throws Exception{    
-        
+    public Pesquisa(Document doc, String searchString) throws Exception {
+
         this.doc = doc;
         this.elements = new ArrayList<>();
 
@@ -41,15 +43,16 @@ public class Pesquisa {
 
         for (int i = 0; i < splitted.length; i++) {
             String string = splitted[i];
-            String[] splittedAgain = string.split("&");
+            System.out.println(string);
+            String[] splittedAgain = string.split("=");
 
-            search[i].elName = splittedAgain[0];
-            search[i].elValue = splittedAgain[1];
+            search[i] = new Search(splittedAgain[0], splittedAgain[1]);
         }
     }
 
     public void Pesquisa() {
         Search(doc.getRootElement());
+
     }
 
     private boolean Search(Element el) {
@@ -65,22 +68,27 @@ public class Pesquisa {
 
             for (int i = 0; i < search.length; i++) {
 
-                if (child.getName() == search[i].elName) {
+                System.out.println(child.getName());
+                System.out.println(search[i].elName);
+
+                if (child.getName().equals(search[i].elName)) {
                     hasSearchedTerm = true;
                     if (!child.getValue().contains(search[i].elValue)) {
                         isNotTheOne = true;
+                    }else{
+                        elements.add(el);
                     }
                 }
             }
             if (hasSearchedTerm == false || (hasSearchedTerm == true && isNotTheOne == false)) {
-                hitEnd = Search(el);
+                Element e = child.clone();
+                e.detach();
+                hitEnd = Search(e);
             }
         }
         if (hitEnd) {
-            elements.add(el);
             return true;
         }
         return false;
     }
-
 }
