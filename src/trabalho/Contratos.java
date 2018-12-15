@@ -57,8 +57,6 @@ public final class Contratos {
                 nomeMunicipio = splited[0];
                 nomeMunicipios.add(nomeMunicipio);
                 codEntidade.add(numPart);
-
-                System.out.println(nomeMunicipio);
             }
         } catch (Exception ex) {
         }
