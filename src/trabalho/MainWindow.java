@@ -5,6 +5,8 @@
  */
 package trabalho;
 
+import org.jdom2.Document;
+
 /**
  *
  * @author Rodrigo
@@ -16,12 +18,15 @@ public class MainWindow extends javax.swing.JFrame {
      */
     private Camaras camaras;
     private Contratos contratos;
+    private Document tudo;
 
     public MainWindow() {
         initComponents();
 
         camaras = new Camaras(true);
         contratos = new Contratos(true);
+
+        tudo = Util.lerDocumentoXML("tudo.xml");
 
         TFCamaras.setText(Util.escreverDocumentoString(camaras.getDocument()));
         TFContratos.setText(Util.escreverDocumentoString(contratos.getDocument()));
@@ -67,6 +72,11 @@ public class MainWindow extends javax.swing.JFrame {
         jLabel1.setText("Pesquisa Customizada");
 
         BtnPesquisar.setText("Pesquisar");
+        BtnPesquisar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                BtnPesquisarActionPerformed(evt);
+            }
+        });
 
         jMenu1.setText("Ficheiros de Saida");
 
@@ -171,6 +181,26 @@ public class MainWindow extends javax.swing.JFrame {
         camaras = new Camaras(false);
         contratos = new Contratos(false);
     }//GEN-LAST:event_jMenuItem3ActionPerformed
+
+    private void BtnPesquisarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnPesquisarActionPerformed
+        // TODO add your handling code here:
+        Pesquisa pesquisa = null;
+        try {
+            System.out.println(CustomSearch.getText());
+            pesquisa = new Pesquisa(tudo, CustomSearch.getText());
+        } catch (Exception ex) {
+            ex.printStackTrace();
+        }
+        if (pesquisa == null) {
+            return;
+        }
+        Document doc = new Document(pesquisa.elements);
+
+        String str = Util.escreverDocumentoString(doc);
+
+
+        TFCamaras.setText(str);
+    }//GEN-LAST:event_BtnPesquisarActionPerformed
 
     /**
      * @param args the command line arguments

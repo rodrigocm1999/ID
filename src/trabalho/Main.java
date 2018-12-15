@@ -29,7 +29,7 @@ public class Main {
 
         MainWindow main = new MainWindow();
         main.show();
-        
+
         //paginaHTMLBrasoes();
         //juntar2ficheiros();
     }
@@ -82,5 +82,5 @@ public class Main {
             System.out.println("Erro de Transformação");
         }
     }
-
+   
 }
