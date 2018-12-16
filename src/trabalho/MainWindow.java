@@ -187,7 +187,7 @@ public class MainWindow extends javax.swing.JFrame {
         // TODO add your handling code here:
         Pesquisa pesquisa = null;
         try {
-            pesquisa = new Pesquisa(camaras.getDocument(), CustomSearch.getText());
+            pesquisa = new Pesquisa(tudo, CustomSearch.getText());
             pesquisa.Pesquisa();
         } catch (Exception ex) {
             System.out.println("Erro Pesquisa");

@@ -68,9 +68,6 @@ public class Pesquisa {
 
             for (int i = 0; i < search.length; i++) {
 
-                System.out.println(child.getName());
-                System.out.println(search[i].elName);
-
                 if (child.getName().equals(search[i].elName)) {
                     hasSearchedTerm = true;
                     if (!child.getValue().contains(search[i].elValue)) {
