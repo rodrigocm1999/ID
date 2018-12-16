@@ -187,7 +187,7 @@ public class MainWindow extends javax.swing.JFrame {
         // TODO add your handling code here:
         Pesquisa pesquisa = null;
         try {
-            pesquisa = new Pesquisa(tudo, CustomSearch.getText());
+            pesquisa = new Pesquisa(camaras.getDocument(), CustomSearch.getText());
             pesquisa.Pesquisa();
         } catch (Exception ex) {
             System.out.println("Erro Pesquisa");
@@ -199,14 +199,11 @@ public class MainWindow extends javax.swing.JFrame {
         Element el = new Element("SearchRoot");
         Document doc = new Document(el);
 
-        for(Element elem : pesquisa.elements){
-            System.out.println(elem.getValue());
+        for (Element elem : pesquisa.elements) {
+            elem.detach();
+            el.addContent(elem);
         }
-        
-        el.addContent(pesquisa.elements);
-
         String str = Util.escreverDocumentoString(doc);
-
 
         TFCamaras.setText(str);
     }//GEN-LAST:event_BtnPesquisarActionPerformed

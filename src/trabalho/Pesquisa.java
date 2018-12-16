@@ -43,7 +43,6 @@ public class Pesquisa {
 
         for (int i = 0; i < splitted.length; i++) {
             String string = splitted[i];
-            System.out.println(string);
             String[] splittedAgain = string.split("=");
 
             search[i] = new Search(splittedAgain[0], splittedAgain[1]);
@@ -72,8 +71,18 @@ public class Pesquisa {
                     hasSearchedTerm = true;
                     if (!child.getValue().contains(search[i].elValue)) {
                         isNotTheOne = true;
-                    }else{
-                        elements.add(el);
+                    } else {
+                        search[i].found = true;
+                        
+                        boolean addNow = true;
+                        for (int k = 0; k < search.length; k++) {
+                            if (search[k].found == false) {
+                                addNow = false;
+                            }
+                        }
+                        if (addNow) {
+                            elements.add(el);
+                        }
                     }
                 }
             }
