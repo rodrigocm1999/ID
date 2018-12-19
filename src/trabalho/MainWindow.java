@@ -228,8 +228,14 @@ public class MainWindow extends javax.swing.JFrame {
 
     private void jMenuItem3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem3ActionPerformed
 
-        camaras = new Camaras(false);
-        contratos = new Contratos(false);
+
+        Thread thread = new Thread() {
+            @Override
+            public void run() {
+                camaras = new Camaras(false);
+                contratos = new Contratos(false);
+            }
+        };
         System.exit(0);
     }//GEN-LAST:event_jMenuItem3ActionPerformed
 
@@ -260,17 +266,17 @@ public class MainWindow extends javax.swing.JFrame {
 
     private void jMenu1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenu1ActionPerformed
         //Guardar Ficheiro Contratos.xml
-        
+
     }//GEN-LAST:event_jMenu1ActionPerformed
 
     private void jMenuItem4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem4ActionPerformed
         //Guardar Ficheiro Camaras.xml
-        
+
     }//GEN-LAST:event_jMenuItem4ActionPerformed
 
     private void jMenuItem6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem6ActionPerformed
         //Guardar ambos Ficheiros
-        
+
     }//GEN-LAST:event_jMenuItem6ActionPerformed
 
     private void PesquisaSimplesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_PesquisaSimplesActionPerformed

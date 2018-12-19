@@ -28,7 +28,15 @@ public class CamaraMunicipal {
          
             String str = Camaras.strings[i];
             Element temp = new Element(str);
-            temp.setText(hashMap.get(str).toString());
+            
+            String strValue = hashMap.get(str);
+            String tempString = strValue.replaceAll(" ", "");
+            
+            if(Util.TryParse(tempString)){
+                temp.setText(tempString);
+            }else{
+                temp.setText(strValue);
+            }
             MainElement.addContent(temp);
         }
     }
