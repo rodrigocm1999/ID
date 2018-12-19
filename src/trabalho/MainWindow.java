@@ -17,6 +17,7 @@ public class MainWindow extends javax.swing.JFrame {
     /**
      * Creates new form MainWindow
      */
+
     private Camaras camaras;
     private Contratos contratos;
     private Document tudo;
@@ -46,15 +47,20 @@ public class MainWindow extends javax.swing.JFrame {
         TFCamaras = new javax.swing.JTextArea();
         jScrollPane2 = new javax.swing.JScrollPane();
         TFContratos = new javax.swing.JTextArea();
-        DDLProcuras = new javax.swing.JComboBox<>();
-        TFPesquisa = new javax.swing.JTextField();
-        CustomSearch = new javax.swing.JTextField();
+        SimpleSearch = new javax.swing.JTextField();
+        ComplexSearch = new javax.swing.JTextField();
         jLabel1 = new javax.swing.JLabel();
-        BtnPesquisar = new javax.swing.JButton();
+        PesquisaComplexa = new javax.swing.JButton();
+        PesquisaSimples = new javax.swing.JButton();
+        jLabel2 = new javax.swing.JLabel();
+        ddlPesquisas = new javax.swing.JComboBox<>();
         MenuBar = new javax.swing.JMenuBar();
         jMenu1 = new javax.swing.JMenu();
         jMenuItem1 = new javax.swing.JMenuItem();
         jMenuItem2 = new javax.swing.JMenuItem();
+        jMenuItem4 = new javax.swing.JMenuItem();
+        jMenuItem5 = new javax.swing.JMenuItem();
+        jMenuItem6 = new javax.swing.JMenuItem();
         jMenu2 = new javax.swing.JMenu();
         jMenuItem3 = new javax.swing.JMenuItem();
 
@@ -68,18 +74,32 @@ public class MainWindow extends javax.swing.JFrame {
         TFContratos.setRows(5);
         jScrollPane2.setViewportView(TFContratos);
 
-        DDLProcuras.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Procurar contratos por data específica", "Procurar contratos por autor da publicação", "Procurar contratos por adjudicatário", "Procurar qual o contrato de maior valor de uma Câmara Municipal especifica", "Procurar qual o contrato de maior valor de todas as Câmaras", "Introduzir uma câmara e obter todos os dados da mesma", "Top 5 das Câmara que gastaram mais com contratos", "Procurar Câmara por nome do presidente" }));
-
         jLabel1.setText("Pesquisa Customizada");
 
-        BtnPesquisar.setText("Pesquisar");
-        BtnPesquisar.addActionListener(new java.awt.event.ActionListener() {
+        PesquisaComplexa.setText("Pesquisa Complexa");
+        PesquisaComplexa.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                BtnPesquisarActionPerformed(evt);
+                PesquisaComplexaActionPerformed(evt);
             }
         });
 
+        PesquisaSimples.setText("Pesquisa Simples");
+        PesquisaSimples.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                PesquisaSimplesActionPerformed(evt);
+            }
+        });
+
+        jLabel2.setText("Pesquisa Predefinida");
+
+        ddlPesquisas.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Procurar contratos por data específica", "Procurar contratos por autor da publicação", "Procurar contratos por adjudicatário", "Procurar qual o contrato de maior valor de uma Câmara Municipal especifica", "Procurar qual o contrato de maior valor de todas as Câmaras", "Introduzir uma câmara e obter todos os dados da mesma", "Top 5 das Câmara que gastaram mais com contratos", "Procurar Câmara por nome do presidente" }));
+
         jMenu1.setText("Ficheiros de Saida");
+        jMenu1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenu1ActionPerformed(evt);
+            }
+        });
 
         jMenuItem1.setText("Juntar as camaras com os contratos");
         jMenuItem1.addActionListener(new java.awt.event.ActionListener() {
@@ -96,6 +116,25 @@ public class MainWindow extends javax.swing.JFrame {
             }
         });
         jMenu1.add(jMenuItem2);
+
+        jMenuItem4.setText("Guardar Ficheiro Camaras.xml");
+        jMenuItem4.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenuItem4ActionPerformed(evt);
+            }
+        });
+        jMenu1.add(jMenuItem4);
+
+        jMenuItem5.setText("Guardar Ficheiro Contratos.xml");
+        jMenu1.add(jMenuItem5);
+
+        jMenuItem6.setText("Guardar ambos ficheiros");
+        jMenuItem6.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenuItem6ActionPerformed(evt);
+            }
+        });
+        jMenu1.add(jMenuItem6);
 
         MenuBar.add(jMenu1);
 
@@ -124,38 +163,48 @@ public class MainWindow extends javax.swing.JFrame {
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addComponent(TFPesquisa, javax.swing.GroupLayout.DEFAULT_SIZE, 295, Short.MAX_VALUE)
-                        .addGap(18, 18, 18)
-                        .addComponent(DDLProcuras, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(layout.createSequentialGroup()
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                         .addComponent(jScrollPane1)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addComponent(jScrollPane2))
                     .addGroup(layout.createSequentialGroup()
-                        .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 142, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 136, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 136, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(CustomSearch)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(BtnPesquisar)))
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(layout.createSequentialGroup()
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(SimpleSearch, javax.swing.GroupLayout.Alignment.TRAILING)
+                                    .addComponent(ComplexSearch))
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                    .addComponent(PesquisaComplexa, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                    .addComponent(PesquisaSimples, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
+                            .addGroup(layout.createSequentialGroup()
+                                .addComponent(ddlPesquisas, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(0, 166, Short.MAX_VALUE)))))
                 .addContainerGap())
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addGap(27, 27, 27)
+                .addContainerGap()
+                .addComponent(ddlPesquisas, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(8, 8, 8)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(TFPesquisa, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(DDLProcuras, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(18, 18, 18)
+                    .addComponent(SimpleSearch, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(PesquisaSimples)
+                    .addComponent(jLabel2))
+                .addGap(8, 8, 8)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(BtnPesquisar)
-                    .addComponent(CustomSearch, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(PesquisaComplexa)
+                    .addComponent(ComplexSearch, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel1))
                 .addGap(10, 10, 10)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 408, Short.MAX_VALUE)
+                    .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 399, Short.MAX_VALUE)
                     .addComponent(jScrollPane2))
                 .addContainerGap())
         );
@@ -164,12 +213,12 @@ public class MainWindow extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void jMenuItem2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem2ActionPerformed
-        // TODO add your handling code here:
+
         Main.paginaHTMLBrasoes();
     }//GEN-LAST:event_jMenuItem2ActionPerformed
 
     private void jMenuItem1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem1ActionPerformed
-        // TODO add your handling code here:
+
         Main.juntar2ficheiros();
     }//GEN-LAST:event_jMenuItem1ActionPerformed
 
@@ -178,16 +227,17 @@ public class MainWindow extends javax.swing.JFrame {
     }//GEN-LAST:event_jMenu2ActionPerformed
 
     private void jMenuItem3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem3ActionPerformed
-        // TODO add your handling code here:
+
         camaras = new Camaras(false);
         contratos = new Contratos(false);
+        System.exit(0);
     }//GEN-LAST:event_jMenuItem3ActionPerformed
 
-    private void BtnPesquisarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnPesquisarActionPerformed
-        // TODO add your handling code here:
+    private void PesquisaComplexaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_PesquisaComplexaActionPerformed
+
         Pesquisa pesquisa = null;
         try {
-            pesquisa = new Pesquisa(camaras.getDocument(), CustomSearch.getText());
+            pesquisa = new Pesquisa(camaras.getDocument(), ComplexSearch.getText());
             pesquisa.Pesquisa();
         } catch (Exception ex) {
             System.out.println("Erro Pesquisa");
@@ -206,7 +256,46 @@ public class MainWindow extends javax.swing.JFrame {
         String str = Util.escreverDocumentoString(doc);
 
         TFCamaras.setText(str);
-    }//GEN-LAST:event_BtnPesquisarActionPerformed
+    }//GEN-LAST:event_PesquisaComplexaActionPerformed
+
+    private void jMenu1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenu1ActionPerformed
+        //Guardar Ficheiro Contratos.xml
+        
+    }//GEN-LAST:event_jMenu1ActionPerformed
+
+    private void jMenuItem4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem4ActionPerformed
+        //Guardar Ficheiro Camaras.xml
+        
+    }//GEN-LAST:event_jMenuItem4ActionPerformed
+
+    private void jMenuItem6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem6ActionPerformed
+        //Guardar ambos Ficheiros
+        
+    }//GEN-LAST:event_jMenuItem6ActionPerformed
+
+    private void PesquisaSimplesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_PesquisaSimplesActionPerformed
+
+        switch (ddlPesquisas.getSelectedIndex()) {
+            case 0:
+                break;
+            case 1:
+                break;
+            case 2:
+                break;
+            case 3:
+                break;
+            case 4:
+                break;
+            case 5:
+                break;
+            case 6:
+                break;
+            case 7:
+                break;
+            default:
+        }
+
+    }//GEN-LAST:event_PesquisaSimplesActionPerformed
 
     /**
      * @param args the command line arguments
@@ -244,19 +333,24 @@ public class MainWindow extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton BtnPesquisar;
-    private javax.swing.JTextField CustomSearch;
-    private javax.swing.JComboBox<String> DDLProcuras;
+    private javax.swing.JTextField ComplexSearch;
     private javax.swing.JMenuBar MenuBar;
+    private javax.swing.JButton PesquisaComplexa;
+    private javax.swing.JButton PesquisaSimples;
+    private javax.swing.JTextField SimpleSearch;
     private javax.swing.JTextArea TFCamaras;
     private javax.swing.JTextArea TFContratos;
-    private javax.swing.JTextField TFPesquisa;
+    private javax.swing.JComboBox<String> ddlPesquisas;
     private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel2;
     private javax.swing.JMenu jMenu1;
     private javax.swing.JMenu jMenu2;
     private javax.swing.JMenuItem jMenuItem1;
     private javax.swing.JMenuItem jMenuItem2;
     private javax.swing.JMenuItem jMenuItem3;
+    private javax.swing.JMenuItem jMenuItem4;
+    private javax.swing.JMenuItem jMenuItem5;
+    private javax.swing.JMenuItem jMenuItem6;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane2;
     // End of variables declaration//GEN-END:variables

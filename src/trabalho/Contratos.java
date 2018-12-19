@@ -6,7 +6,6 @@
 package trabalho;
 
 import java.io.BufferedReader;
-import java.io.DataInputStream;
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.InputStreamReader;
@@ -22,28 +21,27 @@ import org.jdom2.Namespace;
 public final class Contratos {
 
     public static String[] strings = new String[]{"objetoContrato", "preco", "publicacao", "adjudicatario"};
+    private static final String contratosPath = "contratos";
 
     private Document contratos;
-    
+
+    public Document getDocument() {
+        return contratos;
+    }
+
+    private Contratos() {
+    }
+
     public Contratos(boolean fromFiles) {
-        if(fromFiles){
-            contratos = Util.lerDocumentoXML("contratos.xml");
-        }else{
+        if (fromFiles) {
+            contratos = Util.lerDocumentoXML(contratosPath + ".xml");
+        } else {
             contratos = this.Run();
         }
     }
-    public Document getDocument(){return contratos;}
 
-    private Contratos(){ 
-    }
-    
-    
-    
-    
-    
-    
-    
-    
+
+
     public static Document Run() {
         ArrayList<String> codEntidade = new ArrayList<>();
         ArrayList<String> nomeMunicipios = new ArrayList<>();
@@ -111,41 +109,34 @@ public final class Contratos {
         }
 
         try {
-            File f = new File("contratos.xsd");
+            File f = new File(contratosPath + ".xsd");
             if (f.exists()) {
 
                 Namespace xsi = Namespace.getNamespace("xsi", "http://www.w3.org/2001/XMLSchema-instance");
                 contratos.addNamespaceDeclaration(xsi);
-                contratos.setAttribute("noNamespaceSchemaLocation", "contratos.xsd", xsi);
+                contratos.setAttribute("noNamespaceSchemaLocation", contratosPath + ".xsd", xsi);
 
-                if (Util.validarXSD("contratos.xml") == null) {
-                    throw new Exception("Ficheiro contratos.xml não é válido");
+                if (Util.validarXSD(contratosPath + ".xml") == null) {
+                    throw new Exception("Ficheiro " + contratosPath + ".xml não é válido");
                 }
             } else {
-                System.out.println("O ficheiro contratos.xml não existe");
+                System.out.println("O ficheiro " + contratosPath + ".xml não existe");
             }
         } catch (Exception ex) {
         }
 
-        Util.escreverDocumentoParaFicheiro(doc, "contratos.xml");
+        Util.escreverDocumentoParaFicheiro(doc, contratosPath + ".xml");
         return doc;
     }
-    
-    
-    
-    
-    public Element ContratoDeMaiorValorCamara(String nomeCamara){
-        
-        
-        
-        
-        
-        
-        
+
+
+
+    public Element ContratoDeMaiorValorCamara(String nomeCamara) {
+
+
         return null;
     }
-    
-    
-    
-    
+
+
+
 }

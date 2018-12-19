@@ -228,4 +228,13 @@ public class Util {
         return txt;
 
     }
+    
+    public static boolean TryParse(String str){
+        try{
+            Integer.parseInt(str);
+            return true;
+        }catch(Exception ex){
+            return false;
+        }
+    }
 }
