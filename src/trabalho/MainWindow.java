@@ -234,9 +234,10 @@ public class MainWindow extends javax.swing.JFrame {
             public void run() {
                 camaras = new Camaras(false);
                 contratos = new Contratos(false);
+
+                System.exit(0);  // Remover... Só esta aqui para testes
             }
         };
-        System.exit(0);
     }//GEN-LAST:event_jMenuItem3ActionPerformed
 
     private void PesquisaComplexaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_PesquisaComplexaActionPerformed
