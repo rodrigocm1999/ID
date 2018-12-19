@@ -23,6 +23,10 @@ public final class Contratos {
     public static String[] strings = new String[]{"objetoContrato", "preco", "publicacao", "adjudicatario"};
     private static final String contratosPath = "contratos";
 
+    public static String getPath(){
+        return "contratos.xml";
+    }
+    
     private Document contratos;
 
     public Document getDocument() {

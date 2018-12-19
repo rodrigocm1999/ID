@@ -14,6 +14,7 @@ import java.io.FileOutputStream;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.io.InputStreamReader;
+import java.io.OutputStream;
 import java.io.OutputStreamWriter;
 import java.io.Reader;
 import java.net.MalformedURLException;
@@ -50,6 +51,16 @@ public class Util {
         }
         return null;
     }
+
+    public static void escreverFicheiroTexto(String str, String path) {
+        try {
+            BufferedWriter bw = new BufferedWriter(new FileWriter(path));
+            bw.write(str);
+            bw.close();
+        } catch (IOException ex) {
+        }
+    }
+
 
     /*public static void httpRequest(String link, String pesquisa, String outFile) {
         URL url;
@@ -228,12 +239,12 @@ public class Util {
         return txt;
 
     }
-    
-    public static boolean TryParse(String str){
-        try{
+
+    public static boolean TryParse(String str) {
+        try {
             Integer.parseInt(str);
             return true;
-        }catch(Exception ex){
+        } catch (Exception ex) {
             return false;
         }
     }

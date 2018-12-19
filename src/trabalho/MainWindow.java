@@ -126,6 +126,11 @@ public class MainWindow extends javax.swing.JFrame {
         jMenu1.add(jMenuItem4);
 
         jMenuItem5.setText("Guardar Ficheiro Contratos.xml");
+        jMenuItem5.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenuItem5ActionPerformed(evt);
+            }
+        });
         jMenu1.add(jMenuItem5);
 
         jMenuItem6.setText("Guardar ambos ficheiros");
@@ -266,18 +271,19 @@ public class MainWindow extends javax.swing.JFrame {
     }//GEN-LAST:event_PesquisaComplexaActionPerformed
 
     private void jMenu1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenu1ActionPerformed
-        //Guardar Ficheiro Contratos.xml
+
 
     }//GEN-LAST:event_jMenu1ActionPerformed
 
     private void jMenuItem4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem4ActionPerformed
-        //Guardar Ficheiro Camaras.xml
-
+        //Guardar Ficheiro Camaras.xml       
+        Util.escreverFicheiroTexto(TFCamaras.getText(), Camaras.getPath());
     }//GEN-LAST:event_jMenuItem4ActionPerformed
 
     private void jMenuItem6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem6ActionPerformed
         //Guardar ambos Ficheiros
-
+        Util.escreverFicheiroTexto(TFCamaras.getText(), Camaras.getPath());
+        Util.escreverFicheiroTexto(TFContratos.getText(), Contratos.getPath());
     }//GEN-LAST:event_jMenuItem6ActionPerformed
 
     private void PesquisaSimplesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_PesquisaSimplesActionPerformed
@@ -303,6 +309,11 @@ public class MainWindow extends javax.swing.JFrame {
         }
 
     }//GEN-LAST:event_PesquisaSimplesActionPerformed
+
+    private void jMenuItem5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem5ActionPerformed
+        //Guardar Ficheiro Contratos.xml
+        Util.escreverFicheiroTexto(TFContratos.getText(), Contratos.getPath());
+    }//GEN-LAST:event_jMenuItem5ActionPerformed
 
     /**
      * @param args the command line arguments

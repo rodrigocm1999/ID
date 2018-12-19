@@ -27,6 +27,9 @@ public class Camaras {
     public static String getRegExp() {
         return regExp.substring(0);
     }
+    public static String getPath(){
+        return "camaras.xml";
+    }
 
     private Document camaras;
 
