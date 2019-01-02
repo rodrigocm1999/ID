@@ -5,6 +5,7 @@
  */
 package trabalho;
 
+import java.util.List;
 import javax.swing.JOptionPane;
 import org.jdom2.Document;
 import org.jdom2.Element;
@@ -31,11 +32,13 @@ public class MainWindow extends javax.swing.JFrame {
 
         camaras = new Camaras(true);
         contratos = new Contratos(true);
-
+        
         tudo = Util.lerDocumentoXML("tudo.xml");
-
         TFCamaras.setText(Util.escreverDocumentoString(camaras.getDocument()));
-        TFContratos.setText(Util.escreverDocumentoString(contratos.getDocument()));
+        
+        Document doc = contratos.getDocument();
+        String str = Util.escreverDocumentoString(doc);
+        TFContratos.setText(str);
     }
 
     /**
@@ -47,6 +50,10 @@ public class MainWindow extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        jFrame1 = new javax.swing.JFrame();
+        jScrollPane3 = new javax.swing.JScrollPane();
+        jTextArea1 = new javax.swing.JTextArea();
+        jLabel3 = new javax.swing.JLabel();
         jScrollPane1 = new javax.swing.JScrollPane();
         TFCamaras = new javax.swing.JTextArea();
         jScrollPane2 = new javax.swing.JScrollPane();
@@ -67,6 +74,35 @@ public class MainWindow extends javax.swing.JFrame {
         jMenuItem6 = new javax.swing.JMenuItem();
         jMenu2 = new javax.swing.JMenu();
         jMenuItem3 = new javax.swing.JMenuItem();
+
+        jTextArea1.setColumns(20);
+        jTextArea1.setRows(5);
+        jScrollPane3.setViewportView(jTextArea1);
+
+        jLabel3.setText("Resultado da pesquisa");
+
+        javax.swing.GroupLayout jFrame1Layout = new javax.swing.GroupLayout(jFrame1.getContentPane());
+        jFrame1.getContentPane().setLayout(jFrame1Layout);
+        jFrame1Layout.setHorizontalGroup(
+            jFrame1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jFrame1Layout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(jFrame1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jScrollPane3, javax.swing.GroupLayout.DEFAULT_SIZE, 388, Short.MAX_VALUE)
+                    .addGroup(jFrame1Layout.createSequentialGroup()
+                        .addComponent(jLabel3)
+                        .addGap(0, 0, Short.MAX_VALUE)))
+                .addContainerGap())
+        );
+        jFrame1Layout.setVerticalGroup(
+            jFrame1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jFrame1Layout.createSequentialGroup()
+                .addGap(9, 9, 9)
+                .addComponent(jLabel3)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jScrollPane3, javax.swing.GroupLayout.DEFAULT_SIZE, 263, Short.MAX_VALUE)
+                .addContainerGap())
+        );
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -296,27 +332,47 @@ public class MainWindow extends javax.swing.JFrame {
 
         XPathFactory factory = XPathFactory.instance();
         XPathExpression xPath = null;
-        
+        String search = PesquisaSimples.getText();
+
         switch (ddlPesquisas.getSelectedIndex()) {
             case 0:
-                xPath = factory.compile("//");
+                //Procurar contratos por data específica
+
+                xPath = factory.compile("//contrato[publicacao=" + search + "]");
                 break;
             case 1:
+                //Procurar contratos por autor da publicação
+
                 break;
             case 2:
+                //Procurar contratos por adjudicatário
+
                 break;
             case 3:
+                //Procurar qual o contrato de maior valor de uma Câmara Municipal especifica
+
                 break;
             case 4:
+                //Procurar qual o contrato de maior valor de todas as Câmaras
+
                 break;
             case 5:
+                //Introduzir uma câmara e obter todos os dados da mesma
+
                 break;
             case 6:
+                //Top 5 das Câmara que gastaram mais com contratos
+
                 break;
             case 7:
+                //Procurar Câmara por nome do presidente
+
                 break;
             default:
         }
+
+        List<Element> list = xPath.evaluate(contratos.getDocument());
+
 
     }//GEN-LAST:event_PesquisaSimplesActionPerformed
 
@@ -369,8 +425,10 @@ public class MainWindow extends javax.swing.JFrame {
     private javax.swing.JTextArea TFCamaras;
     private javax.swing.JTextArea TFContratos;
     private javax.swing.JComboBox<String> ddlPesquisas;
+    private javax.swing.JFrame jFrame1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel jLabel3;
     private javax.swing.JMenu jMenu1;
     private javax.swing.JMenu jMenu2;
     private javax.swing.JMenuItem jMenuItem1;
@@ -381,5 +439,7 @@ public class MainWindow extends javax.swing.JFrame {
     private javax.swing.JMenuItem jMenuItem6;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane2;
+    private javax.swing.JScrollPane jScrollPane3;
+    private javax.swing.JTextArea jTextArea1;
     // End of variables declaration//GEN-END:variables
 }

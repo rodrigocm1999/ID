@@ -193,7 +193,7 @@ public class Util {
             return anotherDocument;
 
         } catch (JDOMException ex) {
-            System.out.println("Ficheiro XML nao existe");
+            System.out.println("JDOM Exception Ficheiro contem erros : " + caminhoFicheiro);
         } catch (IOException ex) {
             System.out.println("Ficheiro XML nao existe");
         }
@@ -231,7 +231,7 @@ public class Util {
         //Define o formato de saida
 
         Format outputFormat = Format.getPrettyFormat();
-        outputFormat.setIndent("     ");
+        outputFormat.setIndent("    ");
 
         //Escreve o XML para o ecra, ou seja, System.out
         XMLOutputter outputter = new XMLOutputter(outputFormat);

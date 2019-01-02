@@ -2,7 +2,7 @@
 <municipios xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="camaras.xsd">
      <municipio id="id1">
           <nome>Arganil</nome>
-          <adsa
+          <adsa></adsa>
           <assembleia>José Duarte Pereira</assembleia>
           <telefone>233403300</telefone>
           <email>municipe@cm-figfoz.pt</email>

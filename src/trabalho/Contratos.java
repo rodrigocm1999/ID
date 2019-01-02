@@ -20,13 +20,13 @@ import org.jdom2.Namespace;
  */
 public final class Contratos {
 
-    public static String[] strings = new String[]{"objetoContrato", "preco", "publicacao", "adjudicatario"};
+    public static final String[] strings = new String[]{"objetoContrato", "preco", "publicacao", "adjudicatario"};
     private static final String contratosPath = "contratos";
 
-    public static String getPath(){
-        return "contratos.xml";
+    public static String getPath() {
+        return contratosPath + ".xml";
     }
-    
+
     private Document contratos;
 
     public Document getDocument() {
@@ -74,21 +74,6 @@ public final class Contratos {
         for (int i = 0; i < codEntidade.size(); i++) {
             thread = new ThreadContratos(link, codEntidade.get(i), nomeMunicipios.get(i));
             thread.start();
-            /*
-            try {
-                thread.join();
-
-                ArrayList<Contrato> arrayThread = thread.getContratos();
-
-                for (int j = 0; j < arrayThread.size(); j++) {
-                    contratos.addContent(arrayThread.get(j).getElement());
-                }
-                XMLfunc.escreverDocumentoParaFicheiro(doc, "contratos.xml");
-                //Thread.sleep(100);
-            } catch (Exception ex) {
-                System.out.println("erro");
-                ex.printStackTrace();
-            }*/
 
             threadsContratos.add(thread);
         }
@@ -124,7 +109,7 @@ public final class Contratos {
                     throw new Exception("Ficheiro " + contratosPath + ".xml não é válido");
                 }
             } else {
-                System.out.println("O ficheiro " + contratosPath + ".xml não existe");
+                System.out.println("O ficheiro " + contratosPath + ".xsd não existe");
             }
         } catch (Exception ex) {
         }
