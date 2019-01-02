@@ -44,7 +44,7 @@ public class Util {
             String line;
             StringBuilder stringBuilder = new StringBuilder();
             while ((line = br.readLine()) != null) {
-                stringBuilder.append(line);
+                stringBuilder.append(line).append("\n");
             }
             return stringBuilder.toString();
         } catch (IOException ex) {
