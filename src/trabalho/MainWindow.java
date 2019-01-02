@@ -32,13 +32,10 @@ public class MainWindow extends javax.swing.JFrame {
 
         camaras = new Camaras(true);
         contratos = new Contratos(true);
-        
+
         tudo = Util.lerDocumentoXML("tudo.xml");
-        TFCamaras.setText(Util.escreverDocumentoString(camaras.getDocument()));
-        
-        Document doc = contratos.getDocument();
-        String str = Util.escreverDocumentoString(doc);
-        TFContratos.setText(str);
+        TFCamaras.setText(camaras.getRawFileString());
+        TFContratos.setText(contratos.getRawFileString());
     }
 
     /**

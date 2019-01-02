@@ -37,6 +37,10 @@ public class Camaras {
         return camaras;
     }
 
+     public String getRawFileString() {
+        return Util.lerFicheiroTexto(camarasPath + ".xml");
+    }
+
     private Camaras() {
     }
 

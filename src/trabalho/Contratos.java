@@ -33,6 +33,10 @@ public final class Contratos {
         return contratos;
     }
 
+    public String getRawFileString() {
+        return Util.lerFicheiroTexto(contratosPath + ".xml");
+    }
+
     private Contratos() {
     }
 
