@@ -5,8 +5,12 @@
  */
 package trabalho;
 
+import javax.swing.JOptionPane;
 import org.jdom2.Document;
 import org.jdom2.Element;
+import org.jdom2.xpath.XPathFactory;
+import org.jdom2.xpath.XPathExpression;
+
 
 /**
  *
@@ -240,9 +244,11 @@ public class MainWindow extends javax.swing.JFrame {
                 camaras = new Camaras(false);
                 contratos = new Contratos(false);
 
-                System.exit(0);  // Remover... Só esta aqui para testes
+                JOptionPane.showMessageDialog(null, "",
+                        "Acabou de atualizar", JOptionPane.INFORMATION_MESSAGE);
             }
         };
+        thread.start();
     }//GEN-LAST:event_jMenuItem3ActionPerformed
 
     private void PesquisaComplexaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_PesquisaComplexaActionPerformed
@@ -288,8 +294,12 @@ public class MainWindow extends javax.swing.JFrame {
 
     private void PesquisaSimplesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_PesquisaSimplesActionPerformed
 
+        XPathFactory factory = XPathFactory.instance();
+        XPathExpression xPath = null;
+        
         switch (ddlPesquisas.getSelectedIndex()) {
             case 0:
+                xPath = factory.compile("//");
                 break;
             case 1:
                 break;
