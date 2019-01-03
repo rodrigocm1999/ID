@@ -23,11 +23,12 @@ public class Camaras {
         "assembleia", "telefone", "email", "site", "brasao", "morada", "codPostal"};
     private static String regExp = "<div class=\"sel3\">(?<nome>.*)<\\/div><br><div class=\"f3\">.*área de (?<area>\\d*),\\d km2, (?<nHabitantes>\\d+ \\d+).* (?<nFreguesias>\\d+) freguesias.*f3>(?<distrito>.*)<\\/a>.*feriado municipal, (?<feriado>\\d{4}-\\d\\d-\\d\\d).*\"f3\">(?<presidente>.*),.*\\r\\n.*>(?<assembleia>.*)\\s?,.*\\r\\n.*sel2\">(?<morada>.*)<br> (?<codPostal>\\d+-\\d+).*<\\/.*Telefone:.(?<telefone>.*) <br>.*\\r\\n.*mailto:(?<email>.*)\" .*\\r\\n.*<div class=\"f1\" align=\"left\"><a href=\"(?<site>.*\")\\sclass=\"f2\".*\\r\\n.*SRC=\"(?<brasao>.*)\" A";
     private static final String camarasPath = "camaras";
-    
+
     public static String getRegExp() {
         return regExp.substring(0);
     }
-    public static String getPath(){
+
+    public static String getPath() {
         return "camaras.xml";
     }
 
@@ -37,7 +38,7 @@ public class Camaras {
         return camaras;
     }
 
-     public String getRawFileString() {
+    public String getRawFileString() {
         return Util.lerFicheiroTexto(camarasPath + ".xml");
     }
 
@@ -46,7 +47,7 @@ public class Camaras {
 
     public Camaras(boolean fromFiles) {
         if (fromFiles) {
-            camaras = Util.lerDocumentoXML(camarasPath+".xml");
+            camaras = Util.lerDocumentoXML(camarasPath + ".xml");
         } else {
             camaras = this.Run();
         }
@@ -105,9 +106,9 @@ public class Camaras {
 
                 Namespace xsi = Namespace.getNamespace("xsi", "http://www.w3.org/2001/XMLSchema-instance");
                 municipios.addNamespaceDeclaration(xsi);
-                municipios.setAttribute("noNamespaceSchemaLocation", camarasPath+".xsd", xsi);
+                municipios.setAttribute("noNamespaceSchemaLocation", camarasPath + ".xsd", xsi);
 
-                if (Util.validarXSD(camarasPath+".xml") == null) {
+                if (Util.validarXSD(camarasPath + ".xml") == null) {
                     throw new Exception("Ficheiro camaras.xml não é válido");
                 }
             } else {
@@ -116,11 +117,7 @@ public class Camaras {
         } catch (Exception ex) {
         }
 
-        Util.escreverDocumentoParaFicheiro(doc, camarasPath+".xml");
+        Util.escreverDocumentoParaFicheiro(doc, camarasPath + ".xml");
         return doc;
-    }
-
-    public void saveFile(){
-        Util.escreverDocumentoParaFicheiro(camaras, camarasPath);
     }
 }

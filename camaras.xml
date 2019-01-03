@@ -1,194 +1,258 @@
-<?xml version="1.0" encoding="UTF-8"?>
+<?xml version="1.0" encoding="utf-8"?>
 <municipios xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="camaras.xsd">
-     <municipio id="id1">
-          <nome>Arganil</nome>
-          <adsa></adsa>
-          <assembleia>José Duarte Pereira</assembleia>
-          <telefone>233403300</telefone>
-          <email>municipe@cm-figfoz.pt</email>
-          <site>http://www.cm-figfoz.pt"</site>
-          <brasao>https://www.anmp.pt/../../../image/munap/M3080b.jpg</brasao>
-          <morada>Av. Saraiva de Carvalho</morada>
-          <codPostal>3084-501</codPostal>
-     </municipio>
-     <municipio id="id9">
-          <nome>Góis</nome>
-          <area>263</area>
-          <nHabitantes>4260</nHabitantes>
-          <nFreguesias>4</nFreguesias>
-          <feriado>2018-08-13</feriado>
-          <presidente>Maria de Lurdes Castanheira</presidente>
-          <assembleia>Maria do Céu Alves</assembleia>
-          <telefone>235770110</telefone>
-          <email>correio@cm-gois.pt</email>
-          <site>http://www.cm-gois.pt"</site>
-          <brasao>https://www.anmp.pt/../../../image/munap/M3330b.jpg</brasao>
-          <morada>Praça da República</morada>
-          <codPostal>3330-310</codPostal>
-     </municipio>
-     <municipio id="id5">
-          <nome>Lousã</nome>
-          <area>138</area>
-          <nHabitantes>17604</nHabitantes>
-          <nFreguesias>4</nFreguesias>
-          <feriado>2018-06-24</feriado>
-          <presidente>LUÍS MIGUEL CORREIA ANTUNES</presidente>
-          <assembleia>Carlos Seco</assembleia>
-          <telefone>239990370</telefone>
-          <email>geral@cm-lousa.pt</email>
-          <site>http://www.cm-lousa.pt"</site>
-          <brasao>https://www.anmp.pt/../../../image/munap/M3200b.jpg</brasao>
-          <morada>Rua Dr. João Santos</morada>
-          <codPostal>3200-953</codPostal>
-     </municipio>
-     <municipio id="id4">
-          <nome>Mira</nome>
-          <area>124</area>
-          <nHabitantes>12465</nHabitantes>
-          <nFreguesias>4</nFreguesias>
-          <feriado>2018-07-25</feriado>
-          <presidente>RAUL JOSÉ REI SOARES DE ALMEIDA</presidente>
-          <assembleia>Mário Ribeiro Maduro</assembleia>
-          <telefone>231480550</telefone>
-          <email>geral@cm-mira.pt</email>
-          <site>http://www.cm-mira.pt"</site>
-          <brasao>https://www.anmp.pt/../../../image/munap/M3070b.jpg</brasao>
-          <morada>Praça da República</morada>
-          <codPostal>3070-304</codPostal>
-     </municipio>
-     <municipio id="id10">
-          <nome>Miranda do Corvo</nome>
-          <area>126</area>
-          <nHabitantes>13098</nHabitantes>
-          <nFreguesias>4</nFreguesias>
-          <feriado>2018-06-01</feriado>
-          <presidente>António Miguel Costa Baptista</presidente>
-          <assembleia>João Mourato Pinto</assembleia>
-          <telefone>239530320</telefone>
-          <email>camara@cm-mirandadocorvo.pt</email>
-          <site>http://www.cm-mirandadocorvo.pt"</site>
-          <brasao>https://www.anmp.pt/../../../image/munap/M3220b.jpg</brasao>
-          <morada>Praça José Falcão</morada>
-          <codPostal>3220-206</codPostal>
-     </municipio>
-     <municipio id="id13">
-          <nome>Montemor-o-Velho</nome>
-          <area>229</area>
-          <nHabitantes>26171</nHabitantes>
-          <nFreguesias>11</nFreguesias>
-          <feriado>2018-09-08</feriado>
-          <presidente>Emílio Augusto Ferreira Torrão</presidente>
-          <assembleia>Fernando Jorge dos Ramos</assembleia>
-          <telefone>239687300</telefone>
-          <email>geral@cm-montemorvelho.pt</email>
-          <site>http://www.cm-montemorvelho.pt"</site>
-          <brasao>https://www.anmp.pt/../../../image/munap/M3140b.jpg</brasao>
-          <morada>Praça da República</morada>
-          <codPostal>3140-258</codPostal>
-     </municipio>
-     <municipio id="id17">
-          <nome>Oliveira do Hospital</nome>
-          <area>235</area>
-          <nHabitantes>20855</nHabitantes>
-          <nFreguesias>16</nFreguesias>
-          <feriado>2018-10-07</feriado>
-          <presidente>José Carlos Alexandrino Mendes</presidente>
-          <assembleia>Dulce Álvaro Pássaro</assembleia>
-          <telefone>238605250</telefone>
-          <email>geral@cm-oliveiradohospital.pt</email>
-          <site>http://www.cm-oliveiradohospital.pt"</site>
-          <brasao>https://www.anmp.pt/../../../image/munap/M3400b.jpg</brasao>
-          <morada>Largo Conselheiro Cabral Metello</morada>
-          <codPostal>3400-062</codPostal>
-     </municipio>
-     <municipio id="id16">
-          <nome>Pampilhosa da Serra</nome>
-          <area>396</area>
-          <nHabitantes>4481</nHabitantes>
-          <nFreguesias>8</nFreguesias>
-          <feriado>2018-04-10</feriado>
-          <presidente>José Alberto Pacheco Brito Dias</presidente>
-          <assembleia>Hermano de Almeida</assembleia>
-          <telefone>235590320</telefone>
-          <email>municipio@cm-pampilhosadaserra.pt</email>
-          <site>http://www.cm-pampilhosadaserra.pt"</site>
-          <brasao>https://www.anmp.pt/../../../image/munap/M3320b.jpg</brasao>
-          <morada>Rua Rangel de Lima</morada>
-          <codPostal>3320-229</codPostal>
-     </municipio>
-     <municipio id="id15">
-          <nome>Penacova</nome>
-          <area>217</area>
-          <nHabitantes>15251</nHabitantes>
-          <nFreguesias>8</nFreguesias>
-          <feriado>2018-07-17</feriado>
-          <presidente>Humberto José Batista Oliveira</presidente>
-          <assembleia>Pedro Coimbra</assembleia>
-          <telefone>239470300</telefone>
-          <email>geral@cm-penacova.pt</email>
-          <site>http://www.cm-penacova.pt"</site>
-          <brasao>https://www.anmp.pt/../../../image/munap/M3360b.jpg</brasao>
-          <morada>Largo Alberto Leitão, 5</morada>
-          <codPostal>3360-191</codPostal>
-     </municipio>
-     <municipio id="id7">
-          <nome>Penela</nome>
-          <area>135</area>
-          <nHabitantes>5983</nHabitantes>
-          <nFreguesias>4</nFreguesias>
-          <feriado>2018-09-29</feriado>
-          <presidente>Luís Filipe da Silva Lourenço Matias</presidente>
-          <assembleia>Fernando dos Santos Antunes</assembleia>
-          <telefone>239560120</telefone>
-          <email>cmpenela@cm-penela.pt</email>
-          <site>http://www.cm-penela.pt"</site>
-          <brasao>https://www.anmp.pt/../../../image/munap/M3230b.jpg</brasao>
-          <morada>Praça do Município</morada>
-          <codPostal>3230-253</codPostal>
-     </municipio>
-     <municipio id="id11">
-          <nome>Soure</nome>
-          <area>265</area>
-          <nHabitantes>19245</nHabitantes>
-          <nFreguesias>10</nFreguesias>
-          <feriado>2018-09-21</feriado>
-          <presidente>Mário Jorge Nunes</presidente>
-          <assembleia>João Gouveia</assembleia>
-          <telefone>239506550</telefone>
-          <email>geral@cm-soure.pt</email>
-          <site>http://www.cm-soure.pt"</site>
-          <brasao>https://www.anmp.pt/../../../image/munap/M3130b.jpg</brasao>
-          <morada>Praça da República</morada>
-          <codPostal>3130-218</codPostal>
-     </municipio>
-     <municipio id="id14">
-          <nome>Tábua</nome>
-          <area>200</area>
-          <nHabitantes>12071</nHabitantes>
-          <nFreguesias>11</nFreguesias>
-          <feriado>2018-04-10</feriado>
-          <presidente>Mário Almeida Loureiro</presidente>
-          <assembleia>Nuno Tavares</assembleia>
-          <telefone>235410340</telefone>
-          <email>geral@cm-tabua.pt</email>
-          <site>http://www.cm-tabua.pt"</site>
-          <brasao>https://www.anmp.pt/../../../image/munap/M3420b.jpg</brasao>
-          <morada>Câmara Municipal</morada>
-          <codPostal>3420-308</codPostal>
-     </municipio>
-     <municipio id="id12">
-          <nome>Vila Nova de Poiares</nome>
-          <area>84</area>
-          <nHabitantes>7281</nHabitantes>
-          <nFreguesias>4</nFreguesias>
-          <feriado>2018-01-13</feriado>
-          <presidente>João Miguel Sousa Henriques</presidente>
-          <assembleia>Nuno Lima</assembleia>
-          <telefone>239420850</telefone>
-          <email>geral@cm-vilanovadepoiares.pt</email>
-          <site>http://www.cm-vilanovadepoiares.pt"</site>
-          <brasao>https://www.anmp.pt/../../../image/munap/M3350b.jpg</brasao>
-          <morada>Largo da República</morada>
-          <codPostal>3351-909</codPostal>
-     </municipio>
+	<municipio id="id1">
+		<nome>Arganil</nome>
+		<area>333</area>
+		<nHabitantes>12145</nHabitantes>
+		<nFreguesias>14</nFreguesias>
+		<feriado>2018-09-07</feriado>
+		<presidente>Luis Paulo Carreira Fonseca</presidente>
+		<assembleia>Ricardo João Barata Pereira Alves</assembleia>
+		<telefone>235200150</telefone>
+		<email>geral@cm-arganil.pt</email>
+		<site>http://www.cm-arganil.pt"</site>
+		<brasao>https://www.anmp.pt/../../../image/munap/M3300b.jpg</brasao>
+		<morada>Praça Simões Dias, Apartado 10</morada>
+		<codPostal>3304-954</codPostal>
+	</municipio>
+	<municipio id="id2">
+		<nome>Cantanhede</nome>
+		<area>391</area>
+		<nHabitantes>36595</nHabitantes>
+		<nFreguesias>14</nFreguesias>
+		<feriado>2018-07-25</feriado>
+		<presidente>Maria Helena Rosa de Teodósio</presidente>
+		<assembleia>João Pais Moura</assembleia>
+		<telefone>231410100</telefone>
+		<email>geral@cm-cantanhede.pt</email>
+		<site>http://www.cantanhedeonline.pt"</site>
+		<brasao>https://www.anmp.pt/../../../image/munap/M3060b.jpg</brasao>
+		<morada>Praça Marquês de Marialva - Apartado 154</morada>
+		<codPostal>3064-909</codPostal>
+	</municipio>
+	<municipio id="id3">
+		<nome>Coimbra</nome>
+		<area>319</area>
+		<nHabitantes>143396</nHabitantes>
+		<nFreguesias>18</nFreguesias>
+		<feriado>2018-07-04</feriado>
+		<presidente>Manuel Machado</presidente>
+		<assembleia>Luís Marinho</assembleia>
+		<telefone>239857500</telefone>
+		<email>geral@cm-coimbra.pt</email>
+		<site>http://www.cm-coimbra.pt       "</site>
+		<brasao>https://www.anmp.pt/../../../image/munap/M3000b.jpg</brasao>
+		<morada>Praça 8 de Maio</morada>
+		<codPostal>3000-300</codPostal>
+	</municipio>
+	<municipio id="id4">
+		<nome>Condeixa-a-Nova</nome>
+		<area>139</area>
+		<nHabitantes>17078</nHabitantes>
+		<nFreguesias>7</nFreguesias>
+		<feriado>2018-07-24</feriado>
+		<presidente>Nuno Miguel Rondão Moita da Costa</presidente>
+		<assembleia>Anabela Lemos</assembleia>
+		<telefone>239949120</telefone>
+		<email>geral@cm-condeixa.pt</email>
+		<site>http://www.cm-condeixa.pt"</site>
+		<brasao>https://www.anmp.pt/../../../image/munap/M3150b.jpg</brasao>
+		<morada>Largo Artur Barreto</morada>
+		<codPostal>3150-124</codPostal>
+	</municipio>
+	<municipio id="id5">
+		<nome>Figueira da Foz</nome>
+		<area>379</area>
+		<nHabitantes>62125</nHabitantes>
+		<nFreguesias>14</nFreguesias>
+		<feriado>2018-06-24</feriado>
+		<presidente>JOÃO ALBINO ATAÍDE DAS NEVES</presidente>
+		<assembleia>José Duarte Pereira</assembleia>
+		<telefone>233403300</telefone>
+		<email>municipe@cm-figfoz.pt</email>
+		<site>http://www.cm-figfoz.pt"</site>
+		<brasao>https://www.anmp.pt/../../../image/munap/M3080b.jpg</brasao>
+		<morada>Av. Saraiva de Carvalho</morada>
+		<codPostal>3084-501</codPostal>
+	</municipio>
+	<municipio id="id6">
+		<nome>Góis</nome>
+		<area>263</area>
+		<nHabitantes>4260</nHabitantes>
+		<nFreguesias>4</nFreguesias>
+		<feriado>2018-08-13</feriado>
+		<presidente>Maria de Lurdes Castanheira</presidente>
+		<assembleia>Maria do Céu Alves</assembleia>
+		<telefone>235770110</telefone>
+		<email>correio@cm-gois.pt</email>
+		<site>http://www.cm-gois.pt"</site>
+		<brasao>https://www.anmp.pt/../../../image/munap/M3330b.jpg</brasao>
+		<morada>Praça da República</morada>
+		<codPostal>3330-310</codPostal>
+	</municipio>
+	<municipio id="id7">
+		<nome>Lousã</nome>
+		<area>138</area>
+		<nHabitantes>17604</nHabitantes>
+		<nFreguesias>4</nFreguesias>
+		<feriado>2018-06-24</feriado>
+		<presidente>LUÍS MIGUEL CORREIA ANTUNES</presidente>
+		<assembleia>Carlos Seco</assembleia>
+		<telefone>239990370</telefone>
+		<email>geral@cm-lousa.pt</email>
+		<site>http://www.cm-lousa.pt"</site>
+		<brasao>https://www.anmp.pt/../../../image/munap/M3200b.jpg</brasao>
+		<morada>Rua Dr. João Santos</morada>
+		<codPostal>3200-953</codPostal>
+	</municipio>
+	<municipio id="id8">
+		<nome>Mira</nome>
+		<area>124</area>
+		<nHabitantes>12465</nHabitantes>
+		<nFreguesias>4</nFreguesias>
+		<feriado>2018-07-25</feriado>
+		<presidente>RAUL JOSÉ REI SOARES DE ALMEIDA</presidente>
+		<assembleia>Mário Ribeiro Maduro</assembleia>
+		<telefone>231480550</telefone>
+		<email>geral@cm-mira.pt</email>
+		<site>http://www.cm-mira.pt"</site>
+		<brasao>https://www.anmp.pt/../../../image/munap/M3070b.jpg</brasao>
+		<morada>Praça da República</morada>
+		<codPostal>3070-304</codPostal>
+	</municipio>
+	<municipio id="id9">
+		<nome>Miranda do Corvo</nome>
+		<area>126</area>
+		<nHabitantes>13098</nHabitantes>
+		<nFreguesias>4</nFreguesias>
+		<feriado>2018-06-01</feriado>
+		<presidente>António Miguel Costa Baptista</presidente>
+		<assembleia>João Mourato Pinto</assembleia>
+		<telefone>239530320</telefone>
+		<email>camara@cm-mirandadocorvo.pt</email>
+		<site>http://www.cm-mirandadocorvo.pt"</site>
+		<brasao>https://www.anmp.pt/../../../image/munap/M3220b.jpg</brasao>
+		<morada>Praça José Falcão</morada>
+		<codPostal>3220-206</codPostal>
+	</municipio>
+	<municipio id="id10">
+		<nome>Montemor-o-Velho</nome>
+		<area>229</area>
+		<nHabitantes>26171</nHabitantes>
+		<nFreguesias>11</nFreguesias>
+		<feriado>2018-09-08</feriado>
+		<presidente>Emílio Augusto Ferreira Torrão</presidente>
+		<assembleia>Fernando Jorge dos Ramos</assembleia>
+		<telefone>239687300</telefone>
+		<email>geral@cm-montemorvelho.pt</email>
+		<site>http://www.cm-montemorvelho.pt"</site>
+		<brasao>https://www.anmp.pt/../../../image/munap/M3140b.jpg</brasao>
+		<morada>Praça da República</morada>
+		<codPostal>3140-258</codPostal>
+	</municipio>
+	<municipio id="id11">
+		<nome>Oliveira do Hospital</nome>
+		<area>235</area>
+		<nHabitantes>20855</nHabitantes>
+		<nFreguesias>16</nFreguesias>
+		<feriado>2018-10-07</feriado>
+		<presidente>José Carlos Alexandrino Mendes</presidente>
+		<assembleia>Dulce Álvaro Pássaro</assembleia>
+		<telefone>238605250</telefone>
+		<email>geral@cm-oliveiradohospital.pt</email>
+		<site>http://www.cm-oliveiradohospital.pt"</site>
+		<brasao>https://www.anmp.pt/../../../image/munap/M3400b.jpg</brasao>
+		<morada>Largo Conselheiro Cabral Metello</morada>
+		<codPostal>3400-062</codPostal>
+	</municipio>
+	<municipio id="id12">
+		<nome>Pampilhosa da Serra</nome>
+		<area>396</area>
+		<nHabitantes>4481</nHabitantes>
+		<nFreguesias>8</nFreguesias>
+		<feriado>2018-04-10</feriado>
+		<presidente>José Alberto Pacheco Brito Dias</presidente>
+		<assembleia>Hermano de Almeida</assembleia>
+		<telefone>235590320</telefone>
+		<email>municipio@cm-pampilhosadaserra.pt</email>
+		<site>http://www.cm-pampilhosadaserra.pt"</site>
+		<brasao>https://www.anmp.pt/../../../image/munap/M3320b.jpg</brasao>
+		<morada>Rua Rangel de Lima</morada>
+		<codPostal>3320-229</codPostal>
+	</municipio>
+	<municipio id="id13">
+		<nome>Penacova</nome>
+		<area>217</area>
+		<nHabitantes>15251</nHabitantes>
+		<nFreguesias>8</nFreguesias>
+		<feriado>2018-07-17</feriado>
+		<presidente>Humberto José Batista Oliveira</presidente>
+		<assembleia>Pedro Coimbra</assembleia>
+		<telefone>239470300</telefone>
+		<email>geral@cm-penacova.pt</email>
+		<site>http://www.cm-penacova.pt"</site>
+		<brasao>https://www.anmp.pt/../../../image/munap/M3360b.jpg</brasao>
+		<morada>Largo Alberto Leitão, 5</morada>
+		<codPostal>3360-191</codPostal>
+	</municipio>
+	<municipio id="id14">
+		<nome>Penela</nome>
+		<area>135</area>
+		<nHabitantes>5983</nHabitantes>
+		<nFreguesias>4</nFreguesias>
+		<feriado>2018-09-29</feriado>
+		<presidente>Luís Filipe da Silva Lourenço Matias</presidente>
+		<assembleia>Fernando dos Santos Antunes</assembleia>
+		<telefone>239560120</telefone>
+		<email>cmpenela@cm-penela.pt</email>
+		<site>http://www.cm-penela.pt"</site>
+		<brasao>https://www.anmp.pt/../../../image/munap/M3230b.jpg</brasao>
+		<morada>Praça do Município</morada>
+		<codPostal>3230-253</codPostal>
+	</municipio>
+	<municipio id="id15">
+		<nome>Soure</nome>
+		<area>265</area>
+		<nHabitantes>19245</nHabitantes>
+		<nFreguesias>10</nFreguesias>
+		<feriado>2018-09-21</feriado>
+		<presidente>Mário Jorge Nunes</presidente>
+		<assembleia>João Gouveia</assembleia>
+		<telefone>239506550</telefone>
+		<email>geral@cm-soure.pt</email>
+		<site>http://www.cm-soure.pt"</site>
+		<brasao>https://www.anmp.pt/../../../image/munap/M3130b.jpg</brasao>
+		<morada>Praça da República</morada>
+		<codPostal>3130-218</codPostal>
+	</municipio>
+	<municipio id="id16">
+		<nome>Tábua</nome>
+		<area>200</area>
+		<nHabitantes>12071</nHabitantes>
+		<nFreguesias>11</nFreguesias>
+		<feriado>2018-04-10</feriado>
+		<presidente>Mário Almeida Loureiro</presidente>
+		<assembleia>Nuno Tavares</assembleia>
+		<telefone>235410340</telefone>
+		<email>geral@cm-tabua.pt</email>
+		<site>http://www.cm-tabua.pt"</site>
+		<brasao>https://www.anmp.pt/../../../image/munap/M3420b.jpg</brasao>
+		<morada>Câmara Municipal</morada>
+		<codPostal>3420-308</codPostal>
+	</municipio>
+	<municipio id="id17">
+		<nome>Vila Nova de Poiares</nome>
+		<area>84</area>
+		<nHabitantes>7281</nHabitantes>
+		<nFreguesias>4</nFreguesias>
+		<feriado>2018-01-13</feriado>
+		<presidente>João Miguel Sousa Henriques</presidente>
+		<assembleia>Nuno Lima</assembleia>
+		<telefone>239420850</telefone>
+		<email>geral@cm-vilanovadepoiares.pt</email>
+		<site>http://www.cm-vilanovadepoiares.pt"</site>
+		<brasao>https://www.anmp.pt/../../../image/munap/M3350b.jpg</brasao>
+		<morada>Largo da República</morada>
+		<codPostal>3351-909</codPostal>
+	</municipio>
 </municipios>
