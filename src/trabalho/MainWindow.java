@@ -345,7 +345,7 @@ public class MainWindow extends javax.swing.JFrame {
                 break;
             case 3:
                 //Procurar qual o contrato de maior valor de uma Câmara Municipal especifica
-                 xPath = factory.compile("//contrato[contains(../@nomeMun,'" +  PesquisaSimples + "' ) and preco =  max(..//preco)]");
+                 xPath = factory.compile("//contrato[contains(../@nomeMun,'" +  PesquisaSimples +"' ) and preco =  max(..//preco)]");
                 break;
             case 4:
                 //Procurar qual o contrato de maior valor de todas as Câmaras
@@ -353,15 +353,15 @@ public class MainWindow extends javax.swing.JFrame {
                 break;
             case 5:
                 //Introduzir uma câmara e obter todos os dados da mesma
-
+                
                 break;
             case 6:
                 //Top 5 das Câmara que gastaram mais com contratos
-
+                
                 break;
             case 7:
                 //Procurar Câmara por nome do presidente
-
+                xPath = factory.compile("//municipio[contains(@presidente,'" + PesquisaSimples + "')]");
                 break;
             default:
         }
@@ -375,7 +375,6 @@ public class MainWindow extends javax.swing.JFrame {
         //Guardar Ficheiro Contratos.xml
         Util.escreverFicheiroTexto(TFContratos.getText(), Contratos.getPath());
     }//GEN-LAST:event_jMenuItem5ActionPerformed
-
     /**
      * @param args the command line arguments
      */
@@ -437,4 +436,4 @@ public class MainWindow extends javax.swing.JFrame {
     private javax.swing.JScrollPane jScrollPane3;
     private javax.swing.JTextArea jTextArea1;
     // End of variables declaration//GEN-END:variables
-}
+  }
