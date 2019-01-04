@@ -12,7 +12,6 @@ import org.jdom2.Element;
 import org.jdom2.xpath.XPathFactory;
 import org.jdom2.xpath.XPathExpression;
 
-
 /**
  *
  * @author Rodrigo
@@ -22,7 +21,6 @@ public class MainWindow extends javax.swing.JFrame {
     /**
      * Creates new form MainWindow
      */
-
     private Camaras camaras;
     private Contratos contratos;
     private Document tudo;
@@ -270,7 +268,6 @@ public class MainWindow extends javax.swing.JFrame {
 
     private void jMenuItem3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem3ActionPerformed
 
-
         Thread thread = new Thread() {
             @Override
             public void run() {
@@ -339,15 +336,16 @@ public class MainWindow extends javax.swing.JFrame {
                 break;
             case 1:
                 //Procurar contratos por autor da publicação
-
+                
+                xPath = factory.compile("//contrato[contains(../@nomeMun,'" + PesquisaSimples + "')]");
                 break;
             case 2:
                 //Procurar contratos por adjudicatário
-
+                 xPath = factory.compile("//contrato[contains(adjudicatario, '" + PesquisaSimples + "')]");
                 break;
             case 3:
                 //Procurar qual o contrato de maior valor de uma Câmara Municipal especifica
-
+                 xPath = factory.compile("//contrato[contains(../@nomeMun,'" +  PesquisaSimples + "' ) and preco =  max(..//preco)]");
                 break;
             case 4:
                 //Procurar qual o contrato de maior valor de todas as Câmaras
