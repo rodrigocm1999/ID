@@ -332,20 +332,20 @@ public class MainWindow extends javax.swing.JFrame {
             case 0:
                 //Procurar contratos por data específica
 
-                xPath = factory.compile("//contrato[publicacao=" + search + "]");
+                xPath = factory.compile("//contrato[publicacao='" + search + "']");
                 break;
             case 1:
                 //Procurar contratos por autor da publicação
                 
-                xPath = factory.compile("//contrato[contains(../@nomeMun,'" + PesquisaSimples + "')]");
+                xPath = factory.compile("//contrato[contains(../@nomeMun,'" + search + "')]");
                 break;
             case 2:
                 //Procurar contratos por adjudicatário
-                 xPath = factory.compile("//contrato[contains(adjudicatario, '" + PesquisaSimples + "')]");
+                 xPath = factory.compile("//contrato[contains(adjudicatario, '" + search + "')]");
                 break;
             case 3:
                 //Procurar qual o contrato de maior valor de uma Câmara Municipal especifica
-                 xPath = factory.compile("//contrato[contains(../@nomeMun,'" +  PesquisaSimples +"' ) and preco =  max(..//preco)]");
+                 xPath = factory.compile("//contrato[contains(../@nomeMun,'" +  search +"' ) and preco =  max(..//preco)]");
                 break;
             case 4:
                 //Procurar qual o contrato de maior valor de todas as Câmaras
@@ -361,7 +361,7 @@ public class MainWindow extends javax.swing.JFrame {
                 break;
             case 7:
                 //Procurar Câmara por nome do presidente
-                xPath = factory.compile("//municipio[contains(@presidente,'" + PesquisaSimples + "')]");
+                xPath = factory.compile("//municipio[contains(@presidente,'" + search + "')]");
                 break;
             default:
         }
