@@ -1,8 +1,3 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package trabalho;
 
 import java.io.File;
@@ -13,10 +8,7 @@ import org.jdom2.Document;
 import org.jdom2.Element;
 import org.jdom2.Namespace;
 
-/**
- *
- * @author Rodrigo
- */
+
 public class Camaras {
 
     public static String[] strings = new String[]{"nome", "area", "nHabitantes", "nFreguesias", "feriado", "presidente",
@@ -54,15 +46,8 @@ public class Camaras {
     }
 
     public static Document Run() {
-        // Link:    https://www.anmp.pt/anmp/pro/mun1/mun101w3.php?cod=M3000
-        /*Minicipios de coimbra
-            3060 - 3230    Os numeros sobem de 10 em 10
-            Alguns nao teem informação 
-         */
         String link = "https://www.anmp.pt/anmp/pro/mun1/mun101w3.php?cod=M";
 
-        /*int num_start = 3000;
-        int num_end = 3420;//3420;*/
         String getAllCods = "href=\"mun101w3\\.php\\?cod=M(3\\d+)\" c";
         String getAllMunString = Util.httpRequestToString("https://www.anmp.pt/anmp/pro/mun1/mun101w2.php?dis=06", "windows-1252");
 

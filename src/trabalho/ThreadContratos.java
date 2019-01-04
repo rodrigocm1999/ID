@@ -1,8 +1,3 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package trabalho;
 
 import java.util.ArrayList;
@@ -10,10 +5,7 @@ import java.util.HashMap;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
-/**
- *
- * @author Rodrigo
- */
+
 public class ThreadContratos extends Thread {
 
     private String link;
@@ -41,12 +33,8 @@ public class ThreadContratos extends Thread {
         Matcher mat = pat.matcher(siteString);
 
         if (mat.find()) {
-            //String otherSiteString = Requests.httpRequestToString(mat.group(1));
-            /*Pattern pattern = Pattern.compile("<a href=\"(.*)\">Lista de contratos onde esta entidade foi adjudicante");
-            Matcher matcher = pattern.matcher(otherSiteString);*/
             String[] superLink = {"http://www.base.gov.pt/Base/pt/ResultadosPesquisa?range=", "&type=contratos&query=adjudicanteid%3D" + mat.group(1) + "&ordering=sort%28-publicationDate%29"};
-
-            //if (matcher.find()) {
+            
             ThreadGetContratos thread;
             ArrayList<ThreadGetContratos> threads = new ArrayList<>();
             for (int last = 0, i = 1200, counter = 1; true; last = ++i, i += 1199, counter++) {
@@ -79,7 +67,6 @@ public class ThreadContratos extends Thread {
                     ex.printStackTrace();
                 }
             }
-            //}
         }
     }
 

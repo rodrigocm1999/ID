@@ -1,12 +1,6 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package trabalho;
 
 import java.io.File;
-import java.util.ArrayList;
 import java.util.List;
 import javax.xml.transform.*;
 import javax.xml.transform.stream.StreamResult;
@@ -14,24 +8,12 @@ import javax.xml.transform.stream.StreamSource;
 import org.jdom2.Document;
 import org.jdom2.Element;
 
-/**
- *
- * @author Rodrigo
- */
 public class Main {
-
-    /**
-     * @param args the command line arguments
-     */
-
 
     public static void main(String[] args) throws Exception {
 
         MainWindow main = new MainWindow();
         main.show();
-
-        //paginaHTMLBrasoes();
-        //juntar2ficheiros();
     }
 
     public static void juntar2ficheiros() {
