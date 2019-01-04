@@ -332,7 +332,7 @@ public class MainWindow extends javax.swing.JFrame {
             case 0:
                 //Procurar contratos por data específica
 
-                xPath = factory.compile("//contrato[publicacao='" + search + "']");
+                xPath = factory.compile("//contrato[contains(@publicacao, '" + search + "')]");
                 break;
             case 1:
                 //Procurar contratos por autor da publicação
