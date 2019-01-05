@@ -46,9 +46,9 @@ public class MainWindow extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jFrame1 = new javax.swing.JFrame();
+        JanelaResultado = new javax.swing.JFrame();
         jScrollPane3 = new javax.swing.JScrollPane();
-        jTextArea1 = new javax.swing.JTextArea();
+        TextAreaResultado = new javax.swing.JTextArea();
         jLabel3 = new javax.swing.JLabel();
         jScrollPane1 = new javax.swing.JScrollPane();
         TFCamaras = new javax.swing.JTextArea();
@@ -57,8 +57,8 @@ public class MainWindow extends javax.swing.JFrame {
         SimpleSearch = new javax.swing.JTextField();
         ComplexSearch = new javax.swing.JTextField();
         jLabel1 = new javax.swing.JLabel();
-        PesquisaComplexa = new javax.swing.JButton();
-        PesquisaSimples = new javax.swing.JButton();
+        PesquisaComplexaButton = new javax.swing.JButton();
+        PesquisaSimplesButton = new javax.swing.JButton();
         jLabel2 = new javax.swing.JLabel();
         ddlPesquisas = new javax.swing.JComboBox<>();
         MenuBar = new javax.swing.JMenuBar();
@@ -71,28 +71,28 @@ public class MainWindow extends javax.swing.JFrame {
         jMenu2 = new javax.swing.JMenu();
         jMenuItem3 = new javax.swing.JMenuItem();
 
-        jTextArea1.setColumns(20);
-        jTextArea1.setRows(5);
-        jScrollPane3.setViewportView(jTextArea1);
+        TextAreaResultado.setColumns(20);
+        TextAreaResultado.setRows(5);
+        jScrollPane3.setViewportView(TextAreaResultado);
 
         jLabel3.setText("Resultado da pesquisa");
 
-        javax.swing.GroupLayout jFrame1Layout = new javax.swing.GroupLayout(jFrame1.getContentPane());
-        jFrame1.getContentPane().setLayout(jFrame1Layout);
-        jFrame1Layout.setHorizontalGroup(
-            jFrame1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jFrame1Layout.createSequentialGroup()
+        javax.swing.GroupLayout JanelaResultadoLayout = new javax.swing.GroupLayout(JanelaResultado.getContentPane());
+        JanelaResultado.getContentPane().setLayout(JanelaResultadoLayout);
+        JanelaResultadoLayout.setHorizontalGroup(
+            JanelaResultadoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(JanelaResultadoLayout.createSequentialGroup()
                 .addContainerGap()
-                .addGroup(jFrame1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(JanelaResultadoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jScrollPane3, javax.swing.GroupLayout.DEFAULT_SIZE, 388, Short.MAX_VALUE)
-                    .addGroup(jFrame1Layout.createSequentialGroup()
+                    .addGroup(JanelaResultadoLayout.createSequentialGroup()
                         .addComponent(jLabel3)
                         .addGap(0, 0, Short.MAX_VALUE)))
                 .addContainerGap())
         );
-        jFrame1Layout.setVerticalGroup(
-            jFrame1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jFrame1Layout.createSequentialGroup()
+        JanelaResultadoLayout.setVerticalGroup(
+            JanelaResultadoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(JanelaResultadoLayout.createSequentialGroup()
                 .addGap(9, 9, 9)
                 .addComponent(jLabel3)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
@@ -112,17 +112,17 @@ public class MainWindow extends javax.swing.JFrame {
 
         jLabel1.setText("Pesquisa Customizada");
 
-        PesquisaComplexa.setText("Pesquisa Complexa");
-        PesquisaComplexa.addActionListener(new java.awt.event.ActionListener() {
+        PesquisaComplexaButton.setText("Pesquisa Complexa");
+        PesquisaComplexaButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                PesquisaComplexaActionPerformed(evt);
+                PesquisaComplexaButtonActionPerformed(evt);
             }
         });
 
-        PesquisaSimples.setText("Pesquisa Simples");
-        PesquisaSimples.addActionListener(new java.awt.event.ActionListener() {
+        PesquisaSimplesButton.setText("Pesquisa Simples");
+        PesquisaSimplesButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                PesquisaSimplesActionPerformed(evt);
+                PesquisaSimplesButtonActionPerformed(evt);
             }
         });
 
@@ -221,8 +221,8 @@ public class MainWindow extends javax.swing.JFrame {
                                     .addComponent(ComplexSearch))
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                    .addComponent(PesquisaComplexa, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                    .addComponent(PesquisaSimples, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
+                                    .addComponent(PesquisaComplexaButton, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                    .addComponent(PesquisaSimplesButton, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
                             .addGroup(layout.createSequentialGroup()
                                 .addComponent(ddlPesquisas, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addGap(0, 166, Short.MAX_VALUE)))))
@@ -236,11 +236,11 @@ public class MainWindow extends javax.swing.JFrame {
                 .addGap(8, 8, 8)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(SimpleSearch, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(PesquisaSimples)
+                    .addComponent(PesquisaSimplesButton)
                     .addComponent(jLabel2))
                 .addGap(8, 8, 8)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(PesquisaComplexa)
+                    .addComponent(PesquisaComplexaButton)
                     .addComponent(ComplexSearch, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel1))
                 .addGap(10, 10, 10)
@@ -282,7 +282,7 @@ public class MainWindow extends javax.swing.JFrame {
         thread.start();
     }//GEN-LAST:event_jMenuItem3ActionPerformed
 
-    private void PesquisaComplexaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_PesquisaComplexaActionPerformed
+    private void PesquisaComplexaButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_PesquisaComplexaButtonActionPerformed
 
         Pesquisa pesquisa = null;
         try {
@@ -305,7 +305,7 @@ public class MainWindow extends javax.swing.JFrame {
         String str = Util.escreverDocumentoString(doc);
 
         TFCamaras.setText(str);
-    }//GEN-LAST:event_PesquisaComplexaActionPerformed
+    }//GEN-LAST:event_PesquisaComplexaButtonActionPerformed
 
     private void jMenu1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenu1ActionPerformed
 
@@ -323,7 +323,7 @@ public class MainWindow extends javax.swing.JFrame {
         Util.escreverFicheiroTexto(TFContratos.getText(), Contratos.getPath());
     }//GEN-LAST:event_jMenuItem6ActionPerformed
 
-    private void PesquisaSimplesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_PesquisaSimplesActionPerformed
+    private void PesquisaSimplesButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_PesquisaSimplesButtonActionPerformed
 
         XPathFactory factory = XPathFactory.instance();
         XPathExpression xPath = null;
@@ -377,12 +377,12 @@ public class MainWindow extends javax.swing.JFrame {
             item.detach();
             resultRoot.addContent(item);
         }        
-        jTextArea1.setText(Util.escreverDocumentoString(doc));
+        TextAreaResultado.setText(Util.escreverDocumentoString(doc));
 
-        jFrame1.setSize(800, 800);
-        jFrame1.setVisible(true);
+        JanelaResultado.setSize(800, 800);
+        JanelaResultado.setVisible(true);
 
-    }//GEN-LAST:event_PesquisaSimplesActionPerformed
+    }//GEN-LAST:event_PesquisaSimplesButtonActionPerformed
 
     private void jMenuItem5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem5ActionPerformed
         //Guardar Ficheiro Contratos.xml
@@ -425,14 +425,15 @@ public class MainWindow extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JTextField ComplexSearch;
+    private javax.swing.JFrame JanelaResultado;
     private javax.swing.JMenuBar MenuBar;
-    private javax.swing.JButton PesquisaComplexa;
-    private javax.swing.JButton PesquisaSimples;
+    private javax.swing.JButton PesquisaComplexaButton;
+    private javax.swing.JButton PesquisaSimplesButton;
     private javax.swing.JTextField SimpleSearch;
     private javax.swing.JTextArea TFCamaras;
     private javax.swing.JTextArea TFContratos;
+    private javax.swing.JTextArea TextAreaResultado;
     private javax.swing.JComboBox<String> ddlPesquisas;
-    private javax.swing.JFrame jFrame1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
@@ -447,6 +448,5 @@ public class MainWindow extends javax.swing.JFrame {
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JScrollPane jScrollPane3;
-    private javax.swing.JTextArea jTextArea1;
     // End of variables declaration//GEN-END:variables
   }

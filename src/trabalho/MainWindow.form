@@ -2,7 +2,7 @@
 
 <Form version="1.3" maxVersion="1.9" type="org.netbeans.modules.form.forminfo.JFrameFormInfo">
   <NonVisualComponents>
-    <Container class="javax.swing.JFrame" name="jFrame1">
+    <Container class="javax.swing.JFrame" name="JanelaResultado">
 
       <Layout>
         <DimensionLayout dim="0">
@@ -40,7 +40,7 @@
 
           <Layout class="org.netbeans.modules.form.compat2.layouts.support.JScrollPaneSupportLayout"/>
           <SubComponents>
-            <Component class="javax.swing.JTextArea" name="jTextArea1">
+            <Component class="javax.swing.JTextArea" name="TextAreaResultado">
               <Properties>
                 <Property name="columns" type="int" value="20"/>
                 <Property name="rows" type="int" value="5"/>
@@ -173,8 +173,8 @@
                               </Group>
                               <EmptySpace max="-2" attributes="0"/>
                               <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                                  <Component id="PesquisaComplexa" max="32767" attributes="0"/>
-                                  <Component id="PesquisaSimples" max="32767" attributes="0"/>
+                                  <Component id="PesquisaComplexaButton" max="32767" attributes="0"/>
+                                  <Component id="PesquisaSimplesButton" max="32767" attributes="0"/>
                               </Group>
                           </Group>
                           <Group type="102" attributes="0">
@@ -196,12 +196,12 @@
               <EmptySpace min="-2" pref="8" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="3" attributes="0">
                   <Component id="SimpleSearch" alignment="3" min="-2" max="-2" attributes="0"/>
-                  <Component id="PesquisaSimples" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="PesquisaSimplesButton" alignment="3" min="-2" max="-2" attributes="0"/>
                   <Component id="jLabel2" alignment="3" min="-2" max="-2" attributes="0"/>
               </Group>
               <EmptySpace min="-2" pref="8" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="3" attributes="0">
-                  <Component id="PesquisaComplexa" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="PesquisaComplexaButton" alignment="3" min="-2" max="-2" attributes="0"/>
                   <Component id="ComplexSearch" alignment="3" min="-2" max="-2" attributes="0"/>
                   <Component id="jLabel1" alignment="3" min="-2" max="-2" attributes="0"/>
               </Group>
@@ -255,20 +255,20 @@
         <Property name="text" type="java.lang.String" value="Pesquisa Customizada"/>
       </Properties>
     </Component>
-    <Component class="javax.swing.JButton" name="PesquisaComplexa">
+    <Component class="javax.swing.JButton" name="PesquisaComplexaButton">
       <Properties>
         <Property name="text" type="java.lang.String" value="Pesquisa Complexa"/>
       </Properties>
       <Events>
-        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="PesquisaComplexaActionPerformed"/>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="PesquisaComplexaButtonActionPerformed"/>
       </Events>
     </Component>
-    <Component class="javax.swing.JButton" name="PesquisaSimples">
+    <Component class="javax.swing.JButton" name="PesquisaSimplesButton">
       <Properties>
         <Property name="text" type="java.lang.String" value="Pesquisa Simples"/>
       </Properties>
       <Events>
-        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="PesquisaSimplesActionPerformed"/>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="PesquisaSimplesButtonActionPerformed"/>
       </Events>
     </Component>
     <Component class="javax.swing.JLabel" name="jLabel2">
