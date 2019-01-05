@@ -330,25 +330,30 @@ public class MainWindow extends javax.swing.JFrame {
         XPathFactory factory = XPathFactory.instance();
         XPathExpression xPath = null;
         String search = SimpleSearch.getText();
-
+        List<Element> list = null;
+        
         switch (ddlPesquisas.getSelectedIndex()) {
             case 0:
                 //Procurar contratos por data específica
 
                 xPath = factory.compile("//contrato[contains(@publicacao, '" + search + "')]");
+                list = xPath.evaluate(contratos.getDocument());
                 break;
             case 1:
                 //Procurar contratos por autor da publicação
-                
+
                 xPath = factory.compile("//contrato[contains(../@nomeMun,'" + search + "')]");
+                list = xPath.evaluate(contratos.getDocument());
                 break;
             case 2:
                 //Procurar contratos por adjudicatário
                  xPath = factory.compile("//contrato[contains(adjudicatario, '" + search + "')]");
+                 list = xPath.evaluate(contratos.getDocument());
                 break;
             case 3:
                 //Procurar qual o contrato de maior valor de uma Câmara Municipal especifica
                  xPath = factory.compile("//contrato[contains(../@nomeMun,'" +  search +"' ) and preco =  max(..//preco)]");
+                 list = xPath.evaluate(contratos.getDocument());
                 break;
             case 4:
                 //Procurar qual o contrato de maior valor de todas as Câmaras
@@ -356,20 +361,22 @@ public class MainWindow extends javax.swing.JFrame {
                 break;
             case 5:
                 //Introduzir uma câmara e obter todos os dados da mesma
-                
+
                 break;
             case 6:
                 //Top 5 das Câmara que gastaram mais com contratos
-                
+
                 break;
             case 7:
                 //Procurar Câmara por nome do presidente
-                xPath = factory.compile("//municipio[contains(@presidente,'" + search + "')]");
+                xPath = factory.compile("//municipio[contains(presidente,'" + search + "')]");
+                list = xPath.evaluate(camaras.getDocument());
                 break;
             default:
         }
         
-        List<Element> list = xPath.evaluate(tudo);
+        if(list == null) 
+            return;
         
         Element resultRoot = new Element("resultado");
         Document doc = new Document(resultRoot);
