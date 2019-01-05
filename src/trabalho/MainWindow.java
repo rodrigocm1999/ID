@@ -368,7 +368,16 @@ public class MainWindow extends javax.swing.JFrame {
         }
         
         List<Element> list = xPath.evaluate(contratos.getDocument());
-        jTextArea1.setText(list.toString());
+        
+        Element resultRoot = new Element("resultado");
+        Document doc = new Document(resultRoot);
+        
+        for (int i = 0; i < list.size(); i++) {
+            Element item = list.get(i);
+            item.detach();
+            resultRoot.addContent(item);
+        }        
+        jTextArea1.setText(Util.escreverDocumentoString(doc));
 
         jFrame1.setSize(800, 800);
         jFrame1.setVisible(true);
