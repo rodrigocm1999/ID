@@ -327,7 +327,7 @@ public class MainWindow extends javax.swing.JFrame {
 
         XPathFactory factory = XPathFactory.instance();
         XPathExpression xPath = null;
-        String search = PesquisaSimples.getText();
+        String search = SimpleSearch.getText();
 
         switch (ddlPesquisas.getSelectedIndex()) {
             case 0:
@@ -366,9 +366,12 @@ public class MainWindow extends javax.swing.JFrame {
                 break;
             default:
         }
-
+        
         List<Element> list = xPath.evaluate(contratos.getDocument());
+        jTextArea1.setText(list.toString());
 
+        jFrame1.setSize(800, 800);
+        jFrame1.setVisible(true);
 
     }//GEN-LAST:event_PesquisaSimplesActionPerformed
 
