@@ -13,7 +13,7 @@ public class Main {
     public static void main(String[] args) throws Exception {
 
         MainWindow main = new MainWindow();
-        main.show();
+        main.setVisible(true);
     }
 
     public static void juntar2ficheiros() {
