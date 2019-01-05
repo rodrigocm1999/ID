@@ -277,8 +277,8 @@ public class MainWindow extends javax.swing.JFrame {
 
                 TFCamaras.setText(camaras.getRawFileString());
                 TFContratos.setText(contratos.getRawFileString());
-                JOptionPane.showMessageDialog(null, "",
-                        "Acabou de atualizar", JOptionPane.INFORMATION_MESSAGE);
+                JOptionPane.showMessageDialog(null, "Acabou de atualizar",
+                        "", JOptionPane.INFORMATION_MESSAGE);
             }
         };
         thread.start();
