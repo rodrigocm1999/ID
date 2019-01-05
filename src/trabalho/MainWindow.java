@@ -367,7 +367,7 @@ public class MainWindow extends javax.swing.JFrame {
             default:
         }
         
-        List<Element> list = xPath.evaluate(contratos.getDocument());
+        List<Element> list = xPath.evaluate(tudo);
         
         Element resultRoot = new Element("resultado");
         Document doc = new Document(resultRoot);
