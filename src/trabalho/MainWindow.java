@@ -5,7 +5,10 @@
  */
 package trabalho;
 
+import java.io.File;
+import java.io.FileNotFoundException;
 import java.util.List;
+import java.util.Scanner;
 import javax.swing.JOptionPane;
 import org.jdom2.Document;
 import org.jdom2.Element;
@@ -324,7 +327,7 @@ public class MainWindow extends javax.swing.JFrame {
         Util.escreverFicheiroTexto(TFCamaras.getText(), Camaras.getPath());
         Util.escreverFicheiroTexto(TFContratos.getText(), Contratos.getPath());
     }//GEN-LAST:event_jMenuItem6ActionPerformed
-
+    
     private void PesquisaSimplesButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_PesquisaSimplesButtonActionPerformed
 
         XPathFactory factory = XPathFactory.instance();
@@ -357,15 +360,16 @@ public class MainWindow extends javax.swing.JFrame {
                 break;
             case 4:
                 //Procurar qual o contrato de maior valor de todas as Câmaras
-
+                
                 break;
             case 5:
                 //Introduzir uma câmara e obter todos os dados da mesma
-
+                xPath = factory.compile("//municipio[contains(nome,'" + search + "')]");
+                list = xPath.evaluate(camaras.getDocument());
                 break;
             case 6:
                 //Top 5 das Câmara que gastaram mais com contratos
-
+                
                 break;
             case 7:
                 //Procurar Câmara por nome do presidente

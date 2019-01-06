@@ -125,7 +125,7 @@ public class Util {
         }
         return null;
     }
-
+    
     public static void escreverDocumentoParaFicheiro(Document doc, String caminhoFicheiro) {
         OutputStreamWriter writer = null;
         try {
