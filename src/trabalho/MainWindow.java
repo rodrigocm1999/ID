@@ -5,8 +5,11 @@
  */
 package trabalho;
 
+import java.io.BufferedReader;
 import java.io.File;
 import java.io.FileNotFoundException;
+import java.io.FileReader;
+import java.io.IOException;
 import java.util.List;
 import java.util.Scanner;
 import javax.swing.JOptionPane;
@@ -355,12 +358,13 @@ public class MainWindow extends javax.swing.JFrame {
                 break;
             case 3:
                 //Procurar qual o contrato de maior valor de uma Câmara Municipal especifica
-                 xPath = factory.compile("//contrato[contains(../@nomeMun,'" +  search +"' ) and preco =  max(..//preco)]");
+                 xPath = factory.compile("//contrato[contains(../@nomeMun,'" +  search + "' ) and preco =  max(..//preco)]");
                  list = xPath.evaluate(contratos.getDocument());
                 break;
             case 4:
                 //Procurar qual o contrato de maior valor de todas as Câmaras
-                
+                 xPath = factory.compile("max(//preco)");
+                 list = xPath.evaluate(contratos.getDocument());
                 break;
             case 5:
                 //Introduzir uma câmara e obter todos os dados da mesma
