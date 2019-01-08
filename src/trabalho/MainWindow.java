@@ -39,6 +39,8 @@ public class MainWindow extends javax.swing.JFrame {
         tudo = Util.lerDocumentoXML("tudo.xml");
         TFCamaras.setText(camaras.getRawFileString());
         TFContratos.setText(contratos.getRawFileString());
+        
+        
     }
 
     /**
