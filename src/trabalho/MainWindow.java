@@ -7,8 +7,6 @@ package trabalho;
 
 import java.io.BufferedReader;
 import java.io.File;
-import java.io.FileNotFoundException;
-import java.io.FileReader;
 import java.io.IOException;
 import java.util.List;
 import java.util.Scanner;
@@ -363,7 +361,7 @@ public class MainWindow extends javax.swing.JFrame {
                 break;
             case 4:
                 //Procurar qual o contrato de maior valor de todas as Câmaras
-                 xPath = factory.compile("max(//preco)");
+                 xPath = factory.compile("//contrato[(../@nomeMun) and preco =  max(..//preco)]");
                  list = xPath.evaluate(contratos.getDocument());
                 break;
             case 5:
