@@ -32,7 +32,7 @@ public class MainWindow extends javax.swing.JFrame {
 
     public MainWindow() {
         initComponents();
-
+        
         camaras = new Camaras(true);
         contratos = new Contratos(true);
 
@@ -337,6 +337,7 @@ public class MainWindow extends javax.swing.JFrame {
         XPathExpression xPath = null;
         String search = SimpleSearch.getText();
         List<Element> list = null;
+        
         
         switch (ddlPesquisas.getSelectedIndex()) {
             case 0:
