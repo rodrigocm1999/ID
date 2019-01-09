@@ -16,7 +16,6 @@ import org.jdom2.Element;
 import org.jdom2.xpath.XPathFactory;
 import org.jdom2.xpath.XPathExpression;
 
-
 /**
  *
  * @author Rodrigo
@@ -339,6 +338,7 @@ public class MainWindow extends javax.swing.JFrame {
         List<Element> list = null;
         
         
+        
         switch (ddlPesquisas.getSelectedIndex()) {
             case 0:
                 //Procurar contratos por data específica
@@ -359,13 +359,13 @@ public class MainWindow extends javax.swing.JFrame {
                 break;
             case 3:
                 //Procurar qual o contrato de maior valor de uma Câmara Municipal especifica
+                 
                  xPath = factory.compile("//contrato[contains(../@nomeMun,'" +  search + "' ) and preco =  max(..//preco)]");
                  list = xPath.evaluate(contratos.getDocument());
                 break;
             case 4:
                 //Procurar qual o contrato de maior valor de todas as Câmaras
-                 xPath = factory.compile("//contrato[(../@nomeMun) and preco =  max(..//preco)]");
-                 list = xPath.evaluate(contratos.getDocument());
+
                 break;
             case 5:
                 //Introduzir uma câmara e obter todos os dados da mesma
