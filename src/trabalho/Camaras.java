@@ -95,7 +95,7 @@ public class Camaras {
                 //pegar o elemento que criou
                 Element element = thread.getElement();
                 if (element != null) {
-                    //adicionar ao elemento raiz do documento
+                    //adicionar elemento ao elemento raiz do documento
                     municipios.addContent(element);
                 }
             } catch (Exception ex) {

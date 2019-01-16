@@ -12,22 +12,11 @@ import org.jdom2.Namespace;
 
 public final class Contratos {
 
-    public static final String[] strings = new String[]{"objetoContrato", "preco", "publicacao", "adjudicatario"};
+    //Array que tem o nome dos grupos usados na regularExpression
+    public static final String[] strings = new String[]{"objetoContrato", "preco", "publicacao", "adjudicatario"};    
     private static final String contratosPath = "contratos";
 
-    public static String getPath() {
-        return contratosPath + ".xml";
-    }
-
-    private Document contratos;
-
-    public Document getDocument() {
-        return contratos;
-    }
-
-    public String getRawFileString() {
-        return Util.lerFicheiroTexto(contratosPath + ".xml");
-    }
+    private Document contratos;   
 
     private Contratos() {
     }
@@ -46,13 +35,16 @@ public final class Contratos {
         ArrayList<String> codEntidade = new ArrayList<>();
         ArrayList<String> nomeMunicipios = new ArrayList<>();
         try {
+            //abro o ficheiro com o nome dos municipios e e com os códigos dos mesmos
             BufferedReader br = new BufferedReader(new InputStreamReader(new FileInputStream("municipios.txt"), "UTF-8"));
 
             String line, numPart, nomeMunicipio;
             while ((line = br.readLine()) != null) {
+                //para cada linha divido o codigo e o nome
                 String[] splited = line.split(";");
                 numPart = splited[1];
                 nomeMunicipio = splited[0];
+                //e guardo nos devidos arrays
                 nomeMunicipios.add(nomeMunicipio);
                 codEntidade.add(numPart);
             }
@@ -64,27 +56,39 @@ public final class Contratos {
         ArrayList<ThreadContratos> threadsContratos = new ArrayList<>();
         ThreadContratos thread;
 
+        //Elemento agregador de todos os contratos do Documento
         Element contratos = new Element("contratos");
         Document doc = new Document(contratos);
 
+        //iniciar todas as threads
         for (int i = 0; i < codEntidade.size(); i++) {
+            //crio o elemento da thread e envio o link e o codigo do municipio
             thread = new ThreadContratos(link, codEntidade.get(i), nomeMunicipios.get(i));
+            // inicio a thread
             thread.start();
 
+            //adiciono a thread a um arrayList para depois espera que a thread acabe
+            // e ir buscar o resultado das threads
             threadsContratos.add(thread);
         }
+        //para cada thread pegar os resultados
         for (int i = 0; i < threadsContratos.size(); i++) {
             try {
                 thread = threadsContratos.get(i);
+                //esperar que a thread acabe de executar
                 thread.join();
 
                 ArrayList<Contrato> arrayThread = thread.getContratos();
 
+                // colocar todos os contratos de cada municipio dentro de um elemento para esse municipio
                 Element municipio = new Element("municipio");
+                //colocar o nome do municipio
                 municipio.setAttribute("nomeMun", nomeMunicipios.get(i));
+                //adicionar elemento ao elemento raiz do documento
                 contratos.addContent(municipio);
 
                 for (int j = 0; j < arrayThread.size(); j++) {
+                    //adicionar elemento do contrato ao elemento desse municipio
                     municipio.addContent(arrayThread.get(j).getElement());
                 }
 
@@ -92,16 +96,19 @@ public final class Contratos {
                 ex.printStackTrace();
             }
         }
-
+        
+        //Validação
         try {
             File f = new File(contratosPath + ".xsd");
             if (f.exists()) {
 
                 Namespace xsi = Namespace.getNamespace("xsi", "http://www.w3.org/2001/XMLSchema-instance");
+                //adicionar Namespace
                 contratos.addNamespaceDeclaration(xsi);
                 contratos.setAttribute("noNamespaceSchemaLocation", contratosPath + ".xsd", xsi);
 
                 if (Util.validarXSD(contratosPath + ".xml") == null) {
+                    //Se não for válido
                     throw new Exception("Ficheiro " + contratosPath + ".xml não é válido");
                 }
             } else {
@@ -109,19 +116,23 @@ public final class Contratos {
             }
         } catch (Exception ex) {
         }
-
+        //Guardar ficheiro
         Util.escreverDocumentoParaFicheiro(doc, contratosPath + ".xml");
         return doc;
     }
-
-
-
-    public Element ContratoDeMaiorValorCamara(String nomeCamara) {
-
-
-        return null;
+    
+    
+    
+    //Getters
+    public static String getPath() {
+        return contratosPath + ".xml";
     }
 
+    public Document getDocument() {
+        return contratos;
+    }
 
-
+    public String getRawFileString() {
+        return Util.lerFicheiroTexto(contratosPath + ".xml");
+    }
 }
