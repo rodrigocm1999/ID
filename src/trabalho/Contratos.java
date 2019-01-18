@@ -8,27 +8,18 @@ import java.util.ArrayList;
 import org.jdom2.Document;
 import org.jdom2.Element;
 import org.jdom2.Namespace;
+import static trabalho.Camaras.getFilePath;
 
 
 public final class Contratos {
 
     //Array que tem o nome dos grupos usados na regularExpression
-    public static final String[] strings = new String[]{"objetoContrato", "preco", "publicacao", "adjudicatario"};    
+    public static final String[] strings = new String[]{"objetoContrato", "preco", "publicacao", "adjudicatario"};
     private static final String contratosPath = "contratos";
-
-    private Document contratos;   
+    public static final String ficheiroAlterado = contratosPath + ".xml";
 
     private Contratos() {
     }
-
-    public Contratos(boolean fromFiles) {
-        if (fromFiles) {
-            contratos = Util.lerDocumentoXML(contratosPath + ".xml");
-        } else {
-            contratos = this.Run();
-        }
-    }
-
 
 
     public static Document Run() {
@@ -49,6 +40,8 @@ public final class Contratos {
                 codEntidade.add(numPart);
             }
         } catch (Exception ex) {
+            ex.printStackTrace();
+            return null;
         }
 
         String link = "http://www.base.gov.pt/Base/pt/ResultadosPesquisa?type=entidades&query=texto%3D";
@@ -96,7 +89,7 @@ public final class Contratos {
                 ex.printStackTrace();
             }
         }
-        
+
         //Validação
         try {
             File f = new File(contratosPath + ".xsd");
@@ -115,24 +108,35 @@ public final class Contratos {
                 System.out.println("O ficheiro " + contratosPath + ".xsd não existe");
             }
         } catch (Exception ex) {
+            ex.printStackTrace();
+            return null;
         }
         //Guardar ficheiro
-        Util.escreverDocumentoParaFicheiro(doc, contratosPath + ".xml");
+        Util.escreverDocumentoParaFicheiro(doc, getFilePath(true));
         return doc;
     }
-    
-    
-    
+
+
+
     //Getters
-    public static String getPath() {
-        return contratosPath + ".xml";
+    public static String getFilePath(boolean original) {
+        if (original) {
+            return contratosPath + "_original.xml";
+        }
+
+        File editedFile = new File(contratosPath + ".xml");
+        if (editedFile.exists()) {
+            return editedFile.getPath();
+        } else {
+            return getFilePath(true);
+        }
     }
 
-    public Document getDocument() {
-        return contratos;
+    public static String getRawFileString(boolean original) {
+        return Util.lerFicheiroTexto(getFilePath(original));
     }
 
-    public String getRawFileString() {
-        return Util.lerFicheiroTexto(contratosPath + ".xml");
+    public static Document getDocument(boolean original) {
+        return Util.lerDocumentoXML(getFilePath(original));
     }
 }

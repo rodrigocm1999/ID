@@ -52,6 +52,7 @@ public class Main {
     }
 
     public static void paginaHTMLBrasoes() {
+        //Fazer a transformação xslt para criar a página dos brasões
         try {
             TransformerFactory factory = TransformerFactory.newInstance();
             Source xslt = new StreamSource(new File("brasoes.xslt"));
@@ -65,6 +66,6 @@ public class Main {
         }
     }
     
-   
+    
    
 }
