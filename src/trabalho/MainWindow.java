@@ -1,30 +1,14 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package trabalho;
 
-import java.io.BufferedReader;
-import java.io.File;
-import java.io.IOException;
 import java.util.List;
-import java.util.Scanner;
 import javax.swing.JOptionPane;
 import org.jdom2.Document;
 import org.jdom2.Element;
 import org.jdom2.xpath.XPathFactory;
 import org.jdom2.xpath.XPathExpression;
 
-/**
- *
- * @author Rodrigo
- */
 public class MainWindow extends javax.swing.JFrame {
 
-    /**
-     * Creates new form MainWindow
-     */
     private Camaras camaras;
     private Contratos contratos;
     private Document tudo;
