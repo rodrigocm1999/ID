@@ -9,21 +9,21 @@ import org.jdom2.xpath.XPathExpression;
 
 public class MainWindow extends javax.swing.JFrame {
 
-    private Camaras camaras;
-    private Contratos contratos;
+    private Document camaras;
+    private Document contratos;
     private Document tudo;
 
     public MainWindow() {
         initComponents();
-        
-        camaras = new Camaras(true);
-        contratos = new Contratos(true);
+
+        camaras = Camaras.getDocument(false);
+        contratos = Contratos.getDocument(false);
 
         tudo = Util.lerDocumentoXML("tudo.xml");
-        TFCamaras.setText(camaras.getRawFileString());
-        TFContratos.setText(contratos.getRawFileString());
-        
-        
+        TFCamaras.setText(Camaras.getRawFileString(false));
+        TFContratos.setText(Contratos.getRawFileString(false));
+
+
     }
 
     /**
@@ -59,6 +59,7 @@ public class MainWindow extends javax.swing.JFrame {
         jMenuItem6 = new javax.swing.JMenuItem();
         jMenu2 = new javax.swing.JMenu();
         jMenuItem3 = new javax.swing.JMenuItem();
+        jMenuItem7 = new javax.swing.JMenuItem();
 
         TextAreaResultado.setColumns(20);
         TextAreaResultado.setRows(5);
@@ -183,6 +184,14 @@ public class MainWindow extends javax.swing.JFrame {
         });
         jMenu2.add(jMenuItem3);
 
+        jMenuItem7.setText("Carregar Ficheiros Backup");
+        jMenuItem7.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenuItem7ActionPerformed(evt);
+            }
+        });
+        jMenu2.add(jMenuItem7);
+
         MenuBar.add(jMenu2);
 
         setJMenuBar(MenuBar);
@@ -261,11 +270,11 @@ public class MainWindow extends javax.swing.JFrame {
         Thread thread = new Thread() {
             @Override
             public void run() {
-                camaras = new Camaras(false);
-                contratos = new Contratos(false);
+                camaras = Camaras.Run();
+                contratos = Contratos.Run();
 
-                TFCamaras.setText(camaras.getRawFileString());
-                TFContratos.setText(contratos.getRawFileString());
+                TFCamaras.setText(Camaras.getRawFileString(true));
+                TFContratos.setText(Contratos.getRawFileString(true));
                 JOptionPane.showMessageDialog(null, "Acabou de atualizar",
                         "", JOptionPane.INFORMATION_MESSAGE);
             }
@@ -305,81 +314,84 @@ public class MainWindow extends javax.swing.JFrame {
 
     private void jMenuItem4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem4ActionPerformed
         //Guardar Ficheiro Camaras.xml       
-        Util.escreverFicheiroTexto(TFCamaras.getText(), Camaras.getPath());
+        Util.escreverFicheiroTexto(TFCamaras.getText(), Camaras.ficheiroAlterado);
     }//GEN-LAST:event_jMenuItem4ActionPerformed
 
     private void jMenuItem6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem6ActionPerformed
         //Guardar ambos Ficheiros
-        Util.escreverFicheiroTexto(TFCamaras.getText(), Camaras.getPath());
-        Util.escreverFicheiroTexto(TFContratos.getText(), Contratos.getPath());
+        Util.escreverFicheiroTexto(TFCamaras.getText(), Camaras.ficheiroAlterado);
+        Util.escreverFicheiroTexto(TFContratos.getText(), Contratos.ficheiroAlterado);
     }//GEN-LAST:event_jMenuItem6ActionPerformed
-    
+
     private void PesquisaSimplesButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_PesquisaSimplesButtonActionPerformed
 
         XPathFactory factory = XPathFactory.instance();
         XPathExpression xPath = null;
         String search = SimpleSearch.getText();
         List<Element> list = null;
-        
-        
-        
+        int numElementos = -1;
+
+
         switch (ddlPesquisas.getSelectedIndex()) {
             case 0:
                 //Procurar contratos por data específica
-
                 xPath = factory.compile("//contrato[contains(@publicacao, '" + search + "')]");
-                list = xPath.evaluate(contratos.getDocument());
+                list = xPath.evaluate(contratos);
                 break;
             case 1:
                 //Procurar contratos por autor da publicação
-
                 xPath = factory.compile("//contrato[contains(../@nomeMun,'" + search + "')]");
-                list = xPath.evaluate(contratos.getDocument());
+                list = xPath.evaluate(contratos);
                 break;
             case 2:
                 //Procurar contratos por adjudicatário
-                 xPath = factory.compile("//contrato[contains(adjudicatario, '" + search + "')]");
-                 list = xPath.evaluate(contratos.getDocument());
+                xPath = factory.compile("//contrato[contains(adjudicatario, '" + search + "')]");
+                list = xPath.evaluate(contratos);
                 break;
             case 3:
                 //Procurar qual o contrato de maior valor de uma Câmara Municipal especifica
-                 
-                 xPath = factory.compile("//contrato[contains(../@nomeMun,'" +  search + "' ) and preco =  max(..//preco)]");
-                 list = xPath.evaluate(contratos.getDocument());
+
+                xPath = factory.compile("//contrato[contains(../@nomeMun,'" + search + "' ) and preco =  max(..//preco)]");
+                list = xPath.evaluate(contratos);
                 break;
             case 4:
                 //Procurar qual o contrato de maior valor de todas as Câmaras
-
-                              
+                xPath = factory.compile("//max(preco)");
+                list = xPath.evaluate(camaras);
                 break;
             case 5:
                 //Introduzir uma câmara e obter todos os dados da mesma
                 xPath = factory.compile("//municipio[contains(nome,'" + search + "')]");
-                list = xPath.evaluate(camaras.getDocument());
+                list = xPath.evaluate(camaras);
                 break;
             case 6:
                 //Top 5 das Câmara que gastaram mais com contratos
-                
+
                 break;
             case 7:
                 //Procurar Câmara por nome do presidente
                 xPath = factory.compile("//municipio[contains(presidente,'" + search + "')]");
-                list = xPath.evaluate(camaras.getDocument());
+                list = xPath.evaluate(camaras);
                 break;
             default:
         }
-        
-        if(list == null) 
+
+        if (list == null) {
             return;
-        
+        }
+
+        if (numElementos == -1) {
+            numElementos = list.size();
+        }
+
         Element resultRoot = new Element("resultado");
         Document doc = new Document(resultRoot);
-        
-        for (int i = 0; i < list.size(); i++) {
+
+        for (int i = 0; i < numElementos; i++) {
             Element item = list.get(i);
             item.detach();
             resultRoot.addContent(item);
-        }        
+        }
         TextAreaResultado.setText(Util.escreverDocumentoString(doc));
 
         JanelaResultado.setSize(800, 800);
@@ -389,11 +401,18 @@ public class MainWindow extends javax.swing.JFrame {
 
     private void jMenuItem5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem5ActionPerformed
         //Guardar Ficheiro Contratos.xml
-        Util.escreverFicheiroTexto(TFContratos.getText(), Contratos.getPath());
+        Util.escreverFicheiroTexto(TFContratos.getText(), Contratos.ficheiroAlterado);
     }//GEN-LAST:event_jMenuItem5ActionPerformed
-    /**
-     * @param args the command line arguments
-     */
+
+    private void jMenuItem7ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem7ActionPerformed
+        // Carregar Ficheiros Backup
+        TFCamaras.setText(Camaras.getRawFileString(true));
+        TFContratos.setText(Contratos.getRawFileString(true));
+
+        TFCamaras.setCaretPosition(0);
+        TFContratos.setCaretPosition(0);
+    }//GEN-LAST:event_jMenuItem7ActionPerformed
+
     public static void main(String args[]) {
         /* Set the Nimbus look and feel */
         //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
@@ -448,8 +467,9 @@ public class MainWindow extends javax.swing.JFrame {
     private javax.swing.JMenuItem jMenuItem4;
     private javax.swing.JMenuItem jMenuItem5;
     private javax.swing.JMenuItem jMenuItem6;
+    private javax.swing.JMenuItem jMenuItem7;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JScrollPane jScrollPane3;
     // End of variables declaration//GEN-END:variables
-  }
+}
