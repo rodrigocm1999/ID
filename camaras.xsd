@@ -1,29 +1,35 @@
 <?xml version="1.0" encoding="utf-8"?>
 <xsd:schema elementFormDefault="qualified" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
-    <xsd:element name="municipios">
-        <xsd:complexType>
-            <xsd:sequence>
-                <xsd:element name="municipio" maxOccurs="unbounded">
-                    <xsd:complexType>
-                        <xsd:all>
-                            <xsd:element name="nome" type="xsd:string" />
-                            <xsd:element name="area" type="xsd:string" />
-                            <xsd:element name="nHabitantes" type="xsd:string" />
-                            <xsd:element name="nFreguesias" type="xsd:string" />
-                            <xsd:element name="feriado" type="xsd:string" />
-                            <xsd:element name="presidente" type="xsd:string" />
-                            <xsd:element name="assembleia" type="xsd:string" />
-                            <xsd:element name="telefone" type="xsd:string" />
-                            <xsd:element name="email" type="xsd:string" />
-                            <xsd:element name="site" type="xsd:string" />
-                            <xsd:element name="brasao" type="xsd:string" />
-                            <xsd:element name="morada" type="xsd:string" />
-                            <xsd:element name="codPostal" type="xsd:string" />
-                        </xsd:all>
-                        <xsd:attribute name="id" type="xsd:string" use="required" />
-                    </xsd:complexType>
-                </xsd:element>
-            </xsd:sequence>
-        </xsd:complexType>
-    </xsd:element>
+   <xsd:element name="municipios">
+      <xsd:complexType>
+         <xsd:sequence>
+            <xsd:element name="municipio" maxOccurs="unbounded">
+               <xsd:complexType>
+                  <xsd:all>
+                     <xsd:element name="nome" type="xsd:string" />
+                     <xsd:element name="area" type="xsd:integer" />
+                     <xsd:element name="nHabitantes" type="xsd:integer" />
+                     <xsd:element name="nFreguesias" type="xsd:integer" />
+                     <xsd:element name="feriado" type="xsd:date" />
+                     <xsd:element name="presidente" type="xsd:string" />
+                     <xsd:element name="assembleia" type="xsd:string" />
+                     <xsd:element name="telefone" type="xsd:integer" />
+                     <xsd:element name="email" type="xsd:string" />
+                     <xsd:element name="site" type="xsd:string" />
+                     <xsd:element name="brasao" type="xsd:string" />
+                     <xsd:element name="morada" type="xsd:string" />
+                     <xsd:element name="codPostal">
+                        <xsd:simpleType>
+                           <xsd:restriction base="xsd:string">
+                              <xsd:pattern value="\d{4}-\d{3}"/>
+                           </xsd:restriction>
+                        </xsd:simpleType>
+                     </xsd:element>
+                  </xsd:all>
+                  <xsd:attribute name="id" type="xsd:ID" use="required" />
+               </xsd:complexType>
+            </xsd:element>
+         </xsd:sequence>
+      </xsd:complexType>
+   </xsd:element>
 </xsd:schema>

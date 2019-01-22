@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <municipios xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="camaras.xsd">
-	<municipio id="id2">
+	<municipio id="id1">
 		<nome>Arganil</nome>
 		<area>333</area>
 		<nHabitantes>12145</nHabitantes>
@@ -9,13 +9,13 @@
 		<presidente>Luis Paulo Carreira Fonseca</presidente>
 		<assembleia>Ricardo João Barata Pereira Alves</assembleia>
 		<telefone>235200150</telefone>
-		<email>dsaasdgeral@cm-arganil.pt</email>
+		<email>geral@cm-arganil.pt</email>
 		<site>http://www.cm-arganil.pt"</site>
 		<brasao>https://www.anmp.pt/../../../image/munap/M3300b.jpg</brasao>
 		<morada>Praça Simões Dias, Apartado 10</morada>
 		<codPostal>3304-954</codPostal>
 	</municipio>
-	<municipio id="id10">
+	<municipio id="id3">
 		<nome>Cantanhede</nome>
 		<area>391</area>
 		<nHabitantes>36595</nHabitantes>
@@ -45,7 +45,7 @@
 		<morada>Praça 8 de Maio</morada>
 		<codPostal>3000-300</codPostal>
 	</municipio>
-	<municipio id="id16">
+	<municipio id="id8">
 		<nome>Condeixa-a-Nova</nome>
 		<area>139</area>
 		<nHabitantes>17078</nHabitantes>
@@ -60,7 +60,7 @@
 		<morada>Largo Artur Barreto</morada>
 		<codPostal>3150-124</codPostal>
 	</municipio>
-	<municipio id="id13">
+	<municipio id="id2">
 		<nome>Figueira da Foz</nome>
 		<area>379</area>
 		<nHabitantes>62125</nHabitantes>
@@ -75,7 +75,7 @@
 		<morada>Av. Saraiva de Carvalho</morada>
 		<codPostal>3084-501</codPostal>
 	</municipio>
-	<municipio id="id15">
+	<municipio id="id4">
 		<nome>Góis</nome>
 		<area>263</area>
 		<nHabitantes>4260</nHabitantes>
@@ -90,7 +90,7 @@
 		<morada>Praça da República</morada>
 		<codPostal>3330-310</codPostal>
 	</municipio>
-	<municipio id="id3">
+	<municipio id="id5">
 		<nome>Lousã</nome>
 		<area>138</area>
 		<nHabitantes>17604</nHabitantes>
@@ -105,7 +105,7 @@
 		<morada>Rua Dr. João Santos</morada>
 		<codPostal>3200-953</codPostal>
 	</municipio>
-	<municipio id="id8">
+	<municipio id="id6">
 		<nome>Mira</nome>
 		<area>124</area>
 		<nHabitantes>12465</nHabitantes>
@@ -120,7 +120,7 @@
 		<morada>Praça da República</morada>
 		<codPostal>3070-304</codPostal>
 	</municipio>
-	<municipio id="id5">
+	<municipio id="id10">
 		<nome>Miranda do Corvo</nome>
 		<area>126</area>
 		<nHabitantes>13098</nHabitantes>
@@ -135,7 +135,7 @@
 		<morada>Praça José Falcão</morada>
 		<codPostal>3220-206</codPostal>
 	</municipio>
-	<municipio id="id11">
+	<municipio id="id14">
 		<nome>Montemor-o-Velho</nome>
 		<area>229</area>
 		<nHabitantes>26171</nHabitantes>
@@ -180,7 +180,7 @@
 		<morada>Rua Rangel de Lima</morada>
 		<codPostal>3320-229</codPostal>
 	</municipio>
-	<municipio id="id12">
+	<municipio id="id16">
 		<nome>Penacova</nome>
 		<area>217</area>
 		<nHabitantes>15251</nHabitantes>
@@ -195,7 +195,7 @@
 		<morada>Largo Alberto Leitão, 5</morada>
 		<codPostal>3360-191</codPostal>
 	</municipio>
-	<municipio id="id6">
+	<municipio id="id11">
 		<nome>Penela</nome>
 		<area>135</area>
 		<nHabitantes>5983</nHabitantes>
@@ -210,7 +210,7 @@
 		<morada>Praça do Município</morada>
 		<codPostal>3230-253</codPostal>
 	</municipio>
-	<municipio id="id4">
+	<municipio id="id13">
 		<nome>Soure</nome>
 		<area>265</area>
 		<nHabitantes>19245</nHabitantes>
@@ -225,7 +225,7 @@
 		<morada>Praça da República</morada>
 		<codPostal>3130-218</codPostal>
 	</municipio>
-	<municipio id="id1">
+	<municipio id="id15">
 		<nome>Tábua</nome>
 		<area>200</area>
 		<nHabitantes>12071</nHabitantes>
@@ -240,7 +240,7 @@
 		<morada>Câmara Municipal</morada>
 		<codPostal>3420-308</codPostal>
 	</municipio>
-	<municipio id="id14">
+	<municipio id="id12">
 		<nome>Vila Nova de Poiares</nome>
 		<area>84</area>
 		<nHabitantes>7281</nHabitantes>
