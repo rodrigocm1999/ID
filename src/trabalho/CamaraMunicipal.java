@@ -5,9 +5,7 @@ import org.jdom2.Element;
 
 //classe usada para criar o elemento para colocar no Document
 public class CamaraMunicipal {
-
     private static int counter = 0;
-
     private int id;
     private Element MainElement;
 

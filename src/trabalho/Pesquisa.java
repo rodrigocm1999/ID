@@ -1,19 +1,15 @@
 package trabalho;
-
 import java.util.ArrayList;
 import java.util.List;
 import org.jdom2.Element;
 import org.jdom2.Document;
 
-
 public class Pesquisa {
-
     public Document doc;
     public ArrayList<Element> elements;
     public Search[] search;
 
     private class Search {
-
         public String elName;
         public String elValue;
         public boolean found;
@@ -26,10 +22,8 @@ public class Pesquisa {
     }
 
     public Pesquisa(Document doc, String searchString) throws Exception {
-
         this.doc = doc;
         this.elements = new ArrayList<>();
-
         String[] splitted = searchString.split("&");
         this.search = new Search[splitted.length];
 
@@ -43,7 +37,6 @@ public class Pesquisa {
 
     public void Pesquisa() {
         Search(doc.getRootElement());
-
     }
 
     private boolean Search(Element el) {
@@ -58,14 +51,12 @@ public class Pesquisa {
             boolean isNotTheOne = false;
 
             for (int i = 0; i < search.length; i++) {
-
                 if (child.getName().equals(search[i].elName)) {
                     hasSearchedTerm = true;
                     if (!child.getValue().contains(search[i].elValue)) {
                         isNotTheOne = true;
                     } else {
                         search[i].found = true;
-                        
                         boolean addNow = true;
                         for (int k = 0; k < search.length; k++) {
                             if (search[k].found == false) {
