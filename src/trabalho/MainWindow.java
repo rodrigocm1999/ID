@@ -351,7 +351,8 @@ public class MainWindow extends javax.swing.JFrame {
             case 3:
                 //Procurar qual o contrato de maior valor de uma Câmara Municipal especifica
 
-                xPath = factory.compile("//contrato[contains(../@nomeMun,'" + search + "' ) and preco =  max(..//preco)]");
+                xPath = factory.compile("//contrato[contains(../@nomeMun,'" + search
+                        + "' ) and preco =  max(..//preco)]");
                 list = xPath.evaluate(contratos);
                 break;
             case 4:

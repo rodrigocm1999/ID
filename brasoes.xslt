@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <xsl:stylesheet version="1.0" xmlns:xsl="http://www.w3.org/1999/XSL/Transform">
-   <xsl:output method="html" indent="yes"/>
+   <xsl:output method="html" indent="yes" />
    <xsl:template match="/">
       <html>
 
@@ -19,12 +19,18 @@
          <br />
          <br />
          <div class="table">
-            <xsl:for-each select="municipios/municipio">
-               <img src="{brasao}" class="m-4 img-thumbnail" />
-            </xsl:for-each>
+            <xsl:apply-templates select="municipios/municipio"/>
          </div>
       </body>
 
       </html>
    </xsl:template>
+
+
+   <xsl:template match="municipios/municipio">
+      <div style="display:inline">
+         <img src="{brasao}" title="{nome}" class="m-4 img-thumbnail" />
+      </div>
+   </xsl:template>
+
 </xsl:stylesheet>
