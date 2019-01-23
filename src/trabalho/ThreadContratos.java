@@ -29,22 +29,26 @@ public class ThreadContratos extends Thread {
             siteString = Util.httpRequestToString(link + num, "UTF-8");
         }
 
+        //pego o codigo da camara no site
         Pattern pat = Pattern.compile("class=\"plusSign\".*href=\".*=(\\d+)\" t");
         Matcher mat = pat.matcher(siteString);
 
         if (mat.find()) {
-            String[] superLink = {"http://www.base.gov.pt/Base/pt/ResultadosPesquisa?range=", "&type=contratos&query=adjudicanteid%3D" + mat.group(1) + "&ordering=sort%28-publicationDate%29"};
+            //link pronto a colocar o range dos contratos
+            String[] superLink = {"http://www.base.gov.pt/Base/pt/ResultadosPesquisa?range=", 
+                "&type=contratos&query=adjudicanteid%3D" + mat.group(1) + "&ordering=sort%28-publicationDate%29"};
             
             ThreadGetContratos thread;
             ArrayList<ThreadGetContratos> threads = new ArrayList<>();
+            //neste loop pego o range com 1200 contratos e fasso 2 requests para pegar todos os contratos
             for (int last = 0, i = 1200, counter = 1; true; last = ++i, i += 1199, counter++) {
-                // este loop serve para entrar na lista dos contratos 
-                //a partir do numero que recolhi da pagina que tem o Mais depois da procura
                 try {
+                    //crio uma thread para fazer o request e nao parar a execução desta
                     thread = new ThreadGetContratos(superLink[0] + last + '-' + i + superLink[1]);
                     thread.start();
                     threads.add(thread);
 
+                    //apos 2 espero pela resposta e se ja nao houverem mais paro
                     if ((counter % 2) == 0) {
                         thread.join();
                         if (thread.NothingMore()) {
@@ -55,7 +59,7 @@ public class ThreadContratos extends Thread {
                     ex.printStackTrace();
                 }
             }
-
+            // neste loop juntamos os resultados de todas as threads
             for (int i = 0; i < threads.size(); i++) {
                 try {
                     thread = threads.get(i);
@@ -88,22 +92,26 @@ public class ThreadContratos extends Thread {
         public void run() {
             super.run();
             String siteString = null;
+            //esta verificação ja nao é necessária pois o timeout do request foi retirado
             while (siteString == null) {
+                //Fasso o request
                 siteString = Util.httpRequestToString(link, "UTF-8");
             }
-            Pattern pattern = Pattern.compile("<tr>\\r\\n.*<td title=\"(?<objetoContrato>.*)\">.*<\\/td>\\r\\n.*<td.*>(?<preco>.*) €<\\/td>\\r\\n.*<td.*>(?<publicacao>\\d{2}-\\d{2}-\\d{4})<\\/td>\\r\\n.*\\r\\n.*<td>(?<adjudicatario>.*)<\\/td>", Pattern.MULTILINE);
+            //Uso o RegEx para pegar todas as informações
+            Pattern pattern = Pattern.compile("<tr>\\r\\n.*<td title=\"(?<objetoContrato>.*)\">.*<\\/td>"
+                    + "\\r\\n.*<td.*>(?<preco>.*) €<\\/td>\\r\\n.*<td.*>(?<publicacao>\\d{2}-\\d{2}-\\d{4})"
+                    + "<\\/td>\\r\\n.*\\r\\n.*<td>(?<adjudicatario>.*)<\\/td>", Pattern.MULTILINE);
             Matcher matcher = pattern.matcher(siteString);
-
+                
             while (matcher.find()) {
                 found = true;
-
+                //Uso um hashmap para guardar todas as informações
                 HashMap<String, String> hashMap = new HashMap<>(25);
-
+                // uso um array com os nomes do grupos do RegEx para pegar os varios valores
                 for (String elemento : Contratos.strings) {
-
                     hashMap.put(elemento, matcher.group(elemento));
                 }
-
+                //Guardo um objeto do tipo Contrato com o Elemento contruido
                 Contrato contrato = new Contrato(hashMap);
                 this.contratos.add(contrato);
             }
